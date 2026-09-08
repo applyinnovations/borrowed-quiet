@@ -8,18 +8,62 @@ Version **1.0.0** is accepted for the supported environment below. See the
 [hash-bound acceptance dossier](evidence/acceptance.json).
 The complete [scope](docs/specification.md) was committed before implementation.
 
-## Player setup
+## Installation
 
 Target: Minecraft Java **26.2**, Java **25**, Fabric Loader **0.19.3** and
 [Fabric API **0.152.0+26.2**](https://modrinth.com/mod/fabric-api).
 The validation platform is Linux x86-64. Nix and AI services are **not** player
 dependencies. Use your legitimately installed Minecraft client.
 
-1. Install the matching [Fabric Loader](https://fabricmc.net/use/installer/) into
-   a Minecraft 26.2 profile. Start that profile once, then quit.
-2. Put `borrowedquiet-1.0.0.jar` and the specified Fabric API jar in that profile's
-   `mods` directory. Do not install the developer test harness.
-3. Launch the Fabric profile and enter an ordinary local Survival world.
+1. **Get the mod jar.** Use `borrowedquiet-1.0.0.jar` from the delivered distribution
+   (`dist/` in the packaging checkout). Do not extract the jar. GitHub's **Code →
+   Download ZIP** downloads source code, not an installable mod. Release binaries
+   and the large recording archive are not tracked in this Git repository; the
+   source-build option is below.
+2. **Prepare Minecraft.** Use a legitimate Minecraft Java installation and back up
+   any existing worlds. Create a separate Minecraft **26.2** profile/game directory
+   for the first installation. Its runtime must use **Java 25**.
+3. **Install Fabric.** Use the [Fabric installer](https://fabricmc.net/use/installer/)
+   or your launcher's Fabric installation option, selecting Minecraft **26.2** and
+   Fabric Loader **0.19.3**. This is a Fabric mod, not a Forge/NeoForge mod. Start
+   the Fabric profile once, then quit Minecraft.
+4. **Install both jars.** Download **Fabric API 0.152.0+26.2** from the link above.
+   Open the selected profile's game directory using your launcher. Inside its
+   `mods` folder (create it if absent), place the Fabric API jar and
+   `borrowedquiet-1.0.0.jar`. Keep them directly in `mods`, not a nested folder.
+   Do not install the source/evidence ZIPs or developer test harness. Fabric Loader
+   and Fabric API are separate requirements; installing one does not install both.
+5. **Launch and verify.** Select that Fabric profile, enter a local Survival world
+   in the Overworld, and run `/borrowedquiet status` in chat. The command requires
+   no cheats. It should show the mod's settings; `/borrowedquiet on` enables it if
+   previously disabled. Leave the world unpublished to LAN.
+
+For a standard Linux launcher installation the game directory is usually
+`~/.minecraft`, but separate launcher instances can use another directory. Always
+use the directory belonging to the profile you actually launch. Install this
+client-side mod in the client, not on a dedicated server.
+
+The accepted jar's SHA-256 is:
+
+```text
+2133042d444e80d3e072ea7b1354adc3dbdd1e6b72a1dada12f8b5081f228b87
+```
+
+### Build the installable jar from this repository
+
+This option is for developers using the [documented Nix environment](docs/development.md)
+on Linux x86-64. Players receiving the built jar do **not** need Nix.
+
+```sh
+git clone git@github.com:applyinnovations/borrowed-quiet.git
+cd borrowed-quiet
+nix build --no-update-lock-file .#default
+```
+
+The output is `result/borrowedquiet-1.0.0.jar`. Install it using steps 2–5 above;
+building does not install Fabric API or modify your Minecraft profile.
+
+### What to expect
 
 The experience begins quietly: at least two minutes of eligible play before its
 first opportunity. Continue mining, building, farming and exploring. It introduces
@@ -63,7 +107,10 @@ The optional configuration file can remain. No saved blocks, items or entities
 require conversion. Keep ordinary world backups when changing any mod installation.
 
 An incompatible-mod screen usually means Minecraft, Loader or Fabric API does not
-match the specified versions. If nothing happens, check `/borrowedquiet status`,
+match the specified versions. An unknown `/borrowedquiet` command means the client
+has not registered the mod: check the selected Fabric profile and its `mods` folder,
+then inspect `logs/latest.log` for a loading error. If nothing happens despite a
+working command, check `/borrowedquiet status`,
 your mode/dimension and volume controls; several minutes of silence are intentional.
 Opening a menu or changing settings interrupts an encounter and starts recovery.
 Reopening a world starts a new warm-up. Configuration warnings appear in
