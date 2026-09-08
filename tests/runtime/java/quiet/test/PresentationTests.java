@@ -98,10 +98,46 @@ public final class PresentationTests {
             });
         context.getInput().lookAt(new BlockPos(0, -59, 8));
         context.waitTicks(15);
+        context.runOnClient(
+            client -> {
+              if (client.hitResult != null
+                  && client.hitResult.getType() == net.minecraft.world.phys.HitResult.Type.ENTITY)
+                throw new AssertionError("Fold obstructed player targeting");
+            });
         context.takeScreenshot("fold-" + lighting + "-" + angle);
         context.waitTicks(60);
         Harness.quiet(context, "fold-view-" + lighting + "-" + angle);
       }
     }
+    for (double distance : new double[] {3.2, 14.0}) {
+      world.getServer().runCommand("tp @a 0.5 -60 " + (8.5 - distance));
+      context.waitTicks(10);
+      context.getInput().lookAt(0, 0);
+      context.runOnClient(
+          client -> {
+            if (!Harness.trigger("FOLD", 0.5, -60, 8.5)) throw new AssertionError("Distance view");
+          });
+      context.getInput().lookAt(new BlockPos(0, -59, 8));
+      mark("fold distance=" + distance);
+      context.waitTicks(15);
+      context.takeScreenshot("fold-distance-" + distance);
+      context.waitTicks(60);
+      Harness.quiet(context, "fold-distance-" + distance);
+    }
+    world.getServer().runCommand("fill -3 -61 -2 3 -57 18 stone");
+    world.getServer().runCommand("fill -2 -60 -1 2 -58 17 air");
+    world.getServer().runCommand("setblock -2 -60 4 torch");
+    world.getServer().runCommand("tp @a 0.5 -60 0.5 0 0");
+    context.waitTicks(15);
+    context.runOnClient(
+        client -> {
+          if (!Harness.trigger("FOLD", 0.5, -60, 8.5)) throw new AssertionError("Mine view");
+        });
+    context.getInput().lookAt(new BlockPos(0, -59, 8));
+    mark("fold enclosed-mine");
+    context.waitTicks(15);
+    context.takeScreenshot("fold-enclosed-mine");
+    context.waitTicks(60);
+    Harness.quiet(context, "fold-enclosed-mine");
   }
 }

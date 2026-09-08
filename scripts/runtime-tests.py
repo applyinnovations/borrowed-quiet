@@ -107,7 +107,7 @@ def run(label, suite, seed="104729", baseline=False, seconds=0, dependency=None)
             else {
                 "ordinary": "ORDINARY_PASS exploration",
                 "lifecycle": "LIFECYCLE_PASS sleep",
-                "presentation": "LIFECYCLE_PASS fold-view-night-3",
+                "presentation": "LIFECYCLE_PASS fold-enclosed-mine",
                 "features": "SCENARIO_PASS FOLD",
                 "persistence": "PERSISTENCE_PASS",
                 "removal": "REMOVAL_PASS",
