@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+[[ -n ${IN_NIX_SHELL:-} ]] || { echo 'Requires nix develop' >&2; exit 2; }
+probe_dir=$(mktemp -d "$PWD/.preflight/capture.XXXXXX")
+x_pid=''
+gears_pid=''
+record_pid=''
+sink_id=''
+cleanup() {
+  [[ -z $record_pid ]] || kill "$record_pid" 2>/dev/null || true
+  [[ -z $gears_pid ]] || kill "$gears_pid" 2>/dev/null || true
+  [[ -z $x_pid ]] || kill "$x_pid" 2>/dev/null || true
+  [[ -z $sink_id ]] || pactl unload-module "$sink_id" || true
+}
+trap cleanup EXIT
+Xvfb -displayfd 3 -screen 0 640x480x24 -nolisten tcp \
+  3>"$probe_dir/display" >"$probe_dir/xvfb.log" 2>&1 &
+x_pid=$!
+for ((attempt=0; attempt<50; attempt++)); do
+  [[ ! -s "$probe_dir/display" ]] || break
+  sleep 0.1
+done
+test -s "$probe_dir/display"
+DISPLAY=":$(<"$probe_dir/display")"
+export DISPLAY
+export __GLX_VENDOR_LIBRARY_NAME=mesa
+export LIBGL_ALWAYS_SOFTWARE=1
+glxinfo -B >"$probe_dir/opengl.txt" 2>&1
+glxgears >"$probe_dir/gears.log" 2>&1 &
+gears_pid=$!
+sleep 2
+kill -0 "$gears_pid"
+ffmpeg -nostdin -v error -f x11grab -video_size 640x480 -framerate 15 \
+  -i "$DISPLAY" -t 3 -c:v ffv1 "$probe_dir/video.mkv"
+# A dedicated null sink excludes microphones and unrelated desktop sound.
+sink_name="horror_preflight_$$"
+sink_id=$(pactl load-module module-null-sink "sink_name=$sink_name")
+ffmpeg -nostdin -v error -f pulse -i "$sink_name.monitor" -t 5 \
+  -c:a pcm_s16le "$probe_dir/audio.wav" >"$probe_dir/audio-capture.log" 2>&1 &
+record_pid=$!
+sleep 1
+paplay --device="$sink_name" .preflight/audio-probe.wav
+wait "$record_pid"
+record_pid=''
+ffprobe -v error -show_streams -show_format -of json \
+  "$probe_dir/audio.wav" >"$probe_dir/audio.json"
+ffmpeg -nostdin -v error -i "$probe_dir/video.mkv" -frames:v 1 \
+  "$probe_dir/frame.png"
+printf 'Capture probe output: %s\n' "$probe_dir"
+echo 'This is a graphics/audio capability probe, not Minecraft footage.'

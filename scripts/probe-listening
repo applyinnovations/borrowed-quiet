@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+[[ -n ${IN_NIX_SHELL:-} ]] || { echo 'Requires nix develop' >&2; exit 2; }
+[[ $# == 1 && -f $1 ]] || { echo 'Usage: scripts/probe-listening audio.wav' >&2; exit 2; }
+model_path=$(nix build --no-update-lock-file --no-link --print-out-paths .#audio-review-model)
+projector_path=$(nix build --no-update-lock-file --no-link --print-out-paths .#audio-review-projector)
+llama-mtmd-cli -m "$model_path" --mmproj "$projector_path" \
+  -ngl 0 --no-mmproj-offload -t 8 -c 4096 -n 192 --temp 0 --seed 1 \
+  --audio "$1" \
+  -p 'Describe the audible sound. Is there intelligible speech? Describe the timbre and how the sound changes over time. Do not infer content from the filename.'

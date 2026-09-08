@@ -1,0 +1,30 @@
+2026-09-08T03:20:30+00:00
+nix (Nix) 2.35.2
+f5e5ca33ec6c271caf15946562b4de759447f272866249623b893e9d57e7d385  flake.lock
+openjdk version "25.0.4.1" 2026-08-18
+OpenJDK Runtime Environment (nix) (build 25.0.4.1+1)
+OpenJDK 64-Bit Server VM (nix) (build 25.0.4.1+1, mixed mode, sharing)
+ffmpeg version 9.0.1 Copyright (c) 2000-2026 the FFmpeg developers
+version: 0.4.0 (build 10809, commit 5266f24)
+built with GNU 15.3.0 for Linux x86_64
+DISPLAY=:0
+WAYLAND_DISPLAY=wayland-1
+XDG_RUNTIME_DIR=/run/user/1000
+
+Audio server connection: PASS
+Display connection: PASS
+
+OpenGL probe (not Minecraft execution):
+Error: couldn't find RGB GLX visual or fbconfig
+name of display: :0
+
+
+Known launcher locations (existence only; no credential reads):
+ABSENT .minecraft
+ABSENT .local/share/PrismLauncher
+ABSENT .local/share/multimc
+ABSENT .local/share/ATLauncher
+ABSENT .var/app/org.prismlauncher.PrismLauncher
+ABSENT .config/PrismLauncher
+
+This diagnostic does not establish Minecraft entitlement or runtime acceptance.

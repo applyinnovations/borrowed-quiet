@@ -1,0 +1,81 @@
+[aist#0:0/pcm_s16le @ 0x5555556d3680] Guessed Channel Layout: stereo
+Input #0, wav, from 'evidence/preflight/audio.wav':
+  Metadata:
+    encoder         : Lavf63.1.101
+  Duration: 00:00:05.01, bitrate: 1536 kb/s
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 0.0999792  TARGET:-23 LUFS    M:-120.7 S:-120.7     I: -70.0 LUFS       LRA:   0.0 LU  FTPK:  -inf  -inf dBFS  TPK:  -inf  -inf dBFS
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf63.1.101
+  Stream #0:0: Audio: pcm_s16le, 48000 Hz, stereo, s16, 1536 kb/s
+    Metadata:
+      encoder         : Lavc63.1.101 pcm_s16le
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 0.199979   TARGET:-23 LUFS    M:-120.7 S:-120.7     I: -70.0 LUFS       LRA:   0.0 LU  FTPK:  -inf  -inf dBFS  TPK:  -inf  -inf dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 0.299979   TARGET:-23 LUFS    M:-120.7 S:-120.7     I: -70.0 LUFS       LRA:   0.0 LU  FTPK:  -inf  -inf dBFS  TPK:  -inf  -inf dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 0.399979   TARGET:-23 LUFS    M:-163.5 S:-120.7     I: -70.0 LUFS       LRA:   0.0 LU  FTPK:  -inf  -inf dBFS  TPK:  -inf  -inf dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 0.499979   TARGET:-23 LUFS    M:-163.5 S:-120.7     I: -70.0 LUFS       LRA:   0.0 LU  FTPK:  -inf  -inf dBFS  TPK:  -inf  -inf dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 0.599979   TARGET:-23 LUFS    M:-163.5 S:-120.7     I: -70.0 LUFS       LRA:   0.0 LU  FTPK:  -inf  -inf dBFS  TPK:  -inf  -inf dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 0.699979   TARGET:-23 LUFS    M:-163.5 S:-120.7     I: -70.0 LUFS       LRA:   0.0 LU  FTPK:  -inf  -inf dBFS  TPK:  -inf  -inf dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 0.799979   TARGET:-23 LUFS    M:-163.5 S:-120.7     I: -70.0 LUFS       LRA:   0.0 LU  FTPK:  -inf  -inf dBFS  TPK:  -inf  -inf dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 0.899979   TARGET:-23 LUFS    M: -92.1 S:-120.7     I: -70.0 LUFS       LRA:   0.0 LU  FTPK: -67.3 -67.3 dBFS  TPK: -67.3 -67.3 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 0.999979   TARGET:-23 LUFS    M: -49.0 S:-120.7     I: -49.0 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.1 -38.1 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 1.099979   TARGET:-23 LUFS    M: -43.3 S:-120.7     I: -45.3 LUFS       LRA:   0.0 LU  FTPK: -38.0 -38.0 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 1.199979   TARGET:-23 LUFS    M: -41.0 S:-120.7     I: -43.3 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 1.299979   TARGET:-23 LUFS    M: -39.4 S:-120.7     I: -42.0 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 1.399979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -41.1 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 1.499979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -40.6 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 1.599979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -40.3 LUFS       LRA:   0.0 LU  FTPK: -38.0 -38.0 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 1.699979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -40.0 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 1.799979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -39.9 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 1.899979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -39.7 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 1.999979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -39.6 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 2.099979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -39.5 LUFS       LRA:   0.0 LU  FTPK: -38.0 -38.0 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 2.199979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -39.5 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 2.299979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -39.4 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 2.399979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -39.4 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 2.499979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -39.3 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 2.599979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -39.3 LUFS       LRA:   0.0 LU  FTPK: -38.0 -38.0 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 2.699979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -39.2 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 2.799979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -39.2 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 2.899979   TARGET:-23 LUFS    M: -38.7 S:-120.7     I: -39.2 LUFS       LRA:   0.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 2.999979   TARGET:-23 LUFS    M: -38.7 S: -40.4     I: -39.2 LUFS       LRA:  20.0 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 3.099979   TARGET:-23 LUFS    M: -38.7 S: -40.2     I: -39.1 LUFS       LRA:  20.1 LU  FTPK: -38.0 -38.0 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 3.199979   TARGET:-23 LUFS    M: -38.7 S: -40.0     I: -39.1 LUFS       LRA:  20.2 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 3.299979   TARGET:-23 LUFS    M: -38.7 S: -39.8     I: -39.1 LUFS       LRA:  20.3 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 3.399979   TARGET:-23 LUFS    M: -38.7 S: -39.6     I: -39.1 LUFS       LRA:   0.8 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 3.499979   TARGET:-23 LUFS    M: -38.7 S: -39.4     I: -39.1 LUFS       LRA:   0.9 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 3.599979   TARGET:-23 LUFS    M: -38.7 S: -39.3     I: -39.1 LUFS       LRA:   1.1 LU  FTPK: -38.0 -38.0 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 3.699979   TARGET:-23 LUFS    M: -38.7 S: -39.1     I: -39.0 LUFS       LRA:   1.3 LU  FTPK: -38.1 -38.1 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 3.799979   TARGET:-23 LUFS    M: -39.2 S: -39.0     I: -39.1 LUFS       LRA:   1.4 LU  FTPK: -38.3 -38.3 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 3.899979   TARGET:-23 LUFS    M: -40.5 S: -39.0     I: -39.1 LUFS       LRA:   1.4 LU  FTPK: -44.4 -44.4 dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 3.999979   TARGET:-23 LUFS    M: -42.6 S: -39.1     I: -39.2 LUFS       LRA:   1.4 LU  FTPK:  -inf  -inf dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 4.099979   TARGET:-23 LUFS    M: -46.7 S: -39.2     I: -39.3 LUFS       LRA:   1.4 LU  FTPK:  -inf  -inf dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 4.199979   TARGET:-23 LUFS    M: -56.0 S: -39.4     I: -39.3 LUFS       LRA:   1.4 LU  FTPK:  -inf  -inf dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 4.299979   TARGET:-23 LUFS    M:-155.9 S: -39.6     I: -39.3 LUFS       LRA:   1.4 LU  FTPK:  -inf  -inf dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 4.399979   TARGET:-23 LUFS    M:-163.4 S: -39.7     I: -39.3 LUFS       LRA:   1.2 LU  FTPK:  -inf  -inf dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 4.499979   TARGET:-23 LUFS    M:-163.4 S: -39.9     I: -39.3 LUFS       LRA:   1.2 LU  FTPK:  -inf  -inf dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 4.599979   TARGET:-23 LUFS    M:-163.4 S: -40.1     I: -39.3 LUFS       LRA:   1.2 LU  FTPK:  -inf  -inf dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 4.699979   TARGET:-23 LUFS    M:-163.4 S: -40.3     I: -39.3 LUFS       LRA:   1.3 LU  FTPK:  -inf  -inf dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 4.799979   TARGET:-23 LUFS    M:-163.4 S: -40.5     I: -39.3 LUFS       LRA:   1.4 LU  FTPK:  -inf  -inf dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 4.899979   TARGET:-23 LUFS    M:-163.4 S: -40.8     I: -39.3 LUFS       LRA:   1.5 LU  FTPK:  -inf  -inf dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] t: 4.999979   TARGET:-23 LUFS    M:-163.4 S: -41.0     I: -39.3 LUFS       LRA:   1.8 LU  FTPK:  -inf  -inf dBFS  TPK: -38.0 -38.0 dBFS
+[Parsed_ebur128_0 @ 0x7fffd80047c0] Summary:
+
+  Integrated loudness:
+    I:         -39.3 LUFS
+    Threshold: -49.4 LUFS
+
+  Loudness range:
+    LRA:         1.8 LU
+    Threshold: -59.7 LUFS
+    LRA low:   -40.8 LUFS
+    LRA high:  -39.0 LUFS
+
+  True peak:
+    Peak:      -38.0 dBFS
+[out#0/null @ 0x5555556d4740] video:0KiB audio:940KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:05.01 bitrate=N/A speed= 354x elapsed=0:00:00.01    

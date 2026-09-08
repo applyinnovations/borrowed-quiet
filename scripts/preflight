@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+if [[ -z ${IN_NIX_SHELL:-} ]]; then
+  echo 'Run: nix develop --no-update-lock-file --command ./scripts/preflight' >&2
+  exit 2
+fi
+mkdir -p .preflight
+{
+  date -u --iso-8601=seconds
+  nix --version
+  sha256sum flake.lock
+  java -version
+  ffmpeg -version | head -n 1
+  llama-mtmd-cli --version
+  printf 'DISPLAY=%s\n' "${DISPLAY:-unset}"
+  printf 'WAYLAND_DISPLAY=%s\n' "${WAYLAND_DISPLAY:-unset}"
+  printf 'XDG_RUNTIME_DIR=%s\n' "${XDG_RUNTIME_DIR:-unset}"
+  printf '\nAudio server connection: '
+  if pactl info >/dev/null; then echo PASS; else echo FAIL; fi
+  printf 'Display connection: '
+  if xdpyinfo >/dev/null; then echo PASS; else echo FAIL; fi
+  printf '\nOpenGL probe (not Minecraft execution):\n'
+  glxinfo -B || true
+  printf '\nKnown launcher locations (existence only; no credential reads):\n'
+  for relative in .minecraft .local/share/PrismLauncher .local/share/multimc \
+    .local/share/ATLauncher .var/app/org.prismlauncher.PrismLauncher \
+    .config/PrismLauncher; do
+    if [[ -d "$HOME/$relative" ]]; then
+      printf 'PRESENT %s\n' "$relative"
+    else
+      printf 'ABSENT %s\n' "$relative"
+    fi
+  done
+  printf '\nThis diagnostic does not establish Minecraft entitlement or runtime acceptance.\n'
+} 2>&1 | tee .preflight/host.txt
+curl --fail --silent --show-error --max-time 60 \
+  https://piston-meta.mojang.com/mc/game/version_manifest_v2.json \
+  -o .preflight/version-manifest.json
+jq '{latest, stable: [.versions[] | select(.type == "release")][0]}' \
+  .preflight/version-manifest.json | tee .preflight/release.json
+ffmpeg -nostdin -hide_banner -loglevel error -y \
+  -f lavfi -i 'sine=frequency=523:duration=3:sample_rate=16000' \
+  -af 'volume=0.1,afade=t=in:d=0.1,afade=t=out:st=2.8:d=0.2' \
+  -c:a pcm_s16le .preflight/audio-probe.wav
+ffprobe -v error -show_streams -show_format -of json \
+  .preflight/audio-probe.wav >.preflight/audio-probe.json
+echo 'Audio probe generated. Generating/decoding a file does not establish listening.'
