@@ -34,9 +34,10 @@ Evidence retained locally:
 | `.runtime/listening-cuda-1/server.log` | `1ded5e58b4b9cd96e78955df9a533d7bf1cfd5a8f562228815b476408a816918` |
 | `.runtime/cuda-final-checks.log` | `ce0289e08b0badeb07dcb1442cead29807fa325702bdbc923a2b8cab7257ae94` |
 
-All three flake checks pass. The mod derivation and release-candidate jar remain
-unchanged. This validates the inspection backend only: audio acceptance still
-requires critical review of the captions against the recordings and measurements.
-In particular, the overlap caption describes harsh distortion despite no measured
-digital clipping; that perception must be investigated, not marked passed simply
-because inference succeeded. Overall mod acceptance and endurance remain pending.
+All three flake checks passed at this backend checkpoint; the mod derivation was
+unchanged. Backend execution alone was not audio acceptance. The overlap caption's
+distortion claim was subsequently investigated using original-level and lower-gain
+recordings, as documented in [audio review](audio-review.md). Complete critical
+audio review and [endurance validation](endurance-review.md) are now accepted;
+see [final readiness](final-readiness.md). This historical backend record is not
+substituted for those later inspections.

@@ -27,6 +27,8 @@ affected checks rerun on the identified package and capture configuration.
 | Peak-normalized overlap was described as distorted | Compared the exact recording at original level and +12 dB against the +26 dB inspection copy. Original peak is -29.035 dBFS with no clipping; the lower-gain reviews report no significant distortion. See the complete audio review. |
 | A spatial test's opposite ear was digital silence | Recorded a measured silence control without generating an imagined audio description. The other ear and full source were reviewed; left/right inversion is preserved. |
 | Startup logs warn about anisotropy value 0 | Traced to pinned Fabric ClientGameTestContextImpl.initGameOptions, which sets maxAnisotropyBit to 0; Minecraft rejects it and keeps a valid option. This test-only warning is not a mod resource failure and is not broadly filtered from evidence. |
+| Baseline endurance emitted one 2000 ms scheduler warning near a GC checkpoint | Inspected the warning window and full telemetry: no corresponding two-second sampling gap, no recurrence, and no equivalent modded warning. Preserved the warning and qualified scheduler-drift inference in the endurance review; no thresholds were changed. |
+| One final audio caption exhausted its output-token limit | Reprocessed the complete identical audio with a compact prompt; the follow-up completed normally. Source guesses and contradictory repetition descriptions remain excluded from factual conclusions. |
 
 The synchronization change follows the [FFmpeg input synchronization documentation](https://ffmpeg.org/ffmpeg.html):
 the reference input's start time is used to preserve the difference between devices

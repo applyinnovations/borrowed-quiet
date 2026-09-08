@@ -65,10 +65,10 @@ work periods rather than a continuous chain of scares.
   recording demonstrate continued work. They do not establish every possible
   player's reaction, mod-pack compatibility or every untested machine's performance.
 
-**Experiential decision: accepted for the committed scope**, subject to completion
-of the separate technical endurance/performance and final packaging gates. No
-human testimony or synthetic rating is used. Technical/endurance acceptance cannot
-be inferred from this review and is recorded separately in the final dossier.
+**Experiential decision: accepted for the committed scope.** The subsequent
+[four-hour comparison and repeat-exposure review](endurance-review.md) also passed
+the separate technical endurance/performance gates. No human testimony or synthetic
+rating is used. Technical acceptance is recorded separately in the final dossier.
 
 See [research rationale](research-notes.md), [visual review](visual-review.md),
 [audio review](audio-review.md), and the final hash-bound requirement matrix.

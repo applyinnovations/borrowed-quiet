@@ -3,7 +3,9 @@
 An original, restrained horror mod for ordinary Minecraft survival.
 Sometimes the work continues after you stop.
 
-**Acceptance is in progress. This checkout is not an accepted release.**
+Version **1.0.0** is accepted for the supported environment below. See the
+[final readiness decision](docs/final-readiness.md) and
+[hash-bound acceptance dossier](evidence/acceptance.json).
 The complete [scope](docs/specification.md) was committed before implementation.
 
 ## Player setup

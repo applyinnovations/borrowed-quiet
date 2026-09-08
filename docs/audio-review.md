@@ -35,6 +35,9 @@ measurement, not a long musical programme. Full reports retain exact values.
 There are no speech recordings or loops. Smooth source envelopes and bounded tails
 avoid a loop seam; silence between repeated playback is intentional. Byte-identical
 regeneration of masters and Vorbis files is separately tested in the Nix sandbox.
+The register's `master_seconds` describes the editable source duration; final
+decoded durations (including codec trimming/padding differences) are measured above
+and in each linked measurement record.
 
 **All six assets accepted** for the declared restrained, dry material identity.
 They are stylized foley, not claimed natural field recordings. No intelligible
@@ -98,3 +101,11 @@ Evidence: `evidence/reviews/asset-measurements`, `presentation-measurements`,
 `isolated-and-overlap`, `context-listening`, and the hash-bound original gameplay
 recordings in the final dossier. Standalone extracted vanilla music/audio is not
 distributed; the preparation script and original video permit reconstruction.
+
+The final two-hour repeat-exposure captures add complete first/last excerpts of
+all three event kinds and early/late baseline context. Their measurements,
+CUDA observations, critical interpretation and timecodes are recorded in
+[the endurance review](endurance-review.md). One verbose baseline music caption
+hit its output limit; a compact follow-up reviewed the complete same input and
+finished normally. Neither the truncated caption nor uncertain electronic-source
+guesses are treated as complete factual descriptions.

@@ -8,6 +8,15 @@ import pathlib
 import subprocess
 
 root = pathlib.Path("evidence/runtime/final")
+review_root = pathlib.Path("evidence/reviews")
+review_files = []
+for file in sorted(review_root.rglob("*")):
+    if file.is_file() and file != review_root / "files.json":
+        with file.open("rb") as stream:
+            review_files.append(
+                {"path": str(file), "sha256": hashlib.file_digest(stream, "sha256").hexdigest()}
+            )
+(review_root / "files.json").write_text(json.dumps(review_files, indent=2) + "\n")
 report = json.loads((root / "report.json").read_text())
 assert report["result"] == "RUNTIME_CHECKS_PASS" and not report["dirty"]
 expected = {
@@ -74,7 +83,10 @@ def requirement(identifier, implementation, procedure, paths):
     )
 
 
-unit = tree("evidence/reviews/checks") + ["evidence/reviews/final-validation-console.txt"]
+unit = tree("evidence/reviews/checks") + [
+    "evidence/reviews/final-validation-console.txt",
+    "evidence/reviews/final-static-console.txt",
+]
 features = run_files("features-104729")
 lifecycle = run_files("lifecycle-104729")
 natural = tree("evidence/runtime/reviewed-natural")
@@ -93,7 +105,8 @@ requirement(
     features
     + run_files("missing-api")
     + run_files("wrong-version")
-    + tree("evidence/runtime/player-installation"),
+    + tree("evidence/runtime/player-installation")
+    + tree("evidence/runtime/launcher-regression"),
 )
 requirement(
     "A3",
@@ -184,7 +197,7 @@ for identifier, description in (
         identifier,
         description,
         "Controlled tests and natural recording satisfy the committed observable rubric.",
-        features + lifecycle + natural + unit + ["docs/experience-review.md"],
+        features + lifecycle + natural + unit + endurance + ["docs/experience-review.md"],
     )
 jar = pathlib.Path("result/borrowedquiet-1.0.0.jar")
 assert evidence(str(jar))["sha256"] == report["package_sha256"]
