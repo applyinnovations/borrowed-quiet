@@ -3,6 +3,9 @@
 An original, restrained horror mod for ordinary Minecraft survival.
 Sometimes the work continues after you stop.
 
+[Download Borrowed Quiet 1.0.0 (.jar)](https://github.com/applyinnovations/borrowed-quiet/releases/download/v1.0.0/borrowedquiet-1.0.0.jar)
+· [Release notes and checksum](https://github.com/applyinnovations/borrowed-quiet/releases/tag/v1.0.0)
+
 Version **1.0.0** is accepted for the supported environment below. See the
 [final readiness decision](docs/final-readiness.md) and
 [hash-bound acceptance dossier](evidence/acceptance.json).
@@ -15,11 +18,13 @@ Target: Minecraft Java **26.2**, Java **25**, Fabric Loader **0.19.3** and
 The validation platform is Linux x86-64. Nix and AI services are **not** player
 dependencies. Use your legitimately installed Minecraft client.
 
-1. **Get the mod jar.** Use `borrowedquiet-1.0.0.jar` from the delivered distribution
-   (`dist/` in the packaging checkout). Do not extract the jar. GitHub's **Code →
-   Download ZIP** downloads source code, not an installable mod. Release binaries
-   and the large recording archive are not tracked in this Git repository; the
-   source-build option is below.
+1. **Download the mod jar.** Get
+   [borrowedquiet-1.0.0.jar](https://github.com/applyinnovations/borrowed-quiet/releases/download/v1.0.0/borrowedquiet-1.0.0.jar),
+   or open the [v1.0.0 release](https://github.com/applyinnovations/borrowed-quiet/releases/tag/v1.0.0)
+   and select that file under **Assets**. Do not extract the jar. GitHub's **Code →
+   Download ZIP** downloads source code, not an installable mod. No build tools are
+   needed for the release download. If GitHub returns 404, sign in and verify you
+   have access to this repository; private-repository assets require access too.
 2. **Prepare Minecraft.** Use a legitimate Minecraft Java installation and back up
    any existing worlds. Create a separate Minecraft **26.2** profile/game directory
    for the first installation. Its runtime must use **Java 25**.
