@@ -46,8 +46,14 @@ public final class NaturalTests {
     while (System.nanoTime() - start < 1800_000_000_000L) {
       // Restore the finite test workpiece, then mine it using real survival input.
       world.getServer().runCommand("setblock 3 " + ground + " 0 stone");
+      context.waitTicks(10); // Receive the preceding server teleport before computing the aim ray.
       context.getInput().lookAt(new BlockPos(3, ground, 0));
       context.getInput().holdMouseFor(0, 55);
+      if (!world
+          .getServer()
+          .computeOnServer(
+              server -> server.overworld().getBlockState(new BlockPos(3, ground, 0)).isAir()))
+        throw new AssertionError("Natural workpiece was not mined");
       context.waitTicks(100);
       for (int direction = 0; direction < 4; direction++) {
         context.getInput().lookAt(direction * 90, 0);

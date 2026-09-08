@@ -73,6 +73,7 @@
               python3 ${./scripts/build-java.py} ${./tests/unit} ${compileDeps} tests.jar
               python3 ${./scripts/unit-tests.py} ${compileDeps} "$BQ_EXTRA_CLASSPATH" tests.jar > "$out/unit.txt"
               python3 ${./scripts/check-resources.py} ${./.} "$BQ_EXTRA_CLASSPATH" > "$out/resources.txt"
+              python3 ${./scripts/check-asset-reproduction.py} ${./.} > "$out/asset-reproduction.txt"
             '';
         static-analysis =
           pkgs.runCommand "borrowedquiet-static-analysis"
