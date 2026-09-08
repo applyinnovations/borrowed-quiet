@@ -67,6 +67,7 @@ public final class OrdinaryTests {
 
     world.getServer().runCommand("setblock 3 99 0 farmland[moisture=7]");
     world.getServer().runCommand("setblock 4 99 0 water");
+    world.getServer().runCommand("setblock 4 98 0 stone");
     world.getServer().runCommand("item replace entity @a hotbar.2 with wheat_seeds 16");
     select(context, 2);
     aim(context, 3.5, 99.938, 0.5);
@@ -90,10 +91,27 @@ public final class OrdinaryTests {
             server ->
                 server.overworld().getBlockState(new BlockPos(3, 100, 0)).getValue(CropBlock.AGE)
                     == 7)) throw new AssertionError("Crop growth");
-    context.getInput().holdMouseFor(0, 20);
-    context.getInput().lookAt(-90, 0);
-    context.getInput().holdKeyFor(options -> options.keyUp, 20);
-    context.waitTicks(20);
+    context.getInput().pressMouse(0);
+    context.waitTicks(12);
+    for (int attempt = 0; attempt < 12; attempt++) {
+      if (context.computeOnClient(
+          client -> client.player.getInventory().contains(stack -> stack.is(Items.WHEAT)))) break;
+      var drop =
+          context.computeOnClient(
+              client -> {
+                for (var entity : client.level.entitiesForRendering())
+                  if (entity instanceof net.minecraft.world.entity.item.ItemEntity item
+                      && item.getItem().is(Items.WHEAT)
+                      && entity.distanceToSqr(client.player) < 64) return entity.position();
+                return null;
+              });
+      if (drop != null) {
+        double eye = context.computeOnClient(client -> client.player.getEyeY());
+        aim(context, drop.x, eye, drop.z);
+        context.getInput().holdKeyFor(options -> options.keyUp, 5);
+      }
+      context.waitTicks(5);
+    }
     if (!context.computeOnClient(
         client -> client.player.getInventory().contains(stack -> stack.is(Items.WHEAT))))
       throw new AssertionError("Harvest pickup");

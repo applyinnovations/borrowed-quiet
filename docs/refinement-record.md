@@ -22,6 +22,7 @@ affected checks rerun on the identified package and capture configuration.
 | Claimed simulation distance 4 was below 26.2's accepted minimum | Recorded the technical correction to 5 for both benchmark conditions before endurance. No performance or duration criterion relaxed. |
 | A failed placement could overwrite repetition history and allow two actual identical episodes | History now commits only after presentation successfully starts. Added 30,000 failure/repetition assertions; rerun affected functional and natural validation. |
 | Natural work loop aimed before a preceding teleport reached the client | Wait for client ticks before the aim ray and assert the actual workpiece is mined every cycle. The preliminary recording is rejected as sustained mining evidence. |
+| One clean-seed harvest scattered wheat into an unbounded fixture water column | Put a floor under irrigation and follow the actual nearby wheat drop with bounded player input, retaining the inventory assertion. No mod-caused crop change was observed. |
 
 The synchronization change follows the [FFmpeg input synchronization documentation](https://ffmpeg.org/ffmpeg.html):
 the reference input's start time is used to preserve the difference between devices

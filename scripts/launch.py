@@ -33,6 +33,7 @@ for mod in sys.argv[2:]:
 options = game / "options.txt"
 if not options.exists():
     options.write_text(
+        "version:4903\nmaxAnisotropyBit:2\ntextureFiltering:0\n"
         "renderDistance:4\nsimulationDistance:5\nmaxFps:30\nguiScale:2\n"
         "pauseOnLostFocus:false\nsoundCategory_master:0.6\nsoundCategory_music:0.2\n"
     )
