@@ -42,6 +42,22 @@ public final class RuntimeTests implements FabricClientGameTest {
       world.getClientLevel().waitForChunksRender();
       world.getServer().runCommand("gamemode survival @a");
       world.getServer().runCommand("time set day");
+      if (suite.equals("disabled-startup")) {
+        for (String kind : new String[] {"PACE", "WALL", "FOLD"})
+          context.runOnClient(
+              client -> {
+                if (Harness.trigger(kind, 0.5, -60, 6))
+                  throw new AssertionError("Cold disabled activation");
+              });
+        context.waitTicks(2420);
+        Harness.quiet(context, "disabled-cold-start");
+        context.runOnClient(
+            client -> {
+              if (Harness.state()[6] != 2400) throw new AssertionError("Disabled warmup advanced");
+            });
+        System.out.println("DISABLED_STARTUP_PASS");
+        return;
+      }
       if (suite.equals("natural")) {
         NaturalTests.run(context, world);
         return;

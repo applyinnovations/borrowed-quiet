@@ -24,6 +24,7 @@ parser.add_argument(
         "persistence",
         "endurance",
         "natural",
+        "startup",
     ],
     default="all",
 )
@@ -74,6 +75,14 @@ def save():
 
 def run(label, suite, seed="104729", baseline=False, seconds=0, dependency=None):
     directory = output / label
+    if suite == "disabled-startup":
+        config = directory / "game/config/borrowedquiet.json"
+        config.parent.mkdir(parents=True)
+        if label == "malformed-startup":
+            config.write_text('{"enabled":"invalid"}\n')
+        else:
+            source = output / "persistence-104729/game/config/borrowedquiet.json"
+            shutil.copyfile(source, config)
     if suite == "removal":
         shutil.copytree(output / "persistence-104729/game/saves", directory / "game/saves")
     env = dict(os.environ, BQ_TEST_SUITE=suite, BQ_TEST_SEED=seed, BQ_TEST_SECONDS=str(seconds))
@@ -112,6 +121,7 @@ def run(label, suite, seed="104729", baseline=False, seconds=0, dependency=None)
                 "persistence": "PERSISTENCE_PASS",
                 "removal": "REMOVAL_PASS",
                 "natural": "NATURAL_PASS",
+                "disabled-startup": "DISABLED_STARTUP_PASS",
             }[suite]
         )
         passed = result.returncode == 0 and marker in content
@@ -140,10 +150,17 @@ suites = (
 for suite in suites:
     if suite == "endurance":
         continue
+    if suite == "startup":
+        run("persistence-104729", "persistence")
+        run("disabled-startup", "disabled-startup")
+        run("malformed-startup", "disabled-startup")
+        continue
     for seed in ["104729", "821", "8675309"] if suite == "ordinary" else ["104729"]:
         run(suite + "-" + seed, suite, seed)
     if suite == "persistence":
         run("removal", "removal", baseline=True)
+        run("disabled-startup", "disabled-startup")
+        run("malformed-startup", "disabled-startup")
 if args.suite == "all":
     run("missing-api", "features", dependency="missing-api")
     run("wrong-version", "features", dependency="wrong-version")

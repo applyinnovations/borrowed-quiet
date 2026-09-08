@@ -22,6 +22,9 @@ directory.mkdir(parents=True, exist_ok=True)
 def acquire(index):
     first, last = index * chunk, min(size, (index + 1) * chunk) - 1
     path = directory / f"part-{index:04d}"
+    # A resumed part is only a candidate: the complete immutable SHA-256 below is mandatory.
+    if path.exists() and path.stat().st_size == last - first + 1:
+        return path
     request = urllib.request.Request(url, headers={"Range": f"bytes={first}-{last}"})
     with urllib.request.urlopen(request, timeout=120) as response, path.open("wb") as output:
         assert response.status == 206
