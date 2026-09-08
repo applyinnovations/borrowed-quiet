@@ -1,15 +1,29 @@
 #!/usr/bin/env python3
 """Run a bounded isolated graphical session, recording only its screen and audio sink."""
 
+import json
 import os
 import pathlib
 import signal
 import subprocess
 import sys
-import time
-import json
-import threading
 import tempfile
+import threading
+import time
+
+if os.environ.get("BQ_PRIVATE_BUS") != "1":
+    os.execvpe(
+        "dbus-run-session",
+        [
+            "dbus-run-session",
+            "--config-file=" + os.environ["BQ_DBUS_CONFIG"],
+            "--",
+            sys.executable,
+            __file__,
+            *sys.argv[1:],
+        ],
+        dict(os.environ, BQ_PRIVATE_BUS="1"),
+    )
 
 directory = pathlib.Path(sys.argv[1]).resolve()
 directory.mkdir(parents=True, exist_ok=True)
@@ -77,6 +91,20 @@ try:
             raise RuntimeError("Private audio server failed; see audio-server.log")
         time.sleep(0.05)
     env["PULSE_SINK"] = sink
+    (directory / "session-start.json").write_text(
+        json.dumps(
+            {
+                "recording_start_unix": time.time(),
+                "width": 960,
+                "height": 540,
+                "capture_fps": 15,
+                "renderer": "Nix Mesa llvmpipe",
+                "audio": "private PulseAudio stereo null sink",
+            },
+            indent=2,
+        )
+        + "\n"
+    )
     with (directory / "capture.log").open("w") as log:
         recorder = subprocess.Popen(
             [
@@ -129,9 +157,9 @@ try:
                 if query.returncode:
                     continue
                 for stream in json.loads(query.stdout):
-                    if str(
-                        stream.get("properties", {}).get("application.process.id")
-                    ) == str(game.pid):
+                    if str(stream.get("properties", {}).get("application.process.id")) == str(
+                        game.pid
+                    ):
                         identity = stream["index"]
                         if identity not in routed:
                             moved = subprocess.run(
@@ -158,7 +186,15 @@ try:
                             routed.add(identity)
                             with (directory / "audio-routing.log").open("a") as routing:
                                 routing.write(
-                                    f"Routed own Java process {game.pid}, stream {identity}; prior state: {json.dumps(stream)}\n"
+                                    json.dumps(
+                                        {
+                                            "process": game.pid,
+                                            "stream": identity,
+                                            "prior_volume": stream.get("volume"),
+                                            "set_volume_percent": 100,
+                                        }
+                                    )
+                                    + "\n"
                                 )
 
         router = threading.Thread(target=route_audio, daemon=True)

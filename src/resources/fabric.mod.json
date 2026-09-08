@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "borrowedquiet",
+  "version": "1.0.0",
+  "name": "Borrowed Quiet",
+  "description": "The world has learned when you stop. Restrained, responsive horror for ordinary single-player survival.",
+  "authors": ["Borrowed Quiet project"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {"client": ["quiet.BorrowedQuiet"]},
+  "mixins": ["borrowedquiet.mixins.json"],
+  "depends": {"fabricloader": ">=0.19.3", "minecraft": "26.2", "java": ">=25", "fabric-api": ">=0.152.0+26.2"}
+}

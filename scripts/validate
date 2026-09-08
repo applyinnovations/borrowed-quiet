@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+[[ -n ${IN_NIX_SHELL:-} ]] || { echo 'Use nix develop --command ./scripts/validate' >&2; exit 2; }
+[[ -z $(git status --porcelain) ]] || { echo 'Validation requires a clean checkout.' >&2; exit 2; }
+nix flake check --no-update-lock-file
+nix build --no-update-lock-file .#default
+nix build --no-update-lock-file --rebuild .#default
+./scripts/test-runtime --endurance "$@"
+python3 scripts/acceptance-gate.py result/borrowedquiet-1.0.0.jar

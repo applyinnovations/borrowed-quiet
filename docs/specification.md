@@ -65,7 +65,8 @@ direction indicators. Vanilla master and ambient volume continue to apply.
 
 Configuration is a versioned, bounded JSON file in the game's `config` directory.
 Validate types/ranges, tolerate unknown keys for compatibility, preserve malformed
-input rather than silently destroy it, and report one useful diagnostic. Write only
+input rather than silently destroy it, disable the experience on malformed input,
+and report one useful diagnostic. Write only
 this mod's file, atomically off the game thread through a bounded queue. No player
 volume settings, external files, accounts or credentials are read or changed.
 
@@ -156,7 +157,9 @@ nix develop --no-update-lock-file --command ./scripts/validate
 | A12 | Acceptance | Requirement/evidence matrix complete; source commit, tool/host versions, lock hash, seeds/settings, package checksum, final stable-release recheck, rights review and zero unresolved acceptance-blocking defects. |
 
 Endurance frame/tick comparisons use the same capped 960×540, render-distance 4,
-simulation-distance 4, 30 FPS software-rendered profile. A baseline includes Loader,
+simulation-distance 5, 30 FPS software-rendered profile. Technical correction after
+the first runtime test: 26.2's validated minimum simulation distance is 5, not 4;
+both benchmark conditions use 5. No performance budget is relaxed. A baseline includes Loader,
 API and test harness but no horror jar. Record environmental interference; an invalid
 comparison must be rerun, not excused by changing budgets. Store intervals and summaries
 rather than unbounded in-memory telemetry. Mod packaging budget: **2 MiB**.

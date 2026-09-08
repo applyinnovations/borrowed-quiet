@@ -1,0 +1,8 @@
+{
+  "tread1": {"subtitle": "subtitles.borrowedquiet.tread", "sounds": ["borrowedquiet:tread1"]},
+  "tread2": {"subtitle": "subtitles.borrowedquiet.tread", "sounds": ["borrowedquiet:tread2"]},
+  "tap1": {"subtitle": "subtitles.borrowedquiet.tap", "sounds": ["borrowedquiet:tap1"]},
+  "tap2": {"subtitle": "subtitles.borrowedquiet.tap", "sounds": ["borrowedquiet:tap2"]},
+  "scrape": {"subtitle": "subtitles.borrowedquiet.scrape", "sounds": ["borrowedquiet:scrape"]},
+  "fold": {"subtitle": "subtitles.borrowedquiet.fold", "sounds": ["borrowedquiet:fold"]}
+}

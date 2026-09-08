@@ -43,9 +43,10 @@ def allowed(library):
     result = "rules" not in library
     for rule in library.get("rules", []):
         os_rule = rule.get("os", {})
-        if os_rule.get("name", "linux") == "linux" and os_rule.get(
-            "arch", "x86_64"
-        ) in ("x86_64", "amd64"):
+        if os_rule.get("name", "linux") == "linux" and os_rule.get("arch", "x86_64") in (
+            "x86_64",
+            "amd64",
+        ):
             result = rule["action"] == "allow"
     return result
 
@@ -59,9 +60,7 @@ def make_lock():
     profile = json.loads(
         get("https://meta.fabricmc.net/v2/versions/loader/26.2/0.19.3/profile/json")
     )
-    entries = [
-        {"path": "libraries/minecraft-26.2.jar", **version["downloads"]["client"]}
-    ]
+    entries = [{"path": "libraries/minecraft-26.2.jar", **version["downloads"]["client"]}]
     for lib in version["libraries"]:
         if allowed(lib) and "artifact" in lib.get("downloads", {}):
             artifact = lib["downloads"]["artifact"]
@@ -99,6 +98,12 @@ def make_lock():
                 "url": f"https://maven.fabricmc.net/net/fabricmc/fabric-api/{name}/{number}/{name}-{number}.jar",
             }
         )
+    entries.append(
+        {
+            "path": "compilelibs/error-prone-annotations.jar",
+            "url": "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.38.0/error_prone_annotations-2.38.0.jar",
+        }
+    )
     entries.append({**version["assetIndex"], "path": "assets/indexes/32.json"})
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
         locked = list(pool.map(acquire, entries))

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+[[ -n ${IN_NIX_SHELL:-} ]] || { echo 'Use nix develop --command ./scripts/test-runtime' >&2; exit 2; }
+exec python3 scripts/runtime-tests.py "$@"

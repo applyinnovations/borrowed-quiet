@@ -1,71 +1,85 @@
-# Borrowed Quiet — development in progress
+# Borrowed Quiet
 
-The original access blocker below has been resolved by authorised offline developer
-launch. Minecraft now runs under Nix with automated survival input, performance
-counters, actual video and isolated audio capture. The complete work is defined in
-[the specification](docs/specification.md), with [research](docs/research-notes.md).
-**No accepted mod release exists yet.**
+An original, restrained horror mod for ordinary Minecraft survival.
+Sometimes the work continues after you stop.
 
-## Original prerequisite report (historical; superseded)
+**Acceptance is in progress. This checkout is not an accepted release.**
+The complete [scope](docs/specification.md) was committed before implementation.
 
-This repository does **not** contain a finished mod or an installable release.
-Implementation has not started because the required pre-implementation capability
-gate has not passed: authorised Minecraft runtime access could not be established
-from the available launcher state or browser connections.
+## Player setup
 
-The project brief prohibits new purchases, manual account setup, and human intervention.
-The official trial requires Microsoft sign-in and is limited to approximately 100 minutes;
-it does not establish the access required for multi-hour survival validation.
-See [the preflight report](docs/preflight.md) for evidence and limits.
+Target: Minecraft Java **26.2**, Java **25**, Fabric Loader **0.19.3** and
+[Fabric API **0.152.0+26.2**](https://modrinth.com/mod/fabric-api).
+The validation platform is Linux x86-64. Nix and AI services are **not** player
+dependencies. Use your legitimately installed Minecraft client.
 
-The files here preserve the autonomous feasibility work, not a substitute mod delivery:
+1. Install the matching [Fabric Loader](https://fabricmc.net/use/installer/) into
+   a Minecraft 26.2 profile. Start that profile once, then quit.
+2. Put `borrowedquiet-1.0.0.jar` and the specified Fabric API jar in that profile's
+   `mods` directory. Do not install the developer test harness.
+3. Launch the Fabric profile and enter an ordinary local Survival world.
 
-- `flake.nix` and `flake.lock`: pinned Linux x86-64 prerequisite tools.
-- `scripts/preflight`: host-interface and official-release diagnostics.
-- `scripts/probe-capture`: isolated software OpenGL and audio-loopback capture probe.
-- `scripts/probe-listening`: local audio-input model feasibility experiment.
-- `docs/research-notes.md`: initial research with evidence categories and limitations.
-- `evidence/preflight/`: recorded prerequisite results, explicitly distinct from game tests.
+The experience begins quietly: at least two minutes of eligible play before its
+first opportunity. Continue mining, building, farming and exploring. It introduces
+no required quest, combat enemy, dimension or progression item.
 
-## Reproduce prerequisite checks
+## Comfort and control
 
-Host Nix tested: **2.35.2**, with `nix-command flakes` enabled and `sandbox = true`.
-The development system evaluated here is `x86_64-linux`. Package versions are fixed by
-the locked nixpkgs input. These tools do not establish a supported player platform.
+Content: implied surveillance, unexplained footsteps/taps, brief abstract shapes.
+No gore, speech, flashing lights, forced camera motion, deliberate crashes, damage
+or changes to player volume settings. Headphones are optional; subtitles help
+identify direction. There is no need to turn the volume up to hear a scare.
 
-```bash
+Commands require no cheats:
+
+| Command | Effect |
+|---|---|
+| `/borrowedquiet off` / `on` | Stop / enable the experience |
+| `/borrowedquiet gentle` / `normal` / `intense` | Choose spacing; Normal is default |
+| `/borrowedquiet volume 0.4` | Mod gain from 0 to 1; default 0.7 |
+| `/borrowedquiet visuals false` | Disable the abstract visual encounter |
+| `/borrowedquiet reducedmotion true` | Remove its contraction animation |
+| `/borrowedquiet status` | Show current settings |
+
+Minecraft's Master and Ambient/Environment sliders also apply. Enable vanilla
+subtitles in accessibility settings. Settings live in `config/borrowedquiet.json`
+inside the selected game directory. Malformed settings disable the experience and
+remain preserved; a settings command stores a valid replacement and keeps the
+invalid original as a timestamped backup.
+
+Events operate only in the Overworld, in unpublished local single-player Survival.
+Menus, sleep, low health, damage, falling and water/lava immersion interrupt them.
+Nether, End, Creative, spectator, remote servers and LAN-published worlds are quiet.
+Multiplayer horror, hardcore, shaders, other gameplay mods and custom resource-pack
+compatibility are not advertised.
+
+## Disable, remove and troubleshoot
+
+Use `/borrowedquiet off` for an immediate stop that persists across restarts.
+To uninstall, quit Minecraft and remove only `borrowedquiet-1.0.0.jar` from `mods`.
+The optional configuration file can remain. No saved blocks, items or entities
+require conversion. Keep ordinary world backups when changing any mod installation.
+
+An incompatible-mod screen usually means Minecraft, Loader or Fabric API does not
+match the specified versions. If nothing happens, check `/borrowedquiet status`,
+your mode/dimension and volume controls; several minutes of silence are intentional.
+Opening a menu or changing settings interrupts an encounter and starts recovery.
+Reopening a world starts a new warm-up. Configuration warnings appear in
+`logs/latest.log`.
+
+## Project and validation
+
+See [development](docs/development.md), [research](docs/research-notes.md),
+[architecture and rights](docs/architecture-and-rights.md) and
+[asset records](assets/register.json). A build alone is not a readiness decision.
+
+```sh
 nix flake check --no-update-lock-file
-nix develop --no-update-lock-file --command ./scripts/preflight
-nix develop --no-update-lock-file --command ./scripts/probe-capture
+nix build --no-update-lock-file .#default
+nix develop --no-update-lock-file --command ./scripts/test-runtime
+nix develop --no-update-lock-file --command ./scripts/validate
 ```
 
-Capture uses its own Xvfb display and a temporary PulseAudio-compatible null sink;
-it does not record a microphone or other applications. The host must supply a usable
-PulseAudio/PipeWire socket. Software rendering uses pinned Mesa libraries. The initial
-host OpenGL failure and its correction are recorded in the report.
-
-The flake has no distributable `default` package. `scripts/test-runtime` and
-`scripts/validate` have not been implemented. No fake release or passing placeholder
-for these required deliverables is provided. Passing the prerequisite check means
-only that its declared script lint and codec/toolchain tests passed.
-
-## Audio-tool feasibility experiment
-
-The flake separately pins public Qwen2.5-Omni model and projector files by repository
-revision and SHA-256 for a local audio-understanding experiment using `llama.cpp`.
-These are development evaluation inputs, not Minecraft dependencies or shipped assets.
-They are approximately 7.3 GB combined. They are not downloaded by the prerequisite
-check or regular development-shell startup.
-
-The basic listening probe completed: the model identified the generated non-speech
-tone, though it omitted the short fades from its description. This demonstrates a
-limited audio-input route; it is not a completed asset or in-game listening review.
-
-The [conversion's model card](https://huggingface.co/ggml-org/Qwen2.5-Omni-7B-GGUF/tree/89b785438c8901d4635e42f50480ba5985a1bbf1)
-lists the Qwen research licence and links the upstream licence. The upstream 7B model's
-current licence is Apache-2.0; this experiment makes no assumption that the conversion's
-older metadata has been relicensed. Its use here is solely capability evaluation.
-No model files are included in the repository, and no model outputs have been used as mod assets.
-
-There is no release checksum, installation claim, experiential acceptance, human test
-result, or final acceptance dossier. The original completion requirements remain unmet.
+Original work: [MIT](LICENSE). Third-party inputs retain their own terms.
+This is not an official Minecraft product and is not approved by or associated
+with Mojang or Microsoft.

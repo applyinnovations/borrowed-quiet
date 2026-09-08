@@ -562,6 +562,12 @@
       "size": 33429
     },
     {
+      "path": "compilelibs/error-prone-annotations.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.38.0/error_prone_annotations-2.38.0.jar",
+      "sha256": "6661d5335090a5fc61dd869d2095bc6c1e2156e3aa47a6e4ababdf64c99a7889",
+      "size": 20389
+    },
+    {
       "id": "32",
       "sha1": "795a52d29f7f6b1e51d3a65e60ca46ad62aaddec",
       "size": 586366,

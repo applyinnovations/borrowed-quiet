@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+mkdir -p .runtime/asset-review
+for asset in tread1 tread2 tap1 tap2 scrape fold; do
+  ffmpeg -nostdin -y -v error -i "src/resources/assets/borrowedquiet/sounds/$asset.ogg" \
+    -ar 16000 -ac 1 ".runtime/asset-review/$asset.wav"
+  ./scripts/probe-listening ".runtime/asset-review/$asset.wav" \
+    > ".runtime/asset-review/$asset.txt" 2> ".runtime/asset-review/$asset.engine.log"
+done
