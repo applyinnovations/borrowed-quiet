@@ -1,0 +1,16 @@
+[
+  {
+    "id": "fold-geometry-and-contraction",
+    "creator": "Borrowed Quiet project",
+    "source": "Original three-slat geometry and bounded interpolation in editable Java source",
+    "license": "MIT",
+    "acquired": "2026-09-08",
+    "original": "src/java/quiet/Presentation.java",
+    "file": "src/java/quiet/Presentation.java",
+    "sha256": "9bafb7068122afe32bcf3c9e75da9b91aa9d98c4b02a3f589fb433101b8b2ea4",
+    "modifications": "Added bounded grounding shadow; separated geometry removal from sound tail. Vanilla black concrete is referenced, never copied or redistributed.",
+    "intended_use": "Brief local impossible geometry in ordinary familiar space",
+    "inspection": "PENDING final near/far, enclosed-mine and natural-context review",
+    "decision": "NOT ACCEPTED"
+  }
+]
