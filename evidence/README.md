@@ -13,9 +13,12 @@ Minecraft visuals, sounds and music appearing in gameplay recordings remain the
 property of their respective rights holders. They are inspection footage shared
 under the Minecraft usage guidelines, **not MIT-licensed replacement game assets**.
 No Minecraft executable, library, extracted texture/music library, generated save,
-account token, model weight or developer cache is included. Standalone listening
+account token, model weight or developer cache is included. Final-review listening
 excerpts containing vanilla audio are reconstructed locally from the videos when
-needed, not distributed as a sound pack. Original mod sounds and geometry retain
+needed, not distributed as a sound pack. The committed historical capability probe
+does retain two short recorded cow/bell playback excerpts alongside its video;
+these have the same gameplay-recording rights boundary, are not extracted game
+resources, and never enter the mod jar. Original mod sounds and geometry retain
 their separately documented MIT licence.
 
 `preflight/` and `capability/` are historical capability experiments, not evidence
