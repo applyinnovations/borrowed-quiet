@@ -8,9 +8,25 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+      runtimeLock = builtins.fromJSON (builtins.readFile ./deps/runtime.json);
+      jarInputs = builtins.filter (f: pkgs.lib.hasSuffix ".jar" f.path) runtimeLock.files;
+      fetched = map (f: {
+        inherit (f) path;
+        file = pkgs.fetchurl { inherit (f) url sha256; };
+      }) jarInputs;
+      compileDeps =
+        pkgs.runCommand "minecraft-fabric-26.2-dependencies" { nativeBuildInputs = [ pkgs.unzip ]; }
+          ''
+            mkdir -p "$out"
+            ${pkgs.lib.concatMapStringsSep "\n" (
+              f: ''mkdir -p "$out/$(dirname '${f.path}')"; ln -s '${f.file}' "$out/${f.path}"''
+            ) fetched}
+            unzip -q "$out/mods/fabric-api.jar" 'META-INF/jars/*' -d "$out/api"
+          '';
     in
     {
       packages.${system} = {
+        compile-deps = compileDeps;
         audio-review-model = pkgs.fetchurl {
           url = "https://huggingface.co/ggml-org/Qwen2.5-Omni-7B-GGUF/resolve/89b785438c8901d4635e42f50480ba5985a1bbf1/Qwen2.5-Omni-7B-Q4_K_M.gguf";
           hash = "sha256-CYg9/1MdxWkjoEHJyZx8d54m/94yyqg63ut1Auw7UP4=";
@@ -48,6 +64,20 @@
         LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
           pkgs.mesa
           pkgs.libglvnd
+          pkgs.libX11
+          pkgs.libXcursor
+          pkgs.libXrandr
+          pkgs.libXinerama
+          pkgs.libXi
+          pkgs.libXxf86vm
+          pkgs.libXrender
+          pkgs.libXext
+          pkgs.libxkbcommon
+          pkgs.wayland
+          pkgs.alsa-lib
+          pkgs.libpulseaudio
+          pkgs.openal
+          pkgs.flite
         ];
         packages = with pkgs; [
           jdk25

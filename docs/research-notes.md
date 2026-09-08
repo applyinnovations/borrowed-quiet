@@ -1,7 +1,8 @@
 # Initial research notes — 8 September 2026
 
-Status: initial research only. No scope specification has been committed or implemented;
-the mandatory capability gate remains open. No selected production assets exist.
+Status: design research completed; resulting commitments are in
+[the pre-implementation specification](specification.md). Research does not establish
+that this particular mod will frighten anyone. No human playtesting is claimed.
 
 ## Evidence and its limits
 
@@ -23,7 +24,31 @@ the mandatory capability gate remains open. No selected production assets exist.
   The session abstract describes an underpowered player, creature senses, and audiovisual immersion.
   Reading the abstract is not equivalent to inspecting the lecture or its demonstrations.
 
-## Preliminary design inferences, not a committed scope
+## Additional first-hand and cross-media study
+
+- **Practitioner interview:** [Alistair Hope, PlayStation Blog](https://blog.playstation.com/archive/2014/03/26/behind-terror-alien-isolation-exclusive-interview)
+  describes a single credible threat, response to player noise/light, multiple
+  survival approaches, and horror continuing while the creature is offscreen.
+  His account of Alien's lived-in design connects withholding with coherent
+  production design. Adopt offscreen implication and contextual response; reject
+  a compulsory lethal pursuer, borrowed creature and scripted campaign. The GDC
+  abstract was inspected, but its embedded talk did not expose playable media.
+  This complete primary interview is the substantive first-hand replacement, not
+  a claim to have viewed the inaccessible lecture.
+- **Filmmaker interview:** [Kiyoshi Kurosawa on Cloud](https://embed.letterboxd.com/journal/kiyoshi-kurosawa-cloud-interview/)
+  explains using environmental sound instead of rhythmic score during violence,
+  and keeping interacting people in a shared spatial frame. Adopt clear spatial
+  relationships and diegetic sound; reject gunshot intensity as a horror shortcut.
+  This is practitioner testimony, not an experiment or a claim to have screened
+  the full film. No film imagery or soundtrack is selected as an asset.
+- **Primary literary work:** [H. G. Wells, The Red Room](https://www.gutenberg.org/files/23218/23218-h/23218-h.htm)
+  was read as a study in a narrator's changing interpretation of ordinary space.
+  The room and attempts at reassurance become sources of anticipation; the ending
+  refuses a simple visible ghost. Adopt interpretive uncertainty; reject helpless
+  loss of lighting and physical injury, which would interfere with Minecraft work
+  and imply world malfunction. No text is copied.
+
+## Creative rationale — the agent's design inferences
 
 Ordinary survival already provides player-chosen objectives. Horror could reinterpret
 the sounds and spaces surrounding those objectives. A repeated acoustic motif could
@@ -36,7 +61,14 @@ sound-source movement in recorded playback, recognizable but non-identical motif
 and successful completion of survival tasks during natural scheduling. Neither event
 logs nor an AI's interpretation would measure human fear or enjoyment.
 
-No claim is made that the required complete reference study or creative rationale is finished.
+The chosen grammar is **imitation, answer, partial embodiment**. Borrowed Pace makes
+the player's own stopping meaningful; The Other Wall implies a listener rather than
+random ambient noise; The Fold offers a limited interpretation without a compulsory
+fight. All three share original dry material sounds. Long quiet intervals preserve
+attention to survival, while recognition changes an event and provides agency.
+These are hypotheses to inspect against the timecoded rubric, not validated
+psychological parameters. Six bounded one-shots and one restrained shape are the
+complete content; variance comes from context, position, timing and response.
 
 ## Technical sources inspected
 
@@ -44,9 +76,12 @@ No claim is made that the required complete reference study or creative rational
   and [26.3 pre-release 2](https://www.minecraft.net/de-de/article/minecraft-26-3-pre-release-2).
   Mojang's live version manifest also reported release `26.2`, snapshot `26.3-pre-2`.
 - [Fabric version-matched porting guidance](https://docs.fabricmc.net/develop/porting/)
-  confirms a maintained 26.2 path. Loader/toolchain selection is not yet committed.
+  confirms a maintained 26.2 path. The specification selects Loader/API and direct
+  Java compilation against the unobfuscated client, without a mapping pipeline.
 - [Fabric automated tests](https://docs.fabricmc.net/develop/automatic-testing)
-  were located for feasibility; no game tests have been implemented or run.
+  informed an actual separately launched graphical client GameTest. A compiled
+  test jar generated a world and moved the player 8.37 blocks. This is a capability
+  result, not a mod feature test.
 - [Nix flakes](https://nix.dev/concepts/flakes.html),
   [flake check](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-flake-check),
   [develop](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-develop).

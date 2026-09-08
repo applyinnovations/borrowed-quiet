@@ -1,4 +1,36 @@
-# Preflight verdict
+# Preflight history
+
+**Update after user authorisation:** the original access blocker below was resolved
+using Minecraft's explicit `--offlineDeveloperMode` and the pinned Fabric runtime.
+No account data was read or requested. The historical verdict is retained to explain
+the first turn, not as a current request for authorisation.
+
+Graphical client GameTests now compile, generate a world, control survival movement
+(8.374761235223515 blocks), save and exit normally. Probe 6 measured 30 FPS,
+37,628,357 ns last-frame duration, 1,160,332 ns average integrated-server tick and
+794,820,608 bytes live heap (not a performance acceptance result). The screenshot
+was directly inspected: ordinary grass world, hand, full survival HUD, no rendering
+errors. Actual game video and audio are captured by `scripts/runtime-session.py`.
+
+Audio debugging rejected a silent recording and an audio-model hallucination about
+that silence. Moving the live Java stream fixed routing, but race-prone host routing
+was then replaced by a **private PulseAudio server** with only a stereo null sink.
+Probe 6 records vanilla cow/bell playback, with nonzero peak −27.34 dBFS and no
+clipped samples. Listening copies apply a documented gain; originals are retained.
+No asset-selection decision may rely on a filename, waveform, or silence hallucination.
+
+The local audio-input model described the complete 11.03-second playback excerpt
+(with +12 dB listening gain) as a whoosh followed by a ping, without speech. The
+ping corresponds to the controlled bell; the model did not correctly identify the
+cow source. This establishes a limited timbre/event listening route, not reliable
+semantic identification or stereo perception. Production reviews must combine
+full audible-model inspection with independent channel/level/timing measurement
+and critical comparison; discrepancies cannot be reported as passes. Evidence is
+in `evidence/capability/`. Together with directly inspected game imagery, compilation,
+automated input and measured counters, this closes the prerequisite capability gate.
+It does **not** pass any production feature or asset acceptance gate.
+
+## Original verdict (superseded)
 
 **Verdict: BLOCKED BEFORE IMPLEMENTATION. No mod release exists.**
 

@@ -1,4 +1,12 @@
-# Minecraft horror mod project — blocked at preflight
+# Borrowed Quiet — development in progress
+
+The original access blocker below has been resolved by authorised offline developer
+launch. Minecraft now runs under Nix with automated survival input, performance
+counters, actual video and isolated audio capture. The complete work is defined in
+[the specification](docs/specification.md), with [research](docs/research-notes.md).
+**No accepted mod release exists yet.**
+
+## Original prerequisite report (historical; superseded)
 
 This repository does **not** contain a finished mod or an installable release.
 Implementation has not started because the required pre-implementation capability

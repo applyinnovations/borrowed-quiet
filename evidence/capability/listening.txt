@@ -1,0 +1,5 @@
+{"seconds": 11.0308125, "peak_sample": 5601, "peak_dbfs": -15.343687245819543, "rms_dbfs": -39.831738439581045, "clipped_samples": 0}
+
+The audio contains a sound effect that is a whoosh followed by a single ping. There is no intelligible speech. The sound is high-pitched and lasts for the duration of the audio.
+
+
