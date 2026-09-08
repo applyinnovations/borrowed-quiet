@@ -1,0 +1,32 @@
+# Sourced by the Nix shell; expose only host NVIDIA driver libraries, never the
+# host's full library directory (which would contaminate Nix's glibc/toolchain).
+export CUDA_MODULE_LOADING=LAZY
+if [ -e /run/opengl-driver/lib/libcuda.so.1 ]; then
+  export LD_LIBRARY_PATH="/run/opengl-driver/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+else
+  bqNvidiaRuntimeDirectory="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+  if [ ! -d "$bqNvidiaRuntimeDirectory" ] || [ ! -w "$bqNvidiaRuntimeDirectory" ]; then
+    bqNvidiaRuntimeDirectory="${TMPDIR:-/tmp}"
+  fi
+  bqNvidiaDriverBridge=$(mktemp -d "$bqNvidiaRuntimeDirectory/borrowedquiet-nvidia.XXXXXXXX")
+  for bqNvidiaLibraryDirectory in /usr/lib/x86_64-linux-gnu /lib/x86_64-linux-gnu /usr/lib /usr/lib64; do
+    if [ -e "$bqNvidiaLibraryDirectory/libcuda.so.1" ]; then
+      for bqNvidiaLibrary in \
+        "$bqNvidiaLibraryDirectory"/libcuda.so* \
+        "$bqNvidiaLibraryDirectory"/libnvidia-gpucomp.so* \
+        "$bqNvidiaLibraryDirectory"/libnvidia-ml.so* \
+        "$bqNvidiaLibraryDirectory"/libnvidia-nvvm.so* \
+        "$bqNvidiaLibraryDirectory"/libnvidia-ptxjitcompiler.so*; do
+        if [ -e "$bqNvidiaLibrary" ]; then
+          ln -s "$bqNvidiaLibrary" "$bqNvidiaDriverBridge/"
+        fi
+      done
+      break
+    fi
+  done
+  if [ -e "$bqNvidiaDriverBridge/libcuda.so.1" ]; then
+    export BQ_NVIDIA_DRIVER_LIBRARY_PATH="$bqNvidiaDriverBridge"
+    export LD_LIBRARY_PATH="$bqNvidiaDriverBridge${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+  fi
+  unset bqNvidiaDriverBridge bqNvidiaLibrary bqNvidiaLibraryDirectory bqNvidiaRuntimeDirectory
+fi

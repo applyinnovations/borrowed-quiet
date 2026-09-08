@@ -8,6 +8,14 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+      cudaPkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+          cudaSupport = true;
+          cudaCapabilities = [ "12.0" ];
+        };
+      };
       runtimeLock = builtins.fromJSON (builtins.readFile ./deps/runtime.json);
       jarInputs = builtins.filter (f: pkgs.lib.hasSuffix ".jar" f.path) runtimeLock.files;
       fetched = map (f: {
@@ -38,6 +46,7 @@
     in
     {
       packages.${system} = {
+        audio-review-engine = cudaPkgs.llama-cpp;
         audio-review-model-v3 = pkgs.fetchurl {
           url = "https://huggingface.co/ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF/resolve/6e35a28f4a19b18730f8949b0c579c6429649ab8/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf";
           sha256 = "d9e2876556e7873e02c0359f832432ee2d67ab7dd0cee3efe0f77fd7a1f4dd85";
@@ -91,6 +100,7 @@
                 ruff check --no-cache scripts assets
                 ruff format --no-cache --check scripts assets
               shellcheck scripts/preflight scripts/probe-capture scripts/probe-listening scripts/review-assets scripts/test-runtime scripts/validate
+              shellcheck --shell=bash scripts/cuda-driver-env
                   google-java-format --dry-run --set-exit-if-changed $(find src/java tests -name '*.java')
                   nixfmt --check flake.nix
                   mkdir -p "$out"
@@ -121,6 +131,9 @@
             '';
       };
       devShells.${system}.default = pkgs.mkShell {
+        shellHook = ''
+          source ${./scripts/cuda-driver-env}
+        '';
         BQ_DBUS_CONFIG = "${pkgs.dbus}/share/dbus-1/session.conf";
         LIBGL_DRIVERS_PATH = "${pkgs.mesa}/lib/dri";
         LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
@@ -141,30 +154,32 @@
           pkgs.openal
           pkgs.flite
         ];
-        packages = with pkgs; [
-          jdk25
-          google-java-format
-          git
-          curl
-          jq
-          python3
-          ffmpeg-full
-          sox
-          pulseaudio
-          dbus
-          xdpyinfo
-          xorg-server
-          xdotool
-          mesa-demos
-          shellcheck
-          nixfmt
-          ruff
-          time
-          procps
-          unzip
-          zip
-          llama-cpp
-        ];
+        packages =
+          with pkgs;
+          [
+            jdk25
+            google-java-format
+            git
+            curl
+            jq
+            python3
+            ffmpeg-full
+            sox
+            pulseaudio
+            dbus
+            xdpyinfo
+            xorg-server
+            xdotool
+            mesa-demos
+            shellcheck
+            nixfmt
+            ruff
+            time
+            procps
+            unzip
+            zip
+          ]
+          ++ [ cudaPkgs.llama-cpp ];
       };
     };
 }

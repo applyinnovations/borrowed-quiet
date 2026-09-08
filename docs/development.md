@@ -10,7 +10,27 @@ recording, render distance 4, simulation distance 5. Private D-Bus and PulseAudi
 null-sink sessions isolate recording from other applications. No desktop display,
 microphone or host audio service is needed. Linux processes, temporary storage,
 Unix sockets, network for acquisition and a writable checkout are required.
-Do not run CPU-intensive audio inference concurrently with performance comparisons.
+Do not run audio inference concurrently with performance comparisons.
+
+Audio inspection uses the flake's CUDA-enabled llama.cpp, built for NVIDIA compute
+capability 12.0 (reference host: RTX 5080, 16 GiB). The separate CUDA nixpkgs import
+enables unfree CUDA toolkit dependencies without changing the Minecraft build or
+Mesa test profile. `scripts/cuda-driver-env` exposes only host NVIDIA driver
+libraries through a private temporary symlink directory on non-NixOS hosts, or
+uses `/run/opengl-driver/lib` on NixOS. It never adds all of `/usr/lib` to Nix's
+library search path. The host kernel driver and `/dev/nvidia*` are explicit host
+interfaces; CUDA toolkit and inference binaries remain pinned by Nix.
+
+`scripts/probe-listening` and `scripts/listen-batch.py` require CUDA0 and request
+automatic weight offload, GPU audio projection and 6144 MiB VRAM headroom.
+The model is larger than available VRAM, so some CPU work is expected. They fail
+if CUDA is unavailable instead of silently reverting to CPU-only inference.
+The CUDA build is exposed as `nix build --no-update-lock-file .#audio-review-engine`.
+Audio models and CUDA are inspection tools only, never player dependencies.
+On the reference host (driver 610.57.04), the calibrated fit puts all 49 layer
+graphs on CUDA with some MoE expert weights retained on CPU. A 3072 MiB margin
+failed during cuBLAS workspace allocation; 6144 MiB passes the recorded audio
+calibration. GPU audio projection is separately confirmed in the engine log.
 
 ## Locked inputs
 
