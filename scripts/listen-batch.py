@@ -17,6 +17,11 @@ parser = argparse.ArgumentParser()
 parser.add_argument("output", type=pathlib.Path)
 parser.add_argument("audio", type=pathlib.Path, nargs="+")
 parser.add_argument("--allow-silent-controls", action="store_true")
+parser.add_argument(
+    "--compact",
+    action="store_true",
+    help="Request a bounded complete paragraph for follow-up review",
+)
 args = parser.parse_args()
 args.output.mkdir(parents=True, exist_ok=False)
 devices = subprocess.check_output(["llama-server", "--list-devices"], text=True)
@@ -48,6 +53,8 @@ prompt = (
     "attack and decay, pauses or repetitions, and any distortion or intelligible speech. "
     "Distinguish what you hear from uncertain guesses about its source."
 )
+if args.compact:
+    prompt += " Use one compact paragraph of at most 120 words, no headings, covering the whole sequence and any artefacts."
 with (args.output / "server.log").open("w") as log:
     server = subprocess.Popen(
         [
@@ -132,7 +139,7 @@ with (args.output / "server.log").open("w") as log:
                 "model": "local-audio-review",
                 "temperature": 0,
                 "seed": 1,
-                "max_tokens": 256,
+                "max_tokens": 512 if args.compact else 256,
                 "cache_prompt": False,
                 "messages": [
                     {
