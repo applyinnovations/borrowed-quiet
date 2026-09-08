@@ -46,6 +46,15 @@ Minecraft software. The [EULA](https://www.minecraft.net/en-us/eula) and
 [usage guidelines](https://www.minecraft.net/en-us/usage-guidelines) govern external
 publication. This project is independent and not endorsed.
 
+Acceptance review on 8 September 2026: distribute this original mod free, not a
+modified Minecraft client/server; require genuine player installations; provide no
+external ownership checks, paid unlocks or play-to-earn features. Inspection footage
+is free to view and is not sold or used to advertise an unrelated product. Minecraft
+is a descriptive compatibility reference, not the dominant product name or copied
+logo. The final release check fingerprints the current EULA/usage pages and verifies
+the official manifest's stable version. This is a project compliance assessment,
+not a claim of Mojang approval or professional legal advice.
+
 Nix, Fabric, Java, FFmpeg, llama.cpp and other tools retain upstream terms, available
 with their pinned packages. Audio-input models are development inspection tools,
 not shipped assets. Initial model-conversion licence distinctions and rejected

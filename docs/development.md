@@ -91,10 +91,27 @@ Generated caches and evidence are isolated under ignored `.runtime` and `build`.
 They are not package build inputs. Player dependencies must be acquired from their
 publishers; the delivered mod contains neither Minecraft nor Fabric API.
 
+The release separates the small source archive from the large evidence archive.
+Both extract under `borrowedquiet/`; extract both to inspect the hash-bound dossier.
+The source archive also contains `history.git.bundle`, preserving the committed
+pre-implementation specification and subsequent refinements without local Git
+configuration or credentials. For clean-checkout reproduction, run
+`git clone history.git.bundle ../borrowedquiet-clean` from the extracted source,
+then use the Nix workflow there. Copy the extracted `evidence/runtime` and
+`evidence/reviews` into that clone to verify the delivered dossier; fresh runtime
+tests create separate `.runtime` state. Players need only the mod jar and declared
+dependencies, not either archive or the bundle.
+
 ## Instrumentation and interpretation
 
 Forced triggers require `borrowedquiet.testing=true`; there are no ordinary player
 test commands. Metrics/logs are enabled by testing or `borrowedquiet.diagnostics=true`.
+For the separate harness-free installation inspection, `BQ_PLAYER_MODE=1` makes
+`scripts/launch.py` omit test libraries and all mod testing/seed JVM properties;
+only the specified release jar and Fabric API are installed. The agent used the
+isolated display recorded in session metadata, actual GUI screenshots and paced
+`xdotool` input to load/create worlds, verify controls with cheats off, save and quit.
+This is still the authorised developer launch, not player entitlement instructions.
 `borrowedquiet.seed` reproduces only mod randomness, not vanilla ambient behaviour.
 The benchmark samples the last frame duration and integrated-server average tick
 counter each client tick with identical harness instrumentation in both conditions.

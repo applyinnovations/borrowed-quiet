@@ -130,6 +130,11 @@ private PulseAudio server with a null sink: no desktop or microphone recording.
 Existing user authorisation permits the offline development client. No credential
 or licence token is put in the repository or store. Players need no Nix or AI model.
 
+Inspection-host clarification following the user's CUDA instruction: the local
+audio-review engine uses a pinned CUDA toolchain, a compute-capability 12.0 GPU and
+the host NVIDIA driver interface documented in `docs/development.md`. Minecraft
+and both performance conditions still use the specified pinned software renderer.
+
 Required non-interactive commands:
 
 ```sh

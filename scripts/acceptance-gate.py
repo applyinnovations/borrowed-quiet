@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Bind the autonomous inspection dossier to the exact release; missing evidence fails closed."""
 
+import functools
 import hashlib
 import json
 import pathlib
@@ -22,13 +23,20 @@ assert dossier["package_sha256"] == hashlib.sha256(jar.read_bytes()).hexdigest()
     "Dossier/package mismatch"
 )
 assert dossier["decision"] == "ACCEPTED", "Autonomous acceptance incomplete"
+
+
+@functools.cache
+def digest(file):
+    with file.open("rb") as stream:
+        return hashlib.file_digest(stream, "sha256").hexdigest()
+
+
 for requirement in dossier["requirements"]:
     assert requirement["passed"] and requirement["evidence"], requirement["id"]
     for evidence in requirement["evidence"]:
         file = pathlib.Path(evidence["path"])
         assert file.is_file(), "Missing evidence: " + str(file)
-        with file.open("rb") as stream:
-            assert hashlib.file_digest(stream, "sha256").hexdigest() == evidence["sha256"], file
+        assert digest(file) == evidence["sha256"], file
 for register in ("assets/register.json", "assets/visual-register.json"):
     for asset in json.loads(pathlib.Path(register).read_text()):
         assert asset["decision"] == "ACCEPTED" and asset["inspection"], asset["id"]

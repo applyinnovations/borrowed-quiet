@@ -11,6 +11,7 @@ import sys
 root = pathlib.Path(__file__).resolve().parent.parent
 lock = json.loads((root / "deps/runtime.json").read_text())
 cache = root / ".runtime"
+player_mode = os.environ.get("BQ_PLAYER_MODE") == "1"
 game = pathlib.Path(sys.argv[1]).resolve()
 game.mkdir(parents=True, exist_ok=True)
 (game / "mods").mkdir(exist_ok=True)
@@ -22,6 +23,8 @@ for item in lock["files"]:
     if item["path"].startswith("libraries/"):
         cp.append(str(path))
     elif item["path"].startswith(("mods/", "testlibs/")):
+        if player_mode and item["path"].startswith("testlibs/"):
+            continue
         if (
             os.environ.get("BQ_DEPENDENCY_TEST") == "missing-api"
             and item["path"] == "mods/fabric-api.jar"
@@ -75,5 +78,11 @@ args = [
 ]
 if os.environ.get("BQ_DEPENDENCY_TEST") == "wrong-version":
     args.insert(1, "-Dfabric.gameVersion=26.1")
+if player_mode:
+    args = [
+        arg
+        for arg in args
+        if not arg.startswith(("-Dfabric.client.gametest", "-Dfabric.noGui", "-Dborrowedquiet."))
+    ]
 os.chdir(game)
 os.execvp(args[0], args)

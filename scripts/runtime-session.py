@@ -97,6 +97,7 @@ try:
             {
                 "recording_start_unix": time.time(),
                 "width": 960,
+                "display": env["DISPLAY"],
                 "height": 540,
                 "capture_fps": 15,
                 "renderer": "Nix Mesa llvmpipe",

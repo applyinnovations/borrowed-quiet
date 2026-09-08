@@ -23,6 +23,10 @@ affected checks rerun on the identified package and capture configuration.
 | A failed placement could overwrite repetition history and allow two actual identical episodes | History now commits only after presentation successfully starts. Added 30,000 failure/repetition assertions; rerun affected functional and natural validation. |
 | Natural work loop aimed before a preceding teleport reached the client | Wait for client ticks before the aim ray and assert the actual workpiece is mined every cycle. The preliminary recording is rejected as sustained mining evidence. |
 | One clean-seed harvest scattered wheat into an unbounded fixture water column | Put a floor under irrigation and follow the actual nearby wheat drop with bounded player input, retaining the inventory assertion. No mod-caused crop change was observed. |
+| CUDA audio inference initially exhausted cuBLAS workspace | Kept the pinned CUDA engine and GPU audio encoder; increased fit headroom to 6144 MiB. Calibration and complete audio batches passed, with some expert weights on CPU. |
+| Peak-normalized overlap was described as distorted | Compared the exact recording at original level and +12 dB against the +26 dB inspection copy. Original peak is -29.035 dBFS with no clipping; the lower-gain reviews report no significant distortion. See the complete audio review. |
+| A spatial test's opposite ear was digital silence | Recorded a measured silence control without generating an imagined audio description. The other ear and full source were reviewed; left/right inversion is preserved. |
+| Startup logs warn about anisotropy value 0 | Traced to pinned Fabric ClientGameTestContextImpl.initGameOptions, which sets maxAnisotropyBit to 0; Minecraft rejects it and keeps a valid option. This test-only warning is not a mod resource failure and is not broadly filtered from evidence. |
 
 The synchronization change follows the [FFmpeg input synchronization documentation](https://ffmpeg.org/ffmpeg.html):
 the reference input's start time is used to preserve the difference between devices
