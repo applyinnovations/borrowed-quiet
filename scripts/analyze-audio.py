@@ -61,18 +61,25 @@ loudness = subprocess.run(
         "-nostdin",
         "-v",
         "info",
-        *selection,
+        "-f",
+        "f32le",
+        "-ar",
+        "48000",
+        "-ac",
+        str(channel_count),
+        "-i",
+        "pipe:0",
         "-af",
-        "loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json",
+        "apad=pad_dur=1,loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json",
         "-f",
         "null",
         "-",
     ],
     capture_output=True,
-    text=True,
+    input=decoded,
     check=True,
 )
-match = re.search(r'\{\s*"input_i".*?\}', loudness.stderr, re.S)
+match = re.search(r'\{\s*"input_i".*?\}', loudness.stderr.decode(), re.S)
 report = {
     "source": str(args.input),
     "source_sha256": hashlib.sha256(args.input.read_bytes()).hexdigest(),
@@ -80,6 +87,7 @@ report = {
     "duration_seconds": len(samples) / (48000 * channel_count),
     "channels": [measure(values) for values in channels],
     "loudness": json.loads(match.group()) if match else None,
+    "loudness_method": "Exact selected PCM followed by 1 second of digital silence, permitting the 400 ms R128 window for short one-shots; no adjacent scenario audio enters the measurement.",
     "interpretation": "Objective measurement only; separate complete audible inspection required.",
 }
 peak = max(map(abs, samples))
