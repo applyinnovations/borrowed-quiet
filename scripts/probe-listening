@@ -4,9 +4,9 @@ cd "$(dirname "$0")/.."
 [[ -n ${IN_NIX_SHELL:-} ]] || { echo 'Requires nix develop' >&2; exit 2; }
 [[ $# == 1 && -f $1 ]] || { echo 'Usage: scripts/probe-listening audio.wav' >&2; exit 2; }
 python3 scripts/audio-measure.py "$1"
-model_path=$(nix build --no-update-lock-file --no-link --print-out-paths .#audio-review-model)
-projector_path=$(nix build --no-update-lock-file --no-link --print-out-paths .#audio-review-projector)
+model_path=$(nix build --no-update-lock-file --no-link --print-out-paths .#audio-review-model-v3)
+projector_path=$(nix build --no-update-lock-file --no-link --print-out-paths .#audio-review-projector-v3)
 llama-mtmd-cli -m "$model_path" --mmproj "$projector_path" \
-  -ngl 0 --no-mmproj-offload -t 8 -c 4096 -n 192 --temp 0 --seed 1 \
+  --jinja -ngl 0 --no-mmproj-offload -t 8 -c 8192 -n 256 --temp 0 --seed 1 \
   --audio "$1" \
-  -p 'Describe the audible sound. Is there intelligible speech? Describe the timbre and how the sound changes over time. Do not infer content from the filename.'
+  -p 'Listen to the entire clip. Describe the audible sequence, its texture, attack and decay, pauses or repetitions, and any distortion or intelligible speech. If uncertain about a source, describe its acoustic qualities rather than guessing. Do not infer content from the filename.'

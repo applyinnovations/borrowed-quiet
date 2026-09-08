@@ -326,6 +326,7 @@ public final class BorrowedQuiet implements ClientModInitializer {
         && (!settings.visuals()
             || !presentation.showFold(client, source, client.player.getYRot() + 20))) return false;
     active = kind;
+    director.started(kind);
     age = 0;
     collapse = 0;
     pulse = 0;

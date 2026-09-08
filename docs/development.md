@@ -48,6 +48,12 @@ three normal-world seeds, lifecycle, presentation, persistence/removal and
 dependency failures. Fixture commands prepare isolated worlds; ordinary actions
 use actual survival input and resulting-state assertions.
 
+Remote/published exclusion tests set the relevant client/server context fields
+temporarily and exercise the actual mod callback, then restore them in `finally`.
+They do not open a LAN socket or claim tested multiplayer gameplay. No multiplayer
+horror mode is supported. Falling is likewise covered by a controlled context
+boundary in addition to actual water, lava, death, sleep and dimension transitions.
+
 `--suite natural` records 30 unaccelerated minutes without mod triggers or timing
 edits. `--suite endurance` runs two hours baseline then two hours modded using
 equivalent work and settings, followed by strict budget comparison. Other suite

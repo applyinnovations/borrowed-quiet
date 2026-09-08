@@ -50,6 +50,8 @@ public final class CoreTests {
                 "context");
             check(first.remaining() >= 1800, "recovery floor");
             previous = a;
+            first.started(a);
+            second.started(b);
           }
         }
         first.interrupt();
@@ -61,6 +63,18 @@ public final class CoreTests {
       check(
           empty.tick(true, false, false, false, Director.Intensity.NORMAL) == null,
           "empty context");
+    Director failedPlacement = new Director(1);
+    failedPlacement.started(Director.Kind.PACE);
+    for (int tick = 0; tick < 20000; tick++) {
+      failedPlacement.tick(true, false, true, true, Director.Intensity.INTENSE);
+      check(
+          failedPlacement.previous() == Director.Kind.PACE,
+          "failed placement must not erase actual previous episode");
+    }
+    for (int tick = 0; tick < 10000; tick++)
+      check(
+          failedPlacement.tick(true, true, false, false, Director.Intensity.INTENSE) == null,
+          "failed alternate placements cannot permit consecutive actual repetition");
     check(ConfigStore.parse("{}").equals(Settings.DEFAULT), "defaults");
     check(
         !ConfigStore.parse("{\"enabled\":false,\"future\":17}").enabled(), "unknown key tolerance");

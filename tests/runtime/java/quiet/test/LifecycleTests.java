@@ -147,16 +147,16 @@ public final class LifecycleTests {
               advance.setAccessible(true);
               var server = client.getSingleplayerServer();
               if (boundary.equals("published")) {
-                var port = server.getClass().getDeclaredField("publishedPort");
+                var port = server.getClass().getDeclaredField("multiplayerScope");
                 port.setAccessible(true);
-                int prior = port.getInt(server);
+                Object prior = port.get(server);
                 try {
-                  port.setInt(server, 25565);
+                  port.set(server, net.minecraft.server.MinecraftServer.MultiplayerScope.LAN);
                   advance.invoke(instanceField.get(null), client);
                   if (Harness.trigger("FOLD", 0.5, -60, 6))
                     throw new AssertionError("Published guard");
                 } finally {
-                  port.setInt(server, prior);
+                  port.set(server, prior);
                 }
               } else if (boundary.equals("remote")) {
                 var field = client.getClass().getDeclaredField("singleplayerServer");

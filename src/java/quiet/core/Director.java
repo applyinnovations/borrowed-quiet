@@ -58,7 +58,6 @@ public final class Director {
             case FOLD -> fold;
           };
       if (kind != previous && available) {
-        previous = kind;
         recover(intensity);
         return kind;
       }
@@ -69,6 +68,11 @@ public final class Director {
 
   public void recover(Intensity intensity) {
     remaining = intensity.minimum + randomInt(intensity.maximum - intensity.minimum + 1);
+  }
+
+  /** Placement can fail; only an actually presented episode changes repetition history. */
+  public void started(Kind kind) {
+    previous = java.util.Objects.requireNonNull(kind);
   }
 
   public void interrupt() {

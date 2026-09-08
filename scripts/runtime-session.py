@@ -4,6 +4,7 @@
 import json
 import os
 import pathlib
+import re
 import signal
 import subprocess
 import sys
@@ -111,7 +112,8 @@ try:
                 "ffmpeg",
                 "-y",
                 "-v",
-                "warning",
+                "info",
+                "-nostats",
                 "-f",
                 "x11grab",
                 "-video_size",
@@ -122,6 +124,8 @@ try:
                 env["DISPLAY"],
                 "-f",
                 "pulse",
+                "-isync",
+                "0",
                 "-i",
                 sink + ".monitor",
                 "-c:v",
@@ -208,6 +212,18 @@ finally:
     finished.set()
     if recorder is not None and recorder.poll() is None:
         recorder.communicate(b"q", timeout=20)
+    capture_log = directory / "capture.log"
+    if capture_log.exists():
+        text = capture_log.read_text(errors="replace")
+        starts = re.findall(r"Input #[01],[\s\S]*?start: ([\d.]+)", text)
+        if len(starts) == 2:
+            metadata_path = directory / "session-start.json"
+            metadata = json.loads(metadata_path.read_text())
+            metadata["recorder_requested_unix"] = metadata["recording_start_unix"]
+            metadata["recording_start_unix"] = float(starts[0])
+            metadata["audio_input_start_unix"] = float(starts[1])
+            metadata["synchronization"] = "FFmpeg -isync 0; both devices use host wall clock"
+            metadata_path.write_text(json.dumps(metadata, indent=2) + "\n")
     for process in reversed(processes):
         if process.poll() is None:
             process.send_signal(signal.SIGTERM)
