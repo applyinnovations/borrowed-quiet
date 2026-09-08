@@ -2,3 +2,6 @@
 result
 .runtime/
 build/
+dist/
+evidence/runtime/
+evidence/reviews/

@@ -16,6 +16,7 @@ import urllib.request
 parser = argparse.ArgumentParser()
 parser.add_argument("output", type=pathlib.Path)
 parser.add_argument("audio", type=pathlib.Path, nargs="+")
+parser.add_argument("--allow-silent-controls", action="store_true")
 args = parser.parse_args()
 args.output.mkdir(parents=True, exist_ok=False)
 devices = subprocess.check_output(["llama-server", "--list-devices"], text=True)
@@ -104,6 +105,25 @@ with (args.output / "server.log").open("w") as log:
                 check=False,
             )
             if measurement.returncode:
+                try:
+                    measured = json.loads(measurement.stdout)
+                except json.JSONDecodeError:
+                    measured = {}
+                if args.allow_silent_controls and measured.get("peak_sample", 3) <= 2:
+                    (args.output / f"{index:02d}-silence-control.json").write_text(
+                        json.dumps(
+                            {
+                                "file": str(path),
+                                "measurement": measured,
+                                "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                                "interpretation": "Measured digital silence control; no model inference or audible-content claim.",
+                            },
+                            indent=2,
+                        )
+                        + "\n"
+                    )
+                    print("SILENCE_CONTROL", path, flush=True)
+                    continue
                 raise ValueError(
                     "Silent/invalid input requires a separate control record: " + str(path)
                 )

@@ -11,8 +11,9 @@
     "seconds": 0.46,
     "channels": 1,
     "sha256": "3da4ca853bf017ee76c1624fe7dca02d6408aa6f3e19529ccf91bbf6772d7e30",
-    "inspection": "PENDING",
-    "decision": "NOT ACCEPTED"
+    "measurements": "evidence/reviews/asset-measurements/tread1/measurement.json",
+    "inspection": "docs/audio-review.md; complete isolated audio and recorded repeated/spatial/natural playback, with CUDA audio-input observations and objective measurements.",
+    "decision": "ACCEPTED"
   },
   {
     "id": "tread2",
@@ -26,8 +27,9 @@
     "seconds": 0.51,
     "channels": 1,
     "sha256": "d9f54795980a8e16731f8f79dfc178e51358725b5d460a396b680c0bb185dc01",
-    "inspection": "PENDING",
-    "decision": "NOT ACCEPTED"
+    "measurements": "evidence/reviews/asset-measurements/tread2/measurement.json",
+    "inspection": "docs/audio-review.md; complete isolated audio and recorded repeated/spatial/natural playback, with CUDA audio-input observations and objective measurements.",
+    "decision": "ACCEPTED"
   },
   {
     "id": "tap1",
@@ -41,8 +43,9 @@
     "seconds": 0.38,
     "channels": 1,
     "sha256": "4a6b3a48682a1a7cb941e9d00a680a0d54d741e9cab065e6d0aad7142e1c8d60",
-    "inspection": "PENDING",
-    "decision": "NOT ACCEPTED"
+    "measurements": "evidence/reviews/asset-measurements/tap1/measurement.json",
+    "inspection": "docs/audio-review.md; complete isolated and in-game playback. Short-clip loudness uses explicit R128 padding; model pulse-count error is not treated as timing evidence.",
+    "decision": "ACCEPTED"
   },
   {
     "id": "tap2",
@@ -56,8 +59,9 @@
     "seconds": 0.42,
     "channels": 1,
     "sha256": "a5d2a1008ffcae54e7946492512d24f014289ad273dd774a0bbd19cfa702b77e",
-    "inspection": "PENDING",
-    "decision": "NOT ACCEPTED"
+    "measurements": "evidence/reviews/asset-measurements/tap2/measurement.json",
+    "inspection": "docs/audio-review.md; complete isolated audio and recorded repeated/spatial/natural playback, with CUDA audio-input observations and objective measurements.",
+    "decision": "ACCEPTED"
   },
   {
     "id": "scrape",
@@ -71,8 +75,9 @@
     "seconds": 1.58,
     "channels": 1,
     "sha256": "eeee63de88d44ac0ced829b9149d768de27a1bb3911783080461e0c6f25f6534",
-    "inspection": "PENDING",
-    "decision": "NOT ACCEPTED"
+    "measurements": "evidence/reviews/asset-measurements/scrape/measurement.json",
+    "inspection": "docs/audio-review.md; full granular decay, two-voice overlap at original and comparison gains, music interaction and natural episodes reviewed; no delivered clipping.",
+    "decision": "ACCEPTED"
   },
   {
     "id": "fold",
@@ -86,7 +91,8 @@
     "seconds": 1.16,
     "channels": 1,
     "sha256": "6d2293d7967080881a2f73ae55cc19a24234bfb4d307d3cb22ddf6327e9245a5",
-    "inspection": "PENDING",
-    "decision": "NOT ACCEPTED"
+    "measurements": "evidence/reviews/asset-measurements/fold/measurement.json",
+    "inspection": "docs/audio-review.md; complete sound and contraction playback reviewed; peak-normalized overlap concern investigated with original-level and +12 dB controls and raw PCM measurements.",
+    "decision": "ACCEPTED"
   }
 ]

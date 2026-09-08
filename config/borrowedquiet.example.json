@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "enabled": true,
+  "intensity": "NORMAL",
+  "volume": 0.7,
+  "visuals": true,
+  "reducedMotion": false
+}

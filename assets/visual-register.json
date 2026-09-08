@@ -10,7 +10,7 @@
     "sha256": "9bafb7068122afe32bcf3c9e75da9b91aa9d98c4b02a3f589fb433101b8b2ea4",
     "modifications": "Added bounded grounding shadow; separated geometry removal from sound tail. Vanilla black concrete is referenced, never copied or redistributed.",
     "intended_use": "Brief local impossible geometry in ordinary familiar space",
-    "inspection": "PENDING final near/far, enclosed-mine and natural-context review",
-    "decision": "NOT ACCEPTED"
+    "inspection": "docs/visual-review.md: primary direct inspection of all 11 final views and contraction sequence; independent blind 31-minute natural-context review, including shoreline appearance at 14:57.5 and immediate return to mining. Evidence and aesthetic caveats preserved in the final dossier.",
+    "decision": "ACCEPTED"
   }
 ]
