@@ -1,0 +1,3449 @@
+{
+  "decision": "ACCEPTED",
+  "source_commit": "b762379f6d93567169f450747afb2a4216446224",
+  "package_sha256": "2133042d444e80d3e072ea7b1354adc3dbdd1e6b72a1dada12f8b5081f228b87",
+  "lock_sha256": "f5e5ca33ec6c271caf15946562b4de759447f272866249623b893e9d57e7d385",
+  "harness_sha256": "a70f1f2893ad8bdee72537679539f0fddbeb65deff0dde76584f735dc33cfa87",
+  "nix": "nix (Nix) 2.35.2",
+  "minecraft": "26.2",
+  "performance": {
+    "baseline": {
+      "seconds": 7229.9217,
+      "samples": 144560,
+      "frame_p95_ns": 6624272.0,
+      "tick_p95_ns": 513955.0,
+      "mod_p99_ns": 0.0,
+      "mod_max_ns": 0.0,
+      "heap_growth": -1636184,
+      "max_sounds": 0.0,
+      "max_entities": 0.0,
+      "max_trail": 0.0
+    },
+    "modded": {
+      "seconds": 7229.6069,
+      "samples": 144560,
+      "frame_p95_ns": 6817117.0,
+      "tick_p95_ns": 476058.0,
+      "mod_p99_ns": 4518.0,
+      "mod_max_ns": 2969385.0,
+      "heap_growth": -2216112,
+      "max_sounds": 1.0,
+      "max_entities": 3.0,
+      "max_trail": 32.0
+    },
+    "checks": {
+      "mod_p99": true,
+      "mod_maximum": true,
+      "frames": true,
+      "ticks": true,
+      "heap": true,
+      "resources": true
+    },
+    "passed": true
+  },
+  "settings": {
+    "renderer": "Nix Mesa llvmpipe",
+    "width": 960,
+    "height": 540,
+    "game_fps_cap": 30,
+    "capture_fps": 15,
+    "render_distance": 4,
+    "simulation_distance": 5,
+    "natural_intensity": "normal"
+  },
+  "requirements": [
+    {
+      "id": "A1",
+      "implementation": "flake.nix; build-java.py; CoreTests; resource validators",
+      "procedure_and_result": "Sandboxed lint/compile/resource/reproduction checks passed; 38,624,690 assertions.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "evidence/reviews/checks/asset-reproduction.txt",
+          "sha256": "13f66f7f2726d039a1fbcecdbd80f6d307705decea602d4e07d896aa483ba1bd"
+        },
+        {
+          "path": "evidence/reviews/checks/fabric-options-bytecode.txt",
+          "sha256": "068c3b435c298358e53c7f364602e8b44116e4b35aecdd97f4e459fd6c6d4009"
+        },
+        {
+          "path": "evidence/reviews/checks/resources.txt",
+          "sha256": "ca11101f3679cac67deb440bc54aec76043fab8d61c5be46c00a269f7fce110c"
+        },
+        {
+          "path": "evidence/reviews/checks/unit.txt",
+          "sha256": "eafd57ff40cdd94d876815888df819b6ce4481a95f20ac0e0c752bd865c52b0d"
+        },
+        {
+          "path": "evidence/reviews/final-static-console.txt",
+          "sha256": "8de851e736ae7eb4bdb84f9d813f52a989e5569019639c76f3ed8a1f62516aa8"
+        },
+        {
+          "path": "evidence/reviews/final-validation-console.txt",
+          "sha256": "accbdfa0daa0784931d756019df54b44a0bd419b576b21c00ee72a2643c01d39"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "implementation": "fabric.mod.json; launch.py; locked player dependencies",
+      "procedure_and_result": "Packaged jar installed in fresh graphical instances; expected dependency failures diagnosed.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "evidence/runtime/final/features-104729/capture/audio-routing.log",
+          "sha256": "394a0e969550ca4614ceea76e4924846974bcca3acd04149a2d81e5286c494bd"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/capture.log",
+          "sha256": "c51fc91b8c985d27a5a1c430fe65404a13686235b0db0306f8559a91e744c72b"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/game.log",
+          "sha256": "ccfbf33a4bbf64329f2d866fd9f9f1c9b0f160bd19561c554a4609d30fdadba6"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/session-start.json",
+          "sha256": "ba297debcb8c44ec066cfa5d136438c27e4d4623f3c614a454c178c811e7d51a"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/session.mkv",
+          "sha256": "1a6679a5d9da7fe341fd42aadcd72a721048a3fe474582ab8016fdc824d1f4b3"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0000_pace-visible.png",
+          "sha256": "b6c22382499db7733b0a586702064e45f65768f9811380f328b9a5ab8c0e2cc1"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0001_wall-visible.png",
+          "sha256": "3d5a41a455f2037c37a1b514def72e6818f505b33f9f66c036b9a884a4205c91"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0002_fold-visible.png",
+          "sha256": "a74fd4392887f7fbec9f2fbf6856ebf70ab989906f1bbc8e00c61059e9abe283"
+        },
+        {
+          "path": "evidence/runtime/final/missing-api/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/missing-api/capture/capture.log",
+          "sha256": "d1da5cce8bfe21b5535fb0192004a83ebda7f02a38c7e11c5ca10e847d150b3b"
+        },
+        {
+          "path": "evidence/runtime/final/missing-api/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/missing-api/capture/game.log",
+          "sha256": "d57e238b116e921f50357a9cbf6ae084f0b09f87989f14bbcc55d239eb0c7a98"
+        },
+        {
+          "path": "evidence/runtime/final/missing-api/capture/session-start.json",
+          "sha256": "6b3f76586bfcf0a86be0bf74abf613d0520ec6b9c84bac14d951a9d9bfe800bd"
+        },
+        {
+          "path": "evidence/runtime/final/missing-api/capture/session.mkv",
+          "sha256": "896a602964f43d613c9264cd0e7713974f1a7c253d7f5250ccad110640262036"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        },
+        {
+          "path": "evidence/runtime/final/wrong-version/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/wrong-version/capture/capture.log",
+          "sha256": "970fc9e227348b570c2dcb2efd047a30f7cfbcf28965712036b7e90bb9718be6"
+        },
+        {
+          "path": "evidence/runtime/final/wrong-version/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/wrong-version/capture/game.log",
+          "sha256": "8c83e62608aa29b49a02e70725f4c8bc81934b07c6eb9a7cfc347c493bb6dd3c"
+        },
+        {
+          "path": "evidence/runtime/final/wrong-version/capture/session-start.json",
+          "sha256": "68e29972b372d4fe7f38aa90066fb25cdca32d28aaa2330d61f2443ca654276b"
+        },
+        {
+          "path": "evidence/runtime/final/wrong-version/capture/session.mkv",
+          "sha256": "791035b36b127fdaf395caef42167bb6532ee9b78c75dcf6d6d24b06b01a54cd"
+        },
+        {
+          "path": "evidence/runtime/launcher-regression/features-104729/capture/audio-routing.log",
+          "sha256": "09b32deab2cd66fe3b7dbb77b246e1076bd985406f332fded4ec0496cbbac502"
+        },
+        {
+          "path": "evidence/runtime/launcher-regression/features-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/launcher-regression/features-104729/capture/capture.log",
+          "sha256": "376b2a2ab666d4753bc6f674945b5b977cbbbdc7e9dd407825c6f2a0982771f5"
+        },
+        {
+          "path": "evidence/runtime/launcher-regression/features-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/launcher-regression/features-104729/capture/game.log",
+          "sha256": "bfa95b6947d5b5878b7eda90d791e67d0af4c1b0a2c9f59c93a1646910207797"
+        },
+        {
+          "path": "evidence/runtime/launcher-regression/features-104729/capture/session-start.json",
+          "sha256": "33d2476040605ffaba6e4a2735cbd005fbe2d126b42cc25de7efbe6ef7513c80"
+        },
+        {
+          "path": "evidence/runtime/launcher-regression/features-104729/capture/session.mkv",
+          "sha256": "dfa56fa36dfc14e3f1653abe1ccfc636d2d8183026d01b8e5c6fbfffa1bea7b0"
+        },
+        {
+          "path": "evidence/runtime/launcher-regression/features-104729/game/screenshots/0000_pace-visible.png",
+          "sha256": "e74fed8a059af8b68bf6a20d3a0117f30ce27c47a46beecd702de98f1588527c"
+        },
+        {
+          "path": "evidence/runtime/launcher-regression/features-104729/game/screenshots/0001_wall-visible.png",
+          "sha256": "3d5a41a455f2037c37a1b514def72e6818f505b33f9f66c036b9a884a4205c91"
+        },
+        {
+          "path": "evidence/runtime/launcher-regression/features-104729/game/screenshots/0002_fold-visible.png",
+          "sha256": "a74fd4392887f7fbec9f2fbf6856ebf70ab989906f1bbc8e00c61059e9abe283"
+        },
+        {
+          "path": "evidence/runtime/launcher-regression/files.json",
+          "sha256": "46aa8f11843a0e15c78398be36416e475f9368e55e6feaaa03fed7cc80222896"
+        },
+        {
+          "path": "evidence/runtime/launcher-regression/report.json",
+          "sha256": "c3a4643b2fcd9586494aba17708263ca1cee4eeb625a52ab6ed354d416b838d8"
+        },
+        {
+          "path": "evidence/runtime/player-installation/capture/audio-routing.log",
+          "sha256": "7b39b16be16d2c77bca63af71d4ca11b8f38175b54e5f6140535fe2ab62bbff8"
+        },
+        {
+          "path": "evidence/runtime/player-installation/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/player-installation/capture/capture.log",
+          "sha256": "d45287fffc4287799a278a6bbdb5c5fe483615921cf960fad56afee77fb903db"
+        },
+        {
+          "path": "evidence/runtime/player-installation/capture/display.log",
+          "sha256": "b5fe96030cb0b291e67af9bcb80af82fac84d06b4ff14237a9b73ea673dad750"
+        },
+        {
+          "path": "evidence/runtime/player-installation/capture/game.log",
+          "sha256": "4c9d184fe49a8e167f40dfeaa94889ad2172006fb4fed7a4e66345388aba4b33"
+        },
+        {
+          "path": "evidence/runtime/player-installation/capture/session-start.json",
+          "sha256": "b500a330196d6633d6beff2494437a3a1854a8566dcf270a2fb00f26bdd9c762"
+        },
+        {
+          "path": "evidence/runtime/player-installation/capture/session.mkv",
+          "sha256": "2c761bce2926d6f521d3bc7e0c2aaf960c1b1506915af53f2f86eee1fafba453"
+        },
+        {
+          "path": "evidence/runtime/player-installation/files.json",
+          "sha256": "3cba10b3f0572dc7521cdcff870fa29da9a21daf6a304efae371b8dde51af404"
+        },
+        {
+          "path": "evidence/runtime/player-installation/game/screenshots/cheats-disabled-control-2.png",
+          "sha256": "493dddb1528d408bada202fdd619361064965ba187ce0140c2029bcea3c99484"
+        },
+        {
+          "path": "evidence/runtime/player-installation/game/screenshots/create-world.png",
+          "sha256": "bd52c82a97fd81f6a87cbd71e546ebb601140635e179bda76de9f4e27ebf8325"
+        },
+        {
+          "path": "evidence/runtime/player-installation/game/screenshots/menu-ready.png",
+          "sha256": "2e988564013a2b24120cc001eecbbfcbc0a104f892728ee3b1fc1de5bae4eb6f"
+        },
+        {
+          "path": "evidence/runtime/player-installation/game/screenshots/normal-status.png",
+          "sha256": "ca976e74e8e2ab61eb79ad8f4f49ad27e09b41bb912d764609223c43d342e066"
+        },
+        {
+          "path": "evidence/runtime/player-installation/game/screenshots/plain-world.png",
+          "sha256": "a9174ddd79584b66e78edfa59132db4326adccbafda4e495e2d6b4dcfc80157f"
+        },
+        {
+          "path": "evidence/runtime/player-installation/game/screenshots/saved-title.png",
+          "sha256": "820907cd0b36ab2bd1d6d9d3e41ef718b6c5a4410de7e455844e2f08e97d51e9"
+        },
+        {
+          "path": "evidence/runtime/player-installation/game/screenshots/startup.png",
+          "sha256": "b974fde8f4ef8160f2133610764ddc30b8eadda56525f262524ca096bfa8795b"
+        },
+        {
+          "path": "evidence/runtime/player-installation/game/screenshots/world-loaded.png",
+          "sha256": "da77cf1f98858f3e0378356b396d2321e19c93896379eacd848489d4215a0810"
+        },
+        {
+          "path": "evidence/runtime/player-installation/game/screenshots/world-options.png",
+          "sha256": "bd9bf5a71b75e7cda390ceff00c114942fc8d124adc8b105165e663b02ec5e33"
+        },
+        {
+          "path": "evidence/runtime/player-installation/report.json",
+          "sha256": "9bc03a2ebc068e155f457d0183471ea48fc90bae7a09a563e7b3f37c97b7544e"
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "implementation": "Client-only context adapter; OrdinaryTests",
+      "procedure_and_result": "Three seeds passed resulting-state assertions for mine/build/farm/combat/craft/explore.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "evidence/runtime/final/ordinary-104729/capture/audio-routing.log",
+          "sha256": "5d6de643fa53e0419c9c0702f7dd76203208d63114c712839a5907064ebd5ec3"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-104729/capture/capture.log",
+          "sha256": "78689a7fdfecdf8540fcef7012dbf0df066c379ba99b385345c54e8b29c067d8"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-104729/capture/game.log",
+          "sha256": "2dad638e5130b42e6c1206cd84705e906f7944f43987b4567f0f226660bbc9c0"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-104729/capture/session-start.json",
+          "sha256": "819bb2559f0b6b757a9fe9abf2e4fea1ff9933637d8d8487d822b80f84047fcb"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-104729/capture/session.mkv",
+          "sha256": "ce925c7e8d4c8dca29897a3cc121ca05a7e534373723331a56bc75d804ce39f0"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-104729/game/screenshots/0000_ordinary-fixture-complete.png",
+          "sha256": "7ceb4646acd8712fb1d34ffff9ea4596cf5f877369351f7d7434fb83015d4c58"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-821/capture/audio-routing.log",
+          "sha256": "5243c2a8723ee7154fa1466447b75a2622357d66bbf408df7957219323764f3c"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-821/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-821/capture/capture.log",
+          "sha256": "1360380f327c130ae1c77e5f4e3fa56f7a3b53e5ec37c1a53d41daefd8157745"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-821/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-821/capture/game.log",
+          "sha256": "269a60f110e21f0cdafa5f59a24847d69a4c734718a51ce60b6b857c4f72798e"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-821/capture/session-start.json",
+          "sha256": "f6f4f33f1a2483be8a9756e38f25821c38b7a8ab7c48808487f9b4dd3687198e"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-821/capture/session.mkv",
+          "sha256": "0e3fbb6ade9a108970485cb47dd6c65219222784a6faa8ef52d325b34478d6ff"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-821/game/screenshots/0000_ordinary-fixture-complete.png",
+          "sha256": "12f605ab5d46739e0ff801352541781d6fdc422fe8b4446f1d7de5c194fa97ed"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-8675309/capture/audio-routing.log",
+          "sha256": "079ad13225c30a8f69c7d9762980cfcbc81b97c32c5f8176387ec6de5c21fe7c"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-8675309/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-8675309/capture/capture.log",
+          "sha256": "001bd614c7b72fbf66c5f2267d3c8658cc6287b4dae0780d18b02cb6c5e5e4e3"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-8675309/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-8675309/capture/game.log",
+          "sha256": "30ce6def15c3d1446795294856ad9d35ec5f0051b55fa3fa4a201e8f56c715de"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-8675309/capture/session-start.json",
+          "sha256": "f837f409ee9841bfdab4046a0067b9f84a5000521d0c925a7bf4b572381c0a0a"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-8675309/capture/session.mkv",
+          "sha256": "5a293fe1174ca8fa5c7e1a1b1e075bc7f9a7ef73b5f5a01fb1ea458f94dd2770"
+        },
+        {
+          "path": "evidence/runtime/final/ordinary-8675309/game/screenshots/0000_ordinary-fixture-complete.png",
+          "sha256": "82b492dbe80b0fc80d396a8233470d71834d003e8c5ef7be5ee5a2f93eee798a"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        }
+      ]
+    },
+    {
+      "id": "A4",
+      "implementation": "Director; BorrowedQuiet; Presentation",
+      "procedure_and_result": "Forced activation/completion/cleanup and eligibility interruptions, plus unaccelerated natural scheduling.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "evidence/runtime/final/features-104729/capture/audio-routing.log",
+          "sha256": "394a0e969550ca4614ceea76e4924846974bcca3acd04149a2d81e5286c494bd"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/capture.log",
+          "sha256": "c51fc91b8c985d27a5a1c430fe65404a13686235b0db0306f8559a91e744c72b"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/game.log",
+          "sha256": "ccfbf33a4bbf64329f2d866fd9f9f1c9b0f160bd19561c554a4609d30fdadba6"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/session-start.json",
+          "sha256": "ba297debcb8c44ec066cfa5d136438c27e4d4623f3c614a454c178c811e7d51a"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/session.mkv",
+          "sha256": "1a6679a5d9da7fe341fd42aadcd72a721048a3fe474582ab8016fdc824d1f4b3"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0000_pace-visible.png",
+          "sha256": "b6c22382499db7733b0a586702064e45f65768f9811380f328b9a5ab8c0e2cc1"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0001_wall-visible.png",
+          "sha256": "3d5a41a455f2037c37a1b514def72e6818f505b33f9f66c036b9a884a4205c91"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0002_fold-visible.png",
+          "sha256": "a74fd4392887f7fbec9f2fbf6856ebf70ab989906f1bbc8e00c61059e9abe283"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/audio-routing.log",
+          "sha256": "6c2e0e593866c632a575fa4ab2431c4ffe9d4c06337de0f0eb08b6acc194a253"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/capture.log",
+          "sha256": "3b10741ea1f6bbddd69ce3af66f51cb628428ddb2885e50f3ecc80de6ce14f54"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/game.log",
+          "sha256": "b45f867946fe775504d7e1986f70235bc6f4d99bb38b1322b3f08c31affbb8a4"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/session-start.json",
+          "sha256": "6ad97e46d8ead895e76ef6f8343a27909a61b4c9b32f2c011270d8fa1e8598ae"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/session.mkv",
+          "sha256": "ee58f38c570dbb4c5621c649ab9af95b4e47c8667b0b42cca01c2c4f1947c310"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/files.json",
+          "sha256": "30d120efd72ed575ffbd2d93fb64245cca16c40e972309865e2b45cfeed8e702"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/audio-routing.log",
+          "sha256": "b8b9f5d0d954f28743464d4ce2c06fee1f37be21c65874b1b8389387fe7cdaa0"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/capture.log",
+          "sha256": "6b96effb18f540ac3d6b1a5bc9638bc33009487393a8475cc02a6ca9d45d9900"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/game.log",
+          "sha256": "b8380f3041b6d851e008660c0e15394a832690cdbfa3514d5cb6616a7599015e"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/session-start.json",
+          "sha256": "862c64fd2bc2939ba5d83e35be4cd514f425a839469d29878b96e091b18c31a6"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/session.mkv",
+          "sha256": "d1de68553ca112a8921aeaf380c88b98796695b322e6d42322f3200efbc1db80"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0000_natural-work-5.png",
+          "sha256": "6a1cd990590e340e1c6592dd2c7063ba33a58910050611d4a1e9d978ea041317"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0001_natural-work-10.png",
+          "sha256": "2f77645512e8cff5bf5c922c971e91d0b936e96cb6a07a9ddbf8990c421ba3f0"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0002_natural-work-15.png",
+          "sha256": "5253640af8bc74d915643ee021449170e046d8aa00905861fb6b244c51a04105"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0003_natural-work-20.png",
+          "sha256": "74cd81c0e7ae290bd684f5c327f6853bc1cf3142533b1768a4661f46bf35b97e"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0004_natural-work-25.png",
+          "sha256": "d3711d7aac2bc33e6349c36e78b8c1934d17c08c8a4137aaa1e5668997bf8642"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0005_natural-work-30.png",
+          "sha256": "dce2bd976eeaa088f9823a69643a18cc5b13f5d54d4c792b6b7c3c3e4b969777"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0006_natural-work-35.png",
+          "sha256": "bd00ef20ada080c5b4510954c26d6f767c408a1f8bf24916f10fa5f7e1961820"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0007_natural-work-40.png",
+          "sha256": "f022c6f2a89b3814500954c0c1482540400037059de637529c8157cdda6a8550"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/report.json",
+          "sha256": "fdeca3ee6bbed65316bd991592a5ff94decbe2e7073209253ebebac531192907"
+        }
+      ]
+    },
+    {
+      "id": "A5",
+      "implementation": "Session reset, interruption guards and ConfigStore",
+      "procedure_and_result": "Lifecycle suite and actual save/reopen passed; controlled remote/published guards are explicitly identified.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/audio-routing.log",
+          "sha256": "6c2e0e593866c632a575fa4ab2431c4ffe9d4c06337de0f0eb08b6acc194a253"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/capture.log",
+          "sha256": "3b10741ea1f6bbddd69ce3af66f51cb628428ddb2885e50f3ecc80de6ce14f54"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/game.log",
+          "sha256": "b45f867946fe775504d7e1986f70235bc6f4d99bb38b1322b3f08c31affbb8a4"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/session-start.json",
+          "sha256": "6ad97e46d8ead895e76ef6f8343a27909a61b4c9b32f2c011270d8fa1e8598ae"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/session.mkv",
+          "sha256": "ee58f38c570dbb4c5621c649ab9af95b4e47c8667b0b42cca01c2c4f1947c310"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/capture/audio-routing.log",
+          "sha256": "0ef62c41f78481d956208de9843706b9b8cf3db87bd6e8a0b84872da30c95e0c"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/capture/capture.log",
+          "sha256": "aba38b92fbe2c0d316ab3a4b2cf71b444946ddd691652e5ad494fffebca517f5"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/capture/game.log",
+          "sha256": "b83af527cac3fc0e0b71b8503237684e8144609337297373656338c173b278eb"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/capture/session-start.json",
+          "sha256": "cc398c68641a0cfa56206083a0d45662f58ab581e85d03f03e2a3b73beadaee9"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/capture/session.mkv",
+          "sha256": "aae0502b808901510e9a18ddcc7e507193f55c4bd62780e144d8fc68840752a8"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/game/screenshots/0000_reopened-world.png",
+          "sha256": "3470d4969daaaf708c6632888a46869bc8e59e4969db4992c8d1455e7e7e5743"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        }
+      ]
+    },
+    {
+      "id": "A6",
+      "implementation": "Bounded director, voices, geometry, candidates and configuration queue",
+      "procedure_and_result": "Malformed/oversized/type/range/queued-write tests, context boundaries and resource-cap exercises passed.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "evidence/reviews/checks/asset-reproduction.txt",
+          "sha256": "13f66f7f2726d039a1fbcecdbd80f6d307705decea602d4e07d896aa483ba1bd"
+        },
+        {
+          "path": "evidence/reviews/checks/fabric-options-bytecode.txt",
+          "sha256": "068c3b435c298358e53c7f364602e8b44116e4b35aecdd97f4e459fd6c6d4009"
+        },
+        {
+          "path": "evidence/reviews/checks/resources.txt",
+          "sha256": "ca11101f3679cac67deb440bc54aec76043fab8d61c5be46c00a269f7fce110c"
+        },
+        {
+          "path": "evidence/reviews/checks/unit.txt",
+          "sha256": "eafd57ff40cdd94d876815888df819b6ce4481a95f20ac0e0c752bd865c52b0d"
+        },
+        {
+          "path": "evidence/reviews/final-static-console.txt",
+          "sha256": "8de851e736ae7eb4bdb84f9d813f52a989e5569019639c76f3ed8a1f62516aa8"
+        },
+        {
+          "path": "evidence/reviews/final-validation-console.txt",
+          "sha256": "accbdfa0daa0784931d756019df54b44a0bd419b576b21c00ee72a2643c01d39"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/audio-routing.log",
+          "sha256": "6c2e0e593866c632a575fa4ab2431c4ffe9d4c06337de0f0eb08b6acc194a253"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/capture.log",
+          "sha256": "3b10741ea1f6bbddd69ce3af66f51cb628428ddb2885e50f3ecc80de6ce14f54"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/game.log",
+          "sha256": "b45f867946fe775504d7e1986f70235bc6f4d99bb38b1322b3f08c31affbb8a4"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/session-start.json",
+          "sha256": "6ad97e46d8ead895e76ef6f8343a27909a61b4c9b32f2c011270d8fa1e8598ae"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/session.mkv",
+          "sha256": "ee58f38c570dbb4c5621c649ab9af95b4e47c8667b0b42cca01c2c4f1947c310"
+        },
+        {
+          "path": "evidence/runtime/final/performance.json",
+          "sha256": "60591ae6b13975b16441cc438d14760ab56f0f49290bf032693b8fa957ff4053"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/capture/audio-routing.log",
+          "sha256": "cecda1f016f22b1e54061ab1cc487419aeed48ec1645b32779137003e2dc3e97"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/capture/capture.log",
+          "sha256": "eb920c94049496cfe26585f60ec639f7bb2fb0472f197f9a368406314bf67880"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/capture/display.log",
+          "sha256": "b5fe96030cb0b291e67af9bcb80af82fac84d06b4ff14237a9b73ea673dad750"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/capture/game.log",
+          "sha256": "29219002298e976bdd84f1b47f7f4683c15c80b2f4275cea1a0c3f3eeb85554b"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/capture/session-start.json",
+          "sha256": "165dbb5c83bb5010e5396f53a3fdb3c00ded24a1a464665dc51de5c67bce6575"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/capture/session.mkv",
+          "sha256": "741d169771968f1b5a2437c4831077f3b8da75194423a380ece13729c8b8c207"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0000_fold-day-0.png",
+          "sha256": "55b923a2ddd529754fed47c4fdbc99d9475116ad969897007f974f03666d9827"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0001_fold-day-1.png",
+          "sha256": "db29f127c33ffe4fa7db1b1e9765ad298f7beaa0b1d9d786ab95fced696db64f"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0002_fold-day-2.png",
+          "sha256": "e5f29e3af553df3fa7a26f4345e1afc34a6d3838ffbf1d82b20fc7a393488e57"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0003_fold-day-3.png",
+          "sha256": "7b653bf97ca8746d966c531977ec99905ed575d0cecff36e564c15406c1f6e6d"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0004_fold-night-0.png",
+          "sha256": "2ea536081382cc403cb4979f0dae8ac6b70635fc894ec8148369a3f169091c85"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0005_fold-night-1.png",
+          "sha256": "f8410ca2024df49add4455b8a96384dd542c6841a8a7e1e9289cfed058eaee07"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0006_fold-night-2.png",
+          "sha256": "6f85af203a4e62ab03e9be9f0461cc0e6e591a472172253f1490823f38e10711"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0007_fold-night-3.png",
+          "sha256": "985d63f624d3b289517df389d827ca3ed7701994ce84ceda3b1c6bae2cd677fc"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0008_fold-distance-3.2.png",
+          "sha256": "d934723d17cbaa64a0131ff363c585cb449617f3ea715da1dce9a078900ebd51"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0009_fold-distance-14.0.png",
+          "sha256": "4f0e2269f897e0904f575e69ab748c89030d5c09be0cd04f447895a45554ddab"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0010_fold-enclosed-mine.png",
+          "sha256": "5ee0db6d41e8c0e5d0187a1da7e796abe889db61b743d01204ad51a5871286fa"
+        }
+      ]
+    },
+    {
+      "id": "A7",
+      "implementation": "Six original Vorbis assets; three-part original geometry; subtitles/controls",
+      "procedure_and_result": "Complete tool-assisted AI audio and direct visual reviews accepted, with measured gain/spatial controls and documented limits.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "assets/register.json",
+          "sha256": "b29c181237d911e94839fd81db93d56f6259dda0e30b397bc8aa121a944a5a58"
+        },
+        {
+          "path": "assets/visual-register.json",
+          "sha256": "064c820c5b28433e0ca24debdbd88441d007365e0de08b7780b8392d042d352a"
+        },
+        {
+          "path": "docs/audio-review.md",
+          "sha256": "90c79c1884d2245f417e1f648dbbfe506568aacc58e98489d70b51cb74ea5920"
+        },
+        {
+          "path": "docs/experience-review.md",
+          "sha256": "b59b41a4334102b49f1bb21fa031323bd821ed29f65fb16f7ca5c6b894230d18"
+        },
+        {
+          "path": "docs/visual-review.md",
+          "sha256": "a7a98c1e2641891320f66d557e498b701af7776e75224205ce05b828002563ad"
+        },
+        {
+          "path": "evidence/reviews/asset-measurements/fold/measurement.json",
+          "sha256": "8beb945086b0b7c14e719a363838cdd94eb0d1e2e93ce3d2f28115435ca3867f"
+        },
+        {
+          "path": "evidence/reviews/asset-measurements/scrape/measurement.json",
+          "sha256": "83d22652f5d4a3cbecfcd5ab8335a83628ad7803679f0af9507ebb74a10037af"
+        },
+        {
+          "path": "evidence/reviews/asset-measurements/tap1/measurement.json",
+          "sha256": "f3a53048db33c3ce31987a6fdc9adbefffac39558d38f8ccd5400bad076317ba"
+        },
+        {
+          "path": "evidence/reviews/asset-measurements/tap2/measurement.json",
+          "sha256": "16605c65437fff17c0e63d19a328f2b4d1ddb08400b7203480103b4e9407c352"
+        },
+        {
+          "path": "evidence/reviews/asset-measurements/tread1/measurement.json",
+          "sha256": "e990fe3bea583a55118d63605ef42f8cc79c549b270e189a458e583922286e57"
+        },
+        {
+          "path": "evidence/reviews/asset-measurements/tread2/measurement.json",
+          "sha256": "14c0d00139b2d417ca51a9ade32b2b0b588a98926e6c9aa7b21f169a814b2bcc"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-1457.png",
+          "sha256": "0b58fa2033c27b3b44bc17edff8c2936653b0886431fc1a19e49f644420c259b"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-01.png",
+          "sha256": "8fb82fa7ecd1997cba08db914c9b0c7975bbd87aecdb4dfae53677e965d67f51"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-02.png",
+          "sha256": "44e4c4a5c881a5c3dba473a1e02db7467d39c6c9532c1ff3bd7e81876599a752"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-03.png",
+          "sha256": "3949101462f313a70ea7834fd434e49abe00316ace59f0d2840b2b55c15ba1c3"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-04.png",
+          "sha256": "2d6eea6fc918fadd803830abb66fc54bf10e9b7fe041612697a2ba1118a68f6a"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-05.png",
+          "sha256": "0c673a78c533f712e2b4c40826739a60fe1bd018563b9b6eeed96e1f45f743d9"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-06.png",
+          "sha256": "7b0ef14fa535ec890ffae8cfba4e7a41ebf57d7d3c1a524e81fcbc4843bd25ff"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-07.png",
+          "sha256": "d80ebba9f5fa020606288e219b1ff181bd105e1fd4d74c7c54ea04f625b75bde"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-08.png",
+          "sha256": "24d37e7d281916ecfc93c3a05b642cbccb5ab144e21b660c8960c7dc43e55afe"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-09.png",
+          "sha256": "fecfc3faf63c93efb5457512b5a58377cd4163824148c6665de7e3691ccde34a"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-10.png",
+          "sha256": "9efb625ef9ff960db6d015d41a16684a649c355ee6bfcf6e04ca6dbb135422b7"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-11.png",
+          "sha256": "1c3405cd0c088c428aa11c3bcc6a9ab314328eb67845f8abb02d55abb49e0a46"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-12.png",
+          "sha256": "054b99ddee55b5e86f129597eba0c51164fc3700d641ba46a93fdf543f4b97fd"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-13.png",
+          "sha256": "11c60d572322ac4e63c81adc36760e2bc6f2068d57abb40477527423d7b206b4"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-14.png",
+          "sha256": "2e2ab4c03e0ec4936fa404a597569398ecf534b51dde0af10091985e3ab1e8f5"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-dense-15.png",
+          "sha256": "e3627c8e13810003fe356f8b3df1bed3df71c4bfd523cdecbeeb2d0642dbcc43"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-detail.png",
+          "sha256": "e6cbbccdfc342f82bfe9ae6f1ba402e3ca5e8c07a40f18c76de4985329865853"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-knocks.png",
+          "sha256": "74d0060bd9a34c04ebbd560604cdb4fe752fc5f293dff382e321a99fcb63e59e"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-overview-01.png",
+          "sha256": "83a8f039959900eafaf33802cba64ddc3694a19483a93a78b59dafab72aace9d"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-overview-02.png",
+          "sha256": "467e1c34997a6c24dd8f86eb2b9c5b9525a4694f6a57cb14a08891c84f882321"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-overview-03.png",
+          "sha256": "78c4936b5e530df8dc61ac609d7b4654f0bcb186adf165b71f6996ad6d3a1fc9"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-overview-04.png",
+          "sha256": "9d6012d0fae690e1d719180c67208731acdc155aad5e11823b68cf34e2384846"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/natural-overview-05.png",
+          "sha256": "bc96551c782531e65871c96d2ea9dbf845f35c3f0acbb14d8bbddd2eccadd874"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/presentation-01.png",
+          "sha256": "d50f4ce00b128b8cc6e25050ddb896fd39af986aea34ae78582101ad0edbac34"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/presentation-02.png",
+          "sha256": "67b3913330e60364b8ec08ec232d0d77d31cfbd095b550c094698f62f9f30fff"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/presentation-0226.png",
+          "sha256": "02c9fb8fce66330bb14276a23b1a27b59057ab4446af4ef4827121d5e7c99552"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/presentation-0234.png",
+          "sha256": "2549a72788ea9dc35e578ab72a59a41aee40749e4fb78a19c808070755f53d8d"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/presentation-03.png",
+          "sha256": "8202b2b2f754517bc973fa5b0f76d3490ce2a0d007cdeb7750182f9831b237f3"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/presentation-04.png",
+          "sha256": "f5d65eec37e834a85c9d47288b7a9713817fc5416698effdb66bdd476aa9f258"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/presentation-05.png",
+          "sha256": "056d0686e1af6abaa670ab51818b6923e34a8138832c367152770300a80ca227"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/presentation-06.png",
+          "sha256": "50a0914c4499c3c5fdcc85588a832d9a0deae5d06bfe09d6ef70fa221e1e360d"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/presentation-07.png",
+          "sha256": "49635f8f625594da24967d0a80247b588c81f3e978eaa8609c106293f3b56aaa"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/presentation-day-detail.png",
+          "sha256": "d26eb579071962a8464ae8f05c9f27af07e4f6e07caa6cab7653c12db98e3a56"
+        },
+        {
+          "path": "evidence/reviews/blind-visual/presentation-night-detail.png",
+          "sha256": "287f66c8a1c420e4e36ce97b8bbfa8148699b661f9ad7b8d2106aa87bb3e24a8"
+        },
+        {
+          "path": "evidence/reviews/calibration.txt",
+          "sha256": "f5519a6f231383876818e5968abf0afc7d41cda613dfcb48efda2b5c4f2313ce"
+        },
+        {
+          "path": "evidence/reviews/checks/asset-reproduction.txt",
+          "sha256": "13f66f7f2726d039a1fbcecdbd80f6d307705decea602d4e07d896aa483ba1bd"
+        },
+        {
+          "path": "evidence/reviews/checks/fabric-options-bytecode.txt",
+          "sha256": "068c3b435c298358e53c7f364602e8b44116e4b35aecdd97f4e459fd6c6d4009"
+        },
+        {
+          "path": "evidence/reviews/checks/resources.txt",
+          "sha256": "ca11101f3679cac67deb440bc54aec76043fab8d61c5be46c00a269f7fce110c"
+        },
+        {
+          "path": "evidence/reviews/checks/unit.txt",
+          "sha256": "eafd57ff40cdd94d876815888df819b6ce4481a95f20ac0e0c752bd865c52b0d"
+        },
+        {
+          "path": "evidence/reviews/context-listening/00-review.json",
+          "sha256": "a7ca4c605016045162327ff3af430e1ca32e3c16faff7e44fc29aec82d513c62"
+        },
+        {
+          "path": "evidence/reviews/context-listening/01-silence-control.json",
+          "sha256": "fbf3f9f8a81ebae4cc0e75d412ec7507020c2e225eb98fe0945480b9469ea219"
+        },
+        {
+          "path": "evidence/reviews/context-listening/02-review.json",
+          "sha256": "7e5518bbb85ecf8b9ae8e8f0654927bac14861ed459e4209c54f26ba8c44bf2c"
+        },
+        {
+          "path": "evidence/reviews/context-listening/03-silence-control.json",
+          "sha256": "43590c2ae2a3aef199a9bf51edccefe786f658b5a8af71ccb97066bffb157e33"
+        },
+        {
+          "path": "evidence/reviews/context-listening/04-review.json",
+          "sha256": "250a35dfbcbb071b4f50b278cb6d140bb69a60b0a8ec95b6c5e01831845eb9e6"
+        },
+        {
+          "path": "evidence/reviews/context-listening/05-review.json",
+          "sha256": "09805a0176cc02e95ddfb562a18c8ea20505e7f7e52d52762491113d0ab964ab"
+        },
+        {
+          "path": "evidence/reviews/context-listening/06-review.json",
+          "sha256": "ec22b0270be4d880f170e26d5e5c8d2ee20ae3bc95308ee6863dea6ac4d3d95c"
+        },
+        {
+          "path": "evidence/reviews/context-listening/07-review.json",
+          "sha256": "25c2618d99b328208e9d097887d48fbf511da3950c8ea52f3e6d2648c13d43b3"
+        },
+        {
+          "path": "evidence/reviews/context-listening/08-review.json",
+          "sha256": "fb7bef7ea78184519cea37f6c2c884a08c766974a06e8d0dc9d29c2ee81205f6"
+        },
+        {
+          "path": "evidence/reviews/context-listening/09-review.json",
+          "sha256": "75808e7f1974b489533b8a863b9da519bcbdca60641eff03455872e214499b14"
+        },
+        {
+          "path": "evidence/reviews/context-listening/10-review.json",
+          "sha256": "97fad8f5703131187f342c978cfb86bbbb265ce2becfcc69bc16e9fc5c890ec3"
+        },
+        {
+          "path": "evidence/reviews/context-listening/11-review.json",
+          "sha256": "5c12e5cdeece4e6c7609d593b539bb9f2bcaad296b9f56c048a717c94fbb170a"
+        },
+        {
+          "path": "evidence/reviews/context-listening/12-review.json",
+          "sha256": "57a0b6af1e1b67c3a0d05f7873378def9599f18f97f2153916499a6cbf451b90"
+        },
+        {
+          "path": "evidence/reviews/context-listening/13-review.json",
+          "sha256": "892f99437e7319140daf2434708cb1fd7150ef6afd1b2a29ab226621f2b96a8d"
+        },
+        {
+          "path": "evidence/reviews/context-listening/14-review.json",
+          "sha256": "c906bd2a695976bea3fe55c34bf74d92f404efaca4bf4884bea23983b96926b1"
+        },
+        {
+          "path": "evidence/reviews/context-listening/15-review.json",
+          "sha256": "45c5988abe3ba68386b7cb4a53589e19f1ac9c5a9d599b5adfb594f374858f51"
+        },
+        {
+          "path": "evidence/reviews/context-listening/16-review.json",
+          "sha256": "e80349c1320c3786dbb053a72faae6e8eaeed8c6fe10429165cf694d67632bdf"
+        },
+        {
+          "path": "evidence/reviews/context-listening/17-review.json",
+          "sha256": "78622075d0996dbd1338741b03ab321d7fc4387ed0965f36717ab4daa5990681"
+        },
+        {
+          "path": "evidence/reviews/context-listening/18-review.json",
+          "sha256": "cfa81b48fe6fe639c4d990b1824e941796fb0bcd9899cf3ab9e8258fd6e220bc"
+        },
+        {
+          "path": "evidence/reviews/context-listening/19-review.json",
+          "sha256": "3eca9e5c396b2836d67531911e451731df9948c2bb2eba06786d06ded6bcda9e"
+        },
+        {
+          "path": "evidence/reviews/context-listening/20-review.json",
+          "sha256": "1fce47a1cccb8877f989334dde61d6326023689d598a294c6c1356af5022e249"
+        },
+        {
+          "path": "evidence/reviews/context-listening/21-review.json",
+          "sha256": "9738f73038c7694ac05f8195f57f89951626f1bf2c5a72f9ae72f1c1a8ac0c51"
+        },
+        {
+          "path": "evidence/reviews/context-listening/22-review.json",
+          "sha256": "08c77dc66655de4e9916d8a6ef71c220ecaadda63bd864fe65080eeb5c4377ca"
+        },
+        {
+          "path": "evidence/reviews/context-listening/23-review.json",
+          "sha256": "c33734a2bd29b06e111397f5317054e457e0d1995e6e76987e097cf13477c3d7"
+        },
+        {
+          "path": "evidence/reviews/context-listening/devices.txt",
+          "sha256": "cb44e69b65840fba894ac388fa8a8f2aaaeb4406b0d42279576236d6f9ed3d57"
+        },
+        {
+          "path": "evidence/reviews/context-listening/engine-version.txt",
+          "sha256": "f06194947ebaced567694d91e82a17e7e6b03bff19c16de8d818a612f87230d3"
+        },
+        {
+          "path": "evidence/reviews/context-listening/server.log",
+          "sha256": "fdec6146fa39c6131ce98535cc9fb6c253a0be625881ca42b03722207a79f83e"
+        },
+        {
+          "path": "evidence/reviews/cuda-device.txt",
+          "sha256": "35637d95c0831ca1674c7cda7c9703feb1fc6130b36b58ffc417dd300949f6a7"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/audio-statistics.log",
+          "sha256": "9a89219885b5ab336c039b72c2686fb9d14b5df7bc68835c31e0dd8ab727e08e"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/decode.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/independent-120.png",
+          "sha256": "91b8fe673f1d83f8a0358dab4cf40fbe0f1024e6f89bf1644baa77325a57a9f4"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/independent-7200.png",
+          "sha256": "75701b8e4260cf9c4f2defc548bb2bf6bfa6098bece1781d87bda6304e9936a4"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/independent-late-7200.png",
+          "sha256": "7feaef37604046e1edf01ac51756f1fa9524f24345d8187158f473df4ba72fb5"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/ordinary-early-01.png",
+          "sha256": "67d4d76eef31dd2347c90911fcf1026f7f7b4ebc1ca6fe0236914607110f5f8b"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/ordinary-early-02.png",
+          "sha256": "85934439b8adbb511542c7bb2809aefdca2313dee7248783059d56f1d29da165"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/ordinary-late-01.png",
+          "sha256": "dfef227b0b53b58510797c81629845136953aa6a937f1f0ddbb359f111eef036"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/ordinary-late-02.png",
+          "sha256": "b140afcfcb9d41806418a44ef2d92e8d99e80ac58a9b9bf58d565d91a0694fac"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/overview-01.png",
+          "sha256": "d58dac927d4254db470bb9157a55f2d486064307f7fd439b0a4d3fd108a78618"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/overview-02.png",
+          "sha256": "bb609d0a96658158dc5c4228807273004b29c33c04a3294c666eb30c6d88cb49"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/overview-03.png",
+          "sha256": "599323b5722d4b026cad00510b688047756906075099316e137b4fa89b94e3da"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/overview-04.png",
+          "sha256": "086bd1bfc0b3af3a6474f43cb51447eaa87e82a94717166f97f5a9298d981ece"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/overview-05.png",
+          "sha256": "24030f8dfadc23c4147dfb4975c41adb33a69f9a59c28a20d3e695b31e25ff7a"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/overview-06.png",
+          "sha256": "bc3a3c82fb7f2a0d307d8fafe9a4a34678b47883a9f67ec145f8c93774124eb2"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/baseline/overview.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/inspection-inputs.json",
+          "sha256": "e9f1927e83211805d063836099805ecb3d837e12aa58d5bfe91d1b02e787839d"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/audio-statistics.log",
+          "sha256": "dd4370b4a856210af82a91636b56aa5ef318260bb25114a92a73b0446adce11c"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/decode.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/fold-first-01.png",
+          "sha256": "ad05712f9a2de5433e08cafc70dd17e00ce6cafcc14c36fa1072bd210ae027c0"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/fold-first-02.png",
+          "sha256": "181cb9ee533accad8523efea9d53195c9d109bb43ead33f34e9ecf43047dd633"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/fold-last-01.png",
+          "sha256": "af688ef1e41e8a3fd44dc9a7626fa62e547cd994bff540b7a92f315b32c77d37"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/fold-last-02.png",
+          "sha256": "3cb1552b9947b50a26c826ce79b01a8c2ac2c2039d979f12aedf7104d5de4e62"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/independent-120.png",
+          "sha256": "1ab00ac15ec4baa247b6df1ff0314330da6412447144c6ffee6be0eaef50d399"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/independent-5480.png",
+          "sha256": "6e79c9d24e685fd6d78df068bc7464f2a63c3193bbbef67b72e91456df460b01"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/independent-5486-detail.png",
+          "sha256": "725eddc6c04243bfba9b8082d41d56b6b8d9bd70bfcf4a121c47132d868c7cbf"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/independent-5488-5.png",
+          "sha256": "459be961353d6b834a8a36f4b975d40c49a0a10d860b43e67874eaa657092cb8"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/independent-7200.png",
+          "sha256": "d2f75c16657905575b49521f672aa34166890b3df97fc3bc8916936560bdeff7"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/independent-late-7200.png",
+          "sha256": "f24ceb5d1e3262fd8691d186234bf1e8d91cf00eecff24046555f46199629d97"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/overview-01.png",
+          "sha256": "65190861591da5c9fe9412eb9b4438c3b8a7c918f80a3faf73156a046c82f3a9"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/overview-02.png",
+          "sha256": "060445368a4afd0c81e8f72f83bc112d11ee7b94cf5b6a752e722cbb770538fe"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/overview-03.png",
+          "sha256": "a96f7f27e977c89600d86066c537ceef01083f71324f178e247df0fd39f0448d"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/overview-04.png",
+          "sha256": "fe5345e37bc6d51b2ade315bfbc292444ab5983b5c22521642064969f4b3a3b1"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/overview-05.png",
+          "sha256": "41559ceb5054f69231b18d1de28e1d2927b282da4a4bdc51d849deb001c2148d"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/overview-06.png",
+          "sha256": "f31a030be0cfd115802d22b496621648b0dbb0ab08439e7b89a73ec72802379b"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/overview.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/pace-first-01.png",
+          "sha256": "e5d64d13e0b0038654156501bf3b43bad9c95bada18313123e7d34cce9af711d"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/pace-last-01.png",
+          "sha256": "314053835de486e2d04f78d1da507166445593e4faa4a6a7274e7dd7e2d2db9f"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/wall-first-01.png",
+          "sha256": "99ad06b5d6e632c226309751d20fbd6ecf97ba3a904026df0d352d9854bfcee8"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/wall-first-02.png",
+          "sha256": "e24fe2dc262727dfa0891fd58910ebc56131ab5576186de6218ff776e853eeea"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/wall-last-01.png",
+          "sha256": "a8c999d248fd996eed7e901d97556784bbb8d2c2684dcabbf6d2c617e136f430"
+        },
+        {
+          "path": "evidence/reviews/endurance/capture-review/modded/wall-last-02.png",
+          "sha256": "cc473825efe82d8756cffef6582d9ec8ed49f341d9b49b514428e47bb375d2c7"
+        },
+        {
+          "path": "evidence/reviews/endurance/independent-review.md",
+          "sha256": "536f0c13b26dd6bc4d8738c9d8abee403e9d34f69a7b97725a059771ceba3fee"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening-followup/00-review.json",
+          "sha256": "3438fb95f847fdff17a07ab2033c9f56973188645cb0e50790be9cb23e9c8527"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening-followup/devices.txt",
+          "sha256": "87b54c2431894bcdf810e8624dcb77ab45457203ef8605b189357936814db241"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening-followup/engine-version.txt",
+          "sha256": "f06194947ebaced567694d91e82a17e7e6b03bff19c16de8d818a612f87230d3"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening-followup/server.log",
+          "sha256": "89f9cbbccfff2c9c9a42c49433bc0e45830a931473a5d45f7fe330d0782733da"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening/00-review.json",
+          "sha256": "cc5da37d6acf48d71a3daf277934d9c116b4ae2e836e2ef1dcc9c32276f4f093"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening/01-review.json",
+          "sha256": "373ca08652670cd9e25447979a964fca2011413fba11145da56ca45f934d7508"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening/02-review.json",
+          "sha256": "c366579f2835b4743d1bb7c86ecf1261cb403c3c785adb8f93e2ac2f35bff60f"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening/03-review.json",
+          "sha256": "144bc8277c129d57b137c32ace9ab9f69c4315ec692129e87863143985bfb4f4"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening/04-review.json",
+          "sha256": "8d3e9626b4ae15c3867dd2c248b863e37b1ca73b0f0a56ae1ba2de073a3f3ce9"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening/05-review.json",
+          "sha256": "d831fca023266a6297e5ba33228f4cb102da01b0ee1d211313dda0e713b53433"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening/06-review.json",
+          "sha256": "a268d318d4836d3134be463325ef0047e2fe81b8226d47998a8d6af43b5fbdd2"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening/07-review.json",
+          "sha256": "eb1ade350b2f3fbf084118e7154e29ebda2e2a1ba4295d19c89d9950b2780116"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening/devices.txt",
+          "sha256": "87b54c2431894bcdf810e8624dcb77ab45457203ef8605b189357936814db241"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening/engine-version.txt",
+          "sha256": "f06194947ebaced567694d91e82a17e7e6b03bff19c16de8d818a612f87230d3"
+        },
+        {
+          "path": "evidence/reviews/endurance/listening/server.log",
+          "sha256": "8694e46015cbac421157c31805088b97dc75319a184e9aed3ba964ffbd4f8918"
+        },
+        {
+          "path": "evidence/reviews/excerpt-manifest.json",
+          "sha256": "2fa27ced11a60b98ee5fe13f8d695a2b6a7e16e03ede4d45fea783372f236467"
+        },
+        {
+          "path": "evidence/reviews/files.json",
+          "sha256": "1d6f74ee94d35cf0be5ef5aace81810e2b178fd37b1ede870199d48cfd65f4fb"
+        },
+        {
+          "path": "evidence/reviews/final-static-console.txt",
+          "sha256": "8de851e736ae7eb4bdb84f9d813f52a989e5569019639c76f3ed8a1f62516aa8"
+        },
+        {
+          "path": "evidence/reviews/final-validation-console.txt",
+          "sha256": "accbdfa0daa0784931d756019df54b44a0bd419b576b21c00ee72a2643c01d39"
+        },
+        {
+          "path": "evidence/reviews/host-monitor.jsonl",
+          "sha256": "a5087422faf8c3226c5606757c196c1cba0ddaafe0e26a0918864de3d4fb9648"
+        },
+        {
+          "path": "evidence/reviews/host.json",
+          "sha256": "63e29c3ec09ba5ec7dad83c9346251da508f6a753c9c5d64ca02e5ca3fccbd0b"
+        },
+        {
+          "path": "evidence/reviews/independent-rebuild-console.txt",
+          "sha256": "48c4f8cca46d4f26fe92b836ad872c8705ecf3da5defb92313d027dba0b6d6c9"
+        },
+        {
+          "path": "evidence/reviews/isolated-and-overlap/00-review.json",
+          "sha256": "6d767420be09222a9987c08eaffed2f5cd66ae5d4963eafa3ce4d543cc79e226"
+        },
+        {
+          "path": "evidence/reviews/isolated-and-overlap/01-review.json",
+          "sha256": "ff7297a9ba5041810445efd04763a63a7e52c9608ffa439cb1e9bea62b62319e"
+        },
+        {
+          "path": "evidence/reviews/isolated-and-overlap/02-review.json",
+          "sha256": "47253a9f28c50b7a5e123aabdf6a47fed44d2722bf3fc89571ab9459ac100ae1"
+        },
+        {
+          "path": "evidence/reviews/isolated-and-overlap/03-review.json",
+          "sha256": "85b76d79cd807be8dec16726bf56ae905c3011c9ec9031435dbf41ded206638a"
+        },
+        {
+          "path": "evidence/reviews/isolated-and-overlap/04-review.json",
+          "sha256": "fcdac6234592293c9c9f87036fc9849a811b62bbc1367f379d9f9a17f04043d9"
+        },
+        {
+          "path": "evidence/reviews/isolated-and-overlap/05-review.json",
+          "sha256": "be261bcf463039dfb7ee1ff4b0286ea7f9ea7ba8ea7e38cde01fbf2a95d6b4a3"
+        },
+        {
+          "path": "evidence/reviews/isolated-and-overlap/06-review.json",
+          "sha256": "23cde3d7e5f8c9ed052a86edfe346874303942ceeb8a3af65e39531740385db8"
+        },
+        {
+          "path": "evidence/reviews/isolated-and-overlap/07-review.json",
+          "sha256": "c6230de11c9daeabfe6d4d3887d74559eeafc2ae92f196bacbe234e1bd0ba8ae"
+        },
+        {
+          "path": "evidence/reviews/isolated-and-overlap/devices.txt",
+          "sha256": "91864a69e85f0c93f35f086c347436067c0f446137e06cef372d68ab541cd2fe"
+        },
+        {
+          "path": "evidence/reviews/isolated-and-overlap/engine-version.txt",
+          "sha256": "f06194947ebaced567694d91e82a17e7e6b03bff19c16de8d818a612f87230d3"
+        },
+        {
+          "path": "evidence/reviews/isolated-and-overlap/server.log",
+          "sha256": "1ded5e58b4b9cd96e78955df9a533d7bf1cfd5a8f562228815b476408a816918"
+        },
+        {
+          "path": "evidence/reviews/official-release-check.json",
+          "sha256": "4cee33275f6d5aff01e7a304895e0afa23d73d329447a65aa12c5a930b9bba65"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/00-position-6-5-0-5/measurement.json",
+          "sha256": "83dce36db4766da9b8625b605074cff5b948c3513a27fbb70b9f7f04341b5ecb"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/01-position-5-5-0-5/measurement.json",
+          "sha256": "4acf3f2a2b247ba6b92215ea9862362f4f5e70cd55e098a62fdd9c4d95262941"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/02-position-0-5-3-5/measurement.json",
+          "sha256": "be98cafcbc335e32d77f38be21be9d776e75bddac56f991a666e31d3314befe8"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/03-position-0-5-14-5/measurement.json",
+          "sha256": "1f9cd500fe44722409a1e0aaadf81cdcf899544d88852961c8e4b34c283c8afc"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/04-position-0-5-30-5/measurement.json",
+          "sha256": "75d23e1f2338f6b7b45d7b76ce64a4544f0bd6ff3789107df5ebdb1c67b1b1be"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/05-asset-tread1/measurement.json",
+          "sha256": "18a850f5108dcd382d54d36e3cf0c146a032084679ceeb95ff4977ec067495fd"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/06-asset-tread2/measurement.json",
+          "sha256": "65fa9aa715d6d79c936fe4195ddfba87ef567802f1237afe1233a08985383548"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/07-asset-tap1/measurement.json",
+          "sha256": "1e1f986c587c5b67706e060fafe4da04f58366ad5ffa96a9d74e3d7dc4b1de69"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/08-asset-tap2/measurement.json",
+          "sha256": "c211e9f4007ce50a7727cb3179d50264699b26a88f8143444e2721f61d4b68de"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/09-asset-scrape/measurement.json",
+          "sha256": "758744ff0c08a31321626a9511ac67c559564bf3432394ce4674d155fb7d7868"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/10-asset-fold/measurement.json",
+          "sha256": "79d6739649ce1b0bf7fe2de975093c220f13744c1fe30172c84744c42b2bd2d3"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/11-maximum-overlap/measurement.json",
+          "sha256": "8514f3b9268888ee141b88fd72ad88244f0bfaae155c821d1a730c4e6b580046"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/12-mod-muted/measurement.json",
+          "sha256": "3d74ebc2ec53712c79d923014710df753adab298d48619ea795c443f20e7ef83"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/13-ambient-muted/measurement.json",
+          "sha256": "4a182e0b5d351a09307aacd299064c262e41a365a00b1e7ec60b8d1e0e08d172"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/14-master-muted/measurement.json",
+          "sha256": "3b730af3f49f824e1e4c82b43b1f159a9d3999ef8551b193e87ae449fbc26108"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/15-music-overlap/measurement.json",
+          "sha256": "1a0408f8ea43c8068dcf8a3b3a0f44284ce5fc48163a53c33075e218892c4ea6"
+        },
+        {
+          "path": "evidence/reviews/presentation-measurements/index.json",
+          "sha256": "b41379278b617b581a6d6828b7ea742d94deec51bd6f2d2221350fe92b1de034"
+        },
+        {
+          "path": "evidence/reviews/reproduction.json",
+          "sha256": "903e81b389e8a52504127669302dc15482dfe47213ac396eac1ebbe79f984b81"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/capture/audio-routing.log",
+          "sha256": "cecda1f016f22b1e54061ab1cc487419aeed48ec1645b32779137003e2dc3e97"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/capture/capture.log",
+          "sha256": "eb920c94049496cfe26585f60ec639f7bb2fb0472f197f9a368406314bf67880"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/capture/display.log",
+          "sha256": "b5fe96030cb0b291e67af9bcb80af82fac84d06b4ff14237a9b73ea673dad750"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/capture/game.log",
+          "sha256": "29219002298e976bdd84f1b47f7f4683c15c80b2f4275cea1a0c3f3eeb85554b"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/capture/session-start.json",
+          "sha256": "165dbb5c83bb5010e5396f53a3fdb3c00ded24a1a464665dc51de5c67bce6575"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/capture/session.mkv",
+          "sha256": "741d169771968f1b5a2437c4831077f3b8da75194423a380ece13729c8b8c207"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0000_fold-day-0.png",
+          "sha256": "55b923a2ddd529754fed47c4fdbc99d9475116ad969897007f974f03666d9827"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0001_fold-day-1.png",
+          "sha256": "db29f127c33ffe4fa7db1b1e9765ad298f7beaa0b1d9d786ab95fced696db64f"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0002_fold-day-2.png",
+          "sha256": "e5f29e3af553df3fa7a26f4345e1afc34a6d3838ffbf1d82b20fc7a393488e57"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0003_fold-day-3.png",
+          "sha256": "7b653bf97ca8746d966c531977ec99905ed575d0cecff36e564c15406c1f6e6d"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0004_fold-night-0.png",
+          "sha256": "2ea536081382cc403cb4979f0dae8ac6b70635fc894ec8148369a3f169091c85"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0005_fold-night-1.png",
+          "sha256": "f8410ca2024df49add4455b8a96384dd542c6841a8a7e1e9289cfed058eaee07"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0006_fold-night-2.png",
+          "sha256": "6f85af203a4e62ab03e9be9f0461cc0e6e591a472172253f1490823f38e10711"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0007_fold-night-3.png",
+          "sha256": "985d63f624d3b289517df389d827ca3ed7701994ce84ceda3b1c6bae2cd677fc"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0008_fold-distance-3.2.png",
+          "sha256": "d934723d17cbaa64a0131ff363c585cb449617f3ea715da1dce9a078900ebd51"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0009_fold-distance-14.0.png",
+          "sha256": "4f0e2269f897e0904f575e69ab748c89030d5c09be0cd04f447895a45554ddab"
+        },
+        {
+          "path": "evidence/runtime/reviewed-functional/presentation-104729/game/screenshots/0010_fold-enclosed-mine.png",
+          "sha256": "5ee0db6d41e8c0e5d0187a1da7e796abe889db61b743d01204ad51a5871286fa"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/files.json",
+          "sha256": "30d120efd72ed575ffbd2d93fb64245cca16c40e972309865e2b45cfeed8e702"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/audio-routing.log",
+          "sha256": "b8b9f5d0d954f28743464d4ce2c06fee1f37be21c65874b1b8389387fe7cdaa0"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/capture.log",
+          "sha256": "6b96effb18f540ac3d6b1a5bc9638bc33009487393a8475cc02a6ca9d45d9900"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/game.log",
+          "sha256": "b8380f3041b6d851e008660c0e15394a832690cdbfa3514d5cb6616a7599015e"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/session-start.json",
+          "sha256": "862c64fd2bc2939ba5d83e35be4cd514f425a839469d29878b96e091b18c31a6"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/session.mkv",
+          "sha256": "d1de68553ca112a8921aeaf380c88b98796695b322e6d42322f3200efbc1db80"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0000_natural-work-5.png",
+          "sha256": "6a1cd990590e340e1c6592dd2c7063ba33a58910050611d4a1e9d978ea041317"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0001_natural-work-10.png",
+          "sha256": "2f77645512e8cff5bf5c922c971e91d0b936e96cb6a07a9ddbf8990c421ba3f0"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0002_natural-work-15.png",
+          "sha256": "5253640af8bc74d915643ee021449170e046d8aa00905861fb6b244c51a04105"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0003_natural-work-20.png",
+          "sha256": "74cd81c0e7ae290bd684f5c327f6853bc1cf3142533b1768a4661f46bf35b97e"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0004_natural-work-25.png",
+          "sha256": "d3711d7aac2bc33e6349c36e78b8c1934d17c08c8a4137aaa1e5668997bf8642"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0005_natural-work-30.png",
+          "sha256": "dce2bd976eeaa088f9823a69643a18cc5b13f5d54d4c792b6b7c3c3e4b969777"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0006_natural-work-35.png",
+          "sha256": "bd00ef20ada080c5b4510954c26d6f767c408a1f8bf24916f10fa5f7e1961820"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0007_natural-work-40.png",
+          "sha256": "f022c6f2a89b3814500954c0c1482540400037059de637529c8157cdda6a8550"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/report.json",
+          "sha256": "fdeca3ee6bbed65316bd991592a5ff94decbe2e7073209253ebebac531192907"
+        }
+      ]
+    },
+    {
+      "id": "A8",
+      "implementation": "RuntimeTests.endurance; isolated capture",
+      "procedure_and_result": "Both conditions completed at least 7200 real wall seconds with equivalent work/settings; recordings reviewed.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "docs/endurance-review.md",
+          "sha256": "3fb825454ce93445253922120e68ae7b292afdf527d83d16707beef382907012"
+        },
+        {
+          "path": "evidence/reviews/host-monitor.jsonl",
+          "sha256": "a5087422faf8c3226c5606757c196c1cba0ddaafe0e26a0918864de3d4fb9648"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/audio-routing.log",
+          "sha256": "5a21d3d5e82d8b6a7ad156d8e1d13d67048c3c0566a0a4b095674f7b52151b47"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/capture.log",
+          "sha256": "7eacc342d166c88747d240aac18eaef9f7626f3f2d258ebb5beab97ef576d767"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/game.log",
+          "sha256": "e908dc72e08107d7d5f98852010a15dbc43ece3723883be6833e3ba482c464fa"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/session-start.json",
+          "sha256": "30f30109b0d475822987de86ae712acce8f92a9dc1bd267167202725846d503a"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/session.mkv",
+          "sha256": "e3cdac353c41c81ae59a8f4113e307e4c5a34c60f8ddb72103cd47a589528a16"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/metrics.csv",
+          "sha256": "8e1234f1e1f2a79d8e7c4fd8dd63766603b929ccc199e2f1092b2a2fc5b35e13"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0000_endurance-20.png",
+          "sha256": "002432e8f3351960a5ed77d5b3873872c225dbe66844e9bcf40226d97a2c195c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0001_endurance-40.png",
+          "sha256": "c40d282e9df3ba52b9a0b5d7a6007a848b83f48c0ddbfcd17d8da8c187078042"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0002_endurance-60.png",
+          "sha256": "5171075aac7506e15ba50a2d9e809164036ef56a037377f4f51b00a29ddcec9e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0003_endurance-80.png",
+          "sha256": "9b4d5bcc265646c382a13a8d14a0bd9672fb9eabcde615ca527fcfbb716c70b4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0004_endurance-100.png",
+          "sha256": "d5b233ed6d9472c92daf9f280efe62618d744431ceac49e954769e6cf1a37886"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0005_endurance-120.png",
+          "sha256": "0a3f5745a99a32b3faceea0594d4ca7e30e9d4bb19d1320a71cd1ae2d439a2c8"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0006_endurance-140.png",
+          "sha256": "e647382d2d943d78527a3f30876edc85eee66891c1ac40025865a673be8fd2ce"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0007_endurance-160.png",
+          "sha256": "fc30b88771bf0fd34132db083750809f45cf7ef33eb63a33d904e8526de9347c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0008_endurance-180.png",
+          "sha256": "ec3d0cbce22f13b6256d4fe1581b5197463971535d966a2752d357821f424fb4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0009_endurance-200.png",
+          "sha256": "36f23178d11901e7c7c3d511c145cb649522318ffb431520b77944506bd2783a"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/audio-routing.log",
+          "sha256": "e20c4c2518ca33a4ba5e3786b3208faa09f224aa148e206d626ae079a5ad6488"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/capture.log",
+          "sha256": "5f3f7dba2a8f515213758bcdda8362261c1ca4fb922545d694558a42b1e5840e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/game.log",
+          "sha256": "677bd1603064135bd48b783f84058b3c9db46df8e2a0c8981e424a89a95457a2"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/session-start.json",
+          "sha256": "39e4ab5832403ab8eef46b71fe72e57de049e6e96393ed5569af826f1fbec624"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/session.mkv",
+          "sha256": "74d92a510b3085818e8886ab07740b9722ecc11e319a050ee28754f7256e0d87"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/metrics.csv",
+          "sha256": "f8875896eb984e59b39bc5d86984eecdafd4b94471c8329de07755f6c0527e58"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0000_endurance-20.png",
+          "sha256": "002432e8f3351960a5ed77d5b3873872c225dbe66844e9bcf40226d97a2c195c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0001_endurance-40.png",
+          "sha256": "c40d282e9df3ba52b9a0b5d7a6007a848b83f48c0ddbfcd17d8da8c187078042"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0002_endurance-60.png",
+          "sha256": "5171075aac7506e15ba50a2d9e809164036ef56a037377f4f51b00a29ddcec9e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0003_endurance-80.png",
+          "sha256": "9b4d5bcc265646c382a13a8d14a0bd9672fb9eabcde615ca527fcfbb716c70b4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0004_endurance-100.png",
+          "sha256": "d5b233ed6d9472c92daf9f280efe62618d744431ceac49e954769e6cf1a37886"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0005_endurance-120.png",
+          "sha256": "0a3f5745a99a32b3faceea0594d4ca7e30e9d4bb19d1320a71cd1ae2d439a2c8"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0006_endurance-140.png",
+          "sha256": "e647382d2d943d78527a3f30876edc85eee66891c1ac40025865a673be8fd2ce"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0007_endurance-160.png",
+          "sha256": "fc30b88771bf0fd34132db083750809f45cf7ef33eb63a33d904e8526de9347c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0008_endurance-180.png",
+          "sha256": "ec3d0cbce22f13b6256d4fe1581b5197463971535d966a2752d357821f424fb4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0009_endurance-200.png",
+          "sha256": "36f23178d11901e7c7c3d511c145cb649522318ffb431520b77944506bd2783a"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        }
+      ]
+    },
+    {
+      "id": "A9",
+      "implementation": "Constant-bounded client work; Telemetry; check-performance.py",
+      "procedure_and_result": "All predefined frame/tick/mod-time/retention/resource budgets passed without relaxed thresholds.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "docs/endurance-review.md",
+          "sha256": "3fb825454ce93445253922120e68ae7b292afdf527d83d16707beef382907012"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/audio-routing.log",
+          "sha256": "5a21d3d5e82d8b6a7ad156d8e1d13d67048c3c0566a0a4b095674f7b52151b47"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/capture.log",
+          "sha256": "7eacc342d166c88747d240aac18eaef9f7626f3f2d258ebb5beab97ef576d767"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/game.log",
+          "sha256": "e908dc72e08107d7d5f98852010a15dbc43ece3723883be6833e3ba482c464fa"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/session-start.json",
+          "sha256": "30f30109b0d475822987de86ae712acce8f92a9dc1bd267167202725846d503a"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/session.mkv",
+          "sha256": "e3cdac353c41c81ae59a8f4113e307e4c5a34c60f8ddb72103cd47a589528a16"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/metrics.csv",
+          "sha256": "8e1234f1e1f2a79d8e7c4fd8dd63766603b929ccc199e2f1092b2a2fc5b35e13"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0000_endurance-20.png",
+          "sha256": "002432e8f3351960a5ed77d5b3873872c225dbe66844e9bcf40226d97a2c195c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0001_endurance-40.png",
+          "sha256": "c40d282e9df3ba52b9a0b5d7a6007a848b83f48c0ddbfcd17d8da8c187078042"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0002_endurance-60.png",
+          "sha256": "5171075aac7506e15ba50a2d9e809164036ef56a037377f4f51b00a29ddcec9e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0003_endurance-80.png",
+          "sha256": "9b4d5bcc265646c382a13a8d14a0bd9672fb9eabcde615ca527fcfbb716c70b4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0004_endurance-100.png",
+          "sha256": "d5b233ed6d9472c92daf9f280efe62618d744431ceac49e954769e6cf1a37886"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0005_endurance-120.png",
+          "sha256": "0a3f5745a99a32b3faceea0594d4ca7e30e9d4bb19d1320a71cd1ae2d439a2c8"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0006_endurance-140.png",
+          "sha256": "e647382d2d943d78527a3f30876edc85eee66891c1ac40025865a673be8fd2ce"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0007_endurance-160.png",
+          "sha256": "fc30b88771bf0fd34132db083750809f45cf7ef33eb63a33d904e8526de9347c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0008_endurance-180.png",
+          "sha256": "ec3d0cbce22f13b6256d4fe1581b5197463971535d966a2752d357821f424fb4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0009_endurance-200.png",
+          "sha256": "36f23178d11901e7c7c3d511c145cb649522318ffb431520b77944506bd2783a"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/audio-routing.log",
+          "sha256": "e20c4c2518ca33a4ba5e3786b3208faa09f224aa148e206d626ae079a5ad6488"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/capture.log",
+          "sha256": "5f3f7dba2a8f515213758bcdda8362261c1ca4fb922545d694558a42b1e5840e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/game.log",
+          "sha256": "677bd1603064135bd48b783f84058b3c9db46df8e2a0c8981e424a89a95457a2"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/session-start.json",
+          "sha256": "39e4ab5832403ab8eef46b71fe72e57de049e6e96393ed5569af826f1fbec624"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/session.mkv",
+          "sha256": "74d92a510b3085818e8886ab07740b9722ecc11e319a050ee28754f7256e0d87"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/metrics.csv",
+          "sha256": "f8875896eb984e59b39bc5d86984eecdafd4b94471c8329de07755f6c0527e58"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0000_endurance-20.png",
+          "sha256": "002432e8f3351960a5ed77d5b3873872c225dbe66844e9bcf40226d97a2c195c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0001_endurance-40.png",
+          "sha256": "c40d282e9df3ba52b9a0b5d7a6007a848b83f48c0ddbfcd17d8da8c187078042"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0002_endurance-60.png",
+          "sha256": "5171075aac7506e15ba50a2d9e809164036ef56a037377f4f51b00a29ddcec9e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0003_endurance-80.png",
+          "sha256": "9b4d5bcc265646c382a13a8d14a0bd9672fb9eabcde615ca527fcfbb716c70b4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0004_endurance-100.png",
+          "sha256": "d5b233ed6d9472c92daf9f280efe62618d744431ceac49e954769e6cf1a37886"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0005_endurance-120.png",
+          "sha256": "0a3f5745a99a32b3faceea0594d4ca7e30e9d4bb19d1320a71cd1ae2d439a2c8"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0006_endurance-140.png",
+          "sha256": "e647382d2d943d78527a3f30876edc85eee66891c1ac40025865a673be8fd2ce"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0007_endurance-160.png",
+          "sha256": "fc30b88771bf0fd34132db083750809f45cf7ef33eb63a33d904e8526de9347c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0008_endurance-180.png",
+          "sha256": "ec3d0cbce22f13b6256d4fe1581b5197463971535d966a2752d357821f424fb4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0009_endurance-200.png",
+          "sha256": "36f23178d11901e7c7c3d511c145cb649522318ffb431520b77944506bd2783a"
+        },
+        {
+          "path": "evidence/runtime/final/performance.json",
+          "sha256": "60591ae6b13975b16441cc438d14760ab56f0f49290bf032693b8fa957ff4053"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        }
+      ]
+    },
+    {
+      "id": "A10",
+      "implementation": "Off command, ConfigStore and session-local vanilla displays",
+      "procedure_and_result": "Disable persists through a fresh client; prior world loads without mod, preserving marker block and inventory.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "evidence/runtime/final/disabled-startup/capture/audio-routing.log",
+          "sha256": "37bd3544562626409709786aede8a21708efe5b68b28703f5a04da3bc75614ad"
+        },
+        {
+          "path": "evidence/runtime/final/disabled-startup/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/disabled-startup/capture/capture.log",
+          "sha256": "1e82bc125471ac14da105eaad8c31523cab848d67063b77d78b65a22b38eb9c9"
+        },
+        {
+          "path": "evidence/runtime/final/disabled-startup/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/disabled-startup/capture/game.log",
+          "sha256": "7f948eca969c5ed8e19db0477f45c98ea297d979e08cd6f5950e4b55b0e660bc"
+        },
+        {
+          "path": "evidence/runtime/final/disabled-startup/capture/session-start.json",
+          "sha256": "ed99d7c6c6dd6adbaa9903583ffb2e65bc2da1e5291a34d168b1561f9f91928b"
+        },
+        {
+          "path": "evidence/runtime/final/disabled-startup/capture/session.mkv",
+          "sha256": "63868cced7f867466988eb1ac4da058d360d848cc7e733dc3ea7302cc542d21e"
+        },
+        {
+          "path": "evidence/runtime/final/malformed-startup/capture/audio-routing.log",
+          "sha256": "12474637ce92f9e9a65d37d28b0089c0e68d0e3f98379b517592957b1a4636bc"
+        },
+        {
+          "path": "evidence/runtime/final/malformed-startup/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/malformed-startup/capture/capture.log",
+          "sha256": "05637d8529e70a55a9d1a2fe4f29797a17ce2b9813710bef807a93f04c266fe8"
+        },
+        {
+          "path": "evidence/runtime/final/malformed-startup/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/malformed-startup/capture/game.log",
+          "sha256": "87db11e5c29b82b038de21b5717128678c2d364ac2dfa4fe274106178dd066ad"
+        },
+        {
+          "path": "evidence/runtime/final/malformed-startup/capture/session-start.json",
+          "sha256": "8a64a4762c5e956eead9d2790d85a68902bf4d0224a2afe3d2dda147b8534ec5"
+        },
+        {
+          "path": "evidence/runtime/final/malformed-startup/capture/session.mkv",
+          "sha256": "890ce2e56b4e1d007f34aaea688e06e7b1c73aaa5ff1f80bab913d554ce56371"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/capture/audio-routing.log",
+          "sha256": "0ef62c41f78481d956208de9843706b9b8cf3db87bd6e8a0b84872da30c95e0c"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/capture/capture.log",
+          "sha256": "aba38b92fbe2c0d316ab3a4b2cf71b444946ddd691652e5ad494fffebca517f5"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/capture/game.log",
+          "sha256": "b83af527cac3fc0e0b71b8503237684e8144609337297373656338c173b278eb"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/capture/session-start.json",
+          "sha256": "cc398c68641a0cfa56206083a0d45662f58ab581e85d03f03e2a3b73beadaee9"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/capture/session.mkv",
+          "sha256": "aae0502b808901510e9a18ddcc7e507193f55c4bd62780e144d8fc68840752a8"
+        },
+        {
+          "path": "evidence/runtime/final/persistence-104729/game/screenshots/0000_reopened-world.png",
+          "sha256": "3470d4969daaaf708c6632888a46869bc8e59e4969db4992c8d1455e7e7e5743"
+        },
+        {
+          "path": "evidence/runtime/final/removal/capture/audio-routing.log",
+          "sha256": "ebd8cfd04ae13259eedabc22c0bf5d624eac949fd80f482b4d746010c381d4f2"
+        },
+        {
+          "path": "evidence/runtime/final/removal/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/removal/capture/capture.log",
+          "sha256": "3c151fbeb70f37c23975c738215ed0e7389c79b8271d34004e8c84ee57896ff7"
+        },
+        {
+          "path": "evidence/runtime/final/removal/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/removal/capture/game.log",
+          "sha256": "b62fbaaa19b54531f2680859e06bac8be0bd594d8b0a88f305eb991e97f1b6e7"
+        },
+        {
+          "path": "evidence/runtime/final/removal/capture/session-start.json",
+          "sha256": "3a94cab7625f7ecc23fde12eb2093914f6a6a22f5330cd7a737288ee06d51284"
+        },
+        {
+          "path": "evidence/runtime/final/removal/capture/session.mkv",
+          "sha256": "cb53158bdcc6ec5a8083d17d53cf3ff139af4ce2750aeaf39e9cd781163fe4c0"
+        },
+        {
+          "path": "evidence/runtime/final/removal/game/screenshots/0000_removed-world.png",
+          "sha256": "bcb3050ced21b669a5ab8cac02fc3f5032450786a332795d1c81bcef552626d7"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        }
+      ]
+    },
+    {
+      "id": "A11",
+      "implementation": "Pinned Nix inputs, verified acquisition and deterministic jar writer",
+      "procedure_and_result": "New clean checkout/fresh runtime state; independent sandbox rebuild compared equal; exact package hash bound.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "deps/runtime.json",
+          "sha256": "ab5b972d9e8c1f53422adcd75ea38cccfa8a558ecb08b231d7bed26e6b2ffe4f"
+        },
+        {
+          "path": "evidence/reviews/checks/asset-reproduction.txt",
+          "sha256": "13f66f7f2726d039a1fbcecdbd80f6d307705decea602d4e07d896aa483ba1bd"
+        },
+        {
+          "path": "evidence/reviews/checks/fabric-options-bytecode.txt",
+          "sha256": "068c3b435c298358e53c7f364602e8b44116e4b35aecdd97f4e459fd6c6d4009"
+        },
+        {
+          "path": "evidence/reviews/checks/resources.txt",
+          "sha256": "ca11101f3679cac67deb440bc54aec76043fab8d61c5be46c00a269f7fce110c"
+        },
+        {
+          "path": "evidence/reviews/checks/unit.txt",
+          "sha256": "eafd57ff40cdd94d876815888df819b6ce4481a95f20ac0e0c752bd865c52b0d"
+        },
+        {
+          "path": "evidence/reviews/final-static-console.txt",
+          "sha256": "8de851e736ae7eb4bdb84f9d813f52a989e5569019639c76f3ed8a1f62516aa8"
+        },
+        {
+          "path": "evidence/reviews/final-validation-console.txt",
+          "sha256": "accbdfa0daa0784931d756019df54b44a0bd419b576b21c00ee72a2643c01d39"
+        },
+        {
+          "path": "evidence/reviews/reproduction.json",
+          "sha256": "903e81b389e8a52504127669302dc15482dfe47213ac396eac1ebbe79f984b81"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        },
+        {
+          "path": "flake.lock",
+          "sha256": "f5e5ca33ec6c271caf15946562b4de759447f272866249623b893e9d57e7d385"
+        }
+      ]
+    },
+    {
+      "id": "A12",
+      "implementation": "Specification, rights records, final readiness and package-bound dossier",
+      "procedure_and_result": "All requirements and assets accepted; stable release rechecked; source/tool/host/seed/hash provenance recorded.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "LICENSE",
+          "sha256": "337d6b7394e929e1ff9cbb05663324d2e217679f148a0603a64e0964e9ecaf7b"
+        },
+        {
+          "path": "docs/architecture-and-rights.md",
+          "sha256": "3123bdae84129d76a92c9f2e4c788c1ad50e59689c4588015b88b2066c3cdde7"
+        },
+        {
+          "path": "docs/final-readiness.md",
+          "sha256": "ff18a170572e3e65979d117ef6a8237f41241143aeea7028eb28025cc0d62e5b"
+        },
+        {
+          "path": "docs/specification.md",
+          "sha256": "3ad895f2a8cc7a2918361e09a445cce9db6651542f91fe1bbbff113a9e946faf"
+        },
+        {
+          "path": "evidence/reviews/host.json",
+          "sha256": "63e29c3ec09ba5ec7dad83c9346251da508f6a753c9c5d64ca02e5ca3fccbd0b"
+        },
+        {
+          "path": "evidence/reviews/official-release-check.json",
+          "sha256": "4cee33275f6d5aff01e7a304895e0afa23d73d329447a65aa12c5a930b9bba65"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        }
+      ]
+    },
+    {
+      "id": "F1",
+      "implementation": "Contextual irregular pace with recognition ending",
+      "procedure_and_result": "Controlled tests and natural recording satisfy the committed observable rubric.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "docs/experience-review.md",
+          "sha256": "b59b41a4334102b49f1bb21fa031323bd821ed29f65fb16f7ca5c6b894230d18"
+        },
+        {
+          "path": "evidence/reviews/checks/asset-reproduction.txt",
+          "sha256": "13f66f7f2726d039a1fbcecdbd80f6d307705decea602d4e07d896aa483ba1bd"
+        },
+        {
+          "path": "evidence/reviews/checks/fabric-options-bytecode.txt",
+          "sha256": "068c3b435c298358e53c7f364602e8b44116e4b35aecdd97f4e459fd6c6d4009"
+        },
+        {
+          "path": "evidence/reviews/checks/resources.txt",
+          "sha256": "ca11101f3679cac67deb440bc54aec76043fab8d61c5be46c00a269f7fce110c"
+        },
+        {
+          "path": "evidence/reviews/checks/unit.txt",
+          "sha256": "eafd57ff40cdd94d876815888df819b6ce4481a95f20ac0e0c752bd865c52b0d"
+        },
+        {
+          "path": "evidence/reviews/final-static-console.txt",
+          "sha256": "8de851e736ae7eb4bdb84f9d813f52a989e5569019639c76f3ed8a1f62516aa8"
+        },
+        {
+          "path": "evidence/reviews/final-validation-console.txt",
+          "sha256": "accbdfa0daa0784931d756019df54b44a0bd419b576b21c00ee72a2643c01d39"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/audio-routing.log",
+          "sha256": "5a21d3d5e82d8b6a7ad156d8e1d13d67048c3c0566a0a4b095674f7b52151b47"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/capture.log",
+          "sha256": "7eacc342d166c88747d240aac18eaef9f7626f3f2d258ebb5beab97ef576d767"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/game.log",
+          "sha256": "e908dc72e08107d7d5f98852010a15dbc43ece3723883be6833e3ba482c464fa"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/session-start.json",
+          "sha256": "30f30109b0d475822987de86ae712acce8f92a9dc1bd267167202725846d503a"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/session.mkv",
+          "sha256": "e3cdac353c41c81ae59a8f4113e307e4c5a34c60f8ddb72103cd47a589528a16"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/metrics.csv",
+          "sha256": "8e1234f1e1f2a79d8e7c4fd8dd63766603b929ccc199e2f1092b2a2fc5b35e13"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0000_endurance-20.png",
+          "sha256": "002432e8f3351960a5ed77d5b3873872c225dbe66844e9bcf40226d97a2c195c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0001_endurance-40.png",
+          "sha256": "c40d282e9df3ba52b9a0b5d7a6007a848b83f48c0ddbfcd17d8da8c187078042"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0002_endurance-60.png",
+          "sha256": "5171075aac7506e15ba50a2d9e809164036ef56a037377f4f51b00a29ddcec9e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0003_endurance-80.png",
+          "sha256": "9b4d5bcc265646c382a13a8d14a0bd9672fb9eabcde615ca527fcfbb716c70b4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0004_endurance-100.png",
+          "sha256": "d5b233ed6d9472c92daf9f280efe62618d744431ceac49e954769e6cf1a37886"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0005_endurance-120.png",
+          "sha256": "0a3f5745a99a32b3faceea0594d4ca7e30e9d4bb19d1320a71cd1ae2d439a2c8"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0006_endurance-140.png",
+          "sha256": "e647382d2d943d78527a3f30876edc85eee66891c1ac40025865a673be8fd2ce"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0007_endurance-160.png",
+          "sha256": "fc30b88771bf0fd34132db083750809f45cf7ef33eb63a33d904e8526de9347c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0008_endurance-180.png",
+          "sha256": "ec3d0cbce22f13b6256d4fe1581b5197463971535d966a2752d357821f424fb4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0009_endurance-200.png",
+          "sha256": "36f23178d11901e7c7c3d511c145cb649522318ffb431520b77944506bd2783a"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/audio-routing.log",
+          "sha256": "e20c4c2518ca33a4ba5e3786b3208faa09f224aa148e206d626ae079a5ad6488"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/capture.log",
+          "sha256": "5f3f7dba2a8f515213758bcdda8362261c1ca4fb922545d694558a42b1e5840e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/game.log",
+          "sha256": "677bd1603064135bd48b783f84058b3c9db46df8e2a0c8981e424a89a95457a2"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/session-start.json",
+          "sha256": "39e4ab5832403ab8eef46b71fe72e57de049e6e96393ed5569af826f1fbec624"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/session.mkv",
+          "sha256": "74d92a510b3085818e8886ab07740b9722ecc11e319a050ee28754f7256e0d87"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/metrics.csv",
+          "sha256": "f8875896eb984e59b39bc5d86984eecdafd4b94471c8329de07755f6c0527e58"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0000_endurance-20.png",
+          "sha256": "002432e8f3351960a5ed77d5b3873872c225dbe66844e9bcf40226d97a2c195c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0001_endurance-40.png",
+          "sha256": "c40d282e9df3ba52b9a0b5d7a6007a848b83f48c0ddbfcd17d8da8c187078042"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0002_endurance-60.png",
+          "sha256": "5171075aac7506e15ba50a2d9e809164036ef56a037377f4f51b00a29ddcec9e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0003_endurance-80.png",
+          "sha256": "9b4d5bcc265646c382a13a8d14a0bd9672fb9eabcde615ca527fcfbb716c70b4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0004_endurance-100.png",
+          "sha256": "d5b233ed6d9472c92daf9f280efe62618d744431ceac49e954769e6cf1a37886"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0005_endurance-120.png",
+          "sha256": "0a3f5745a99a32b3faceea0594d4ca7e30e9d4bb19d1320a71cd1ae2d439a2c8"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0006_endurance-140.png",
+          "sha256": "e647382d2d943d78527a3f30876edc85eee66891c1ac40025865a673be8fd2ce"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0007_endurance-160.png",
+          "sha256": "fc30b88771bf0fd34132db083750809f45cf7ef33eb63a33d904e8526de9347c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0008_endurance-180.png",
+          "sha256": "ec3d0cbce22f13b6256d4fe1581b5197463971535d966a2752d357821f424fb4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0009_endurance-200.png",
+          "sha256": "36f23178d11901e7c7c3d511c145cb649522318ffb431520b77944506bd2783a"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/audio-routing.log",
+          "sha256": "394a0e969550ca4614ceea76e4924846974bcca3acd04149a2d81e5286c494bd"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/capture.log",
+          "sha256": "c51fc91b8c985d27a5a1c430fe65404a13686235b0db0306f8559a91e744c72b"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/game.log",
+          "sha256": "ccfbf33a4bbf64329f2d866fd9f9f1c9b0f160bd19561c554a4609d30fdadba6"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/session-start.json",
+          "sha256": "ba297debcb8c44ec066cfa5d136438c27e4d4623f3c614a454c178c811e7d51a"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/session.mkv",
+          "sha256": "1a6679a5d9da7fe341fd42aadcd72a721048a3fe474582ab8016fdc824d1f4b3"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0000_pace-visible.png",
+          "sha256": "b6c22382499db7733b0a586702064e45f65768f9811380f328b9a5ab8c0e2cc1"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0001_wall-visible.png",
+          "sha256": "3d5a41a455f2037c37a1b514def72e6818f505b33f9f66c036b9a884a4205c91"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0002_fold-visible.png",
+          "sha256": "a74fd4392887f7fbec9f2fbf6856ebf70ab989906f1bbc8e00c61059e9abe283"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/audio-routing.log",
+          "sha256": "6c2e0e593866c632a575fa4ab2431c4ffe9d4c06337de0f0eb08b6acc194a253"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/capture.log",
+          "sha256": "3b10741ea1f6bbddd69ce3af66f51cb628428ddb2885e50f3ecc80de6ce14f54"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/game.log",
+          "sha256": "b45f867946fe775504d7e1986f70235bc6f4d99bb38b1322b3f08c31affbb8a4"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/session-start.json",
+          "sha256": "6ad97e46d8ead895e76ef6f8343a27909a61b4c9b32f2c011270d8fa1e8598ae"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/session.mkv",
+          "sha256": "ee58f38c570dbb4c5621c649ab9af95b4e47c8667b0b42cca01c2c4f1947c310"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/files.json",
+          "sha256": "30d120efd72ed575ffbd2d93fb64245cca16c40e972309865e2b45cfeed8e702"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/audio-routing.log",
+          "sha256": "b8b9f5d0d954f28743464d4ce2c06fee1f37be21c65874b1b8389387fe7cdaa0"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/capture.log",
+          "sha256": "6b96effb18f540ac3d6b1a5bc9638bc33009487393a8475cc02a6ca9d45d9900"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/game.log",
+          "sha256": "b8380f3041b6d851e008660c0e15394a832690cdbfa3514d5cb6616a7599015e"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/session-start.json",
+          "sha256": "862c64fd2bc2939ba5d83e35be4cd514f425a839469d29878b96e091b18c31a6"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/session.mkv",
+          "sha256": "d1de68553ca112a8921aeaf380c88b98796695b322e6d42322f3200efbc1db80"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0000_natural-work-5.png",
+          "sha256": "6a1cd990590e340e1c6592dd2c7063ba33a58910050611d4a1e9d978ea041317"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0001_natural-work-10.png",
+          "sha256": "2f77645512e8cff5bf5c922c971e91d0b936e96cb6a07a9ddbf8990c421ba3f0"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0002_natural-work-15.png",
+          "sha256": "5253640af8bc74d915643ee021449170e046d8aa00905861fb6b244c51a04105"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0003_natural-work-20.png",
+          "sha256": "74cd81c0e7ae290bd684f5c327f6853bc1cf3142533b1768a4661f46bf35b97e"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0004_natural-work-25.png",
+          "sha256": "d3711d7aac2bc33e6349c36e78b8c1934d17c08c8a4137aaa1e5668997bf8642"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0005_natural-work-30.png",
+          "sha256": "dce2bd976eeaa088f9823a69643a18cc5b13f5d54d4c792b6b7c3c3e4b969777"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0006_natural-work-35.png",
+          "sha256": "bd00ef20ada080c5b4510954c26d6f767c408a1f8bf24916f10fa5f7e1961820"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0007_natural-work-40.png",
+          "sha256": "f022c6f2a89b3814500954c0c1482540400037059de637529c8157cdda6a8550"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/report.json",
+          "sha256": "fdeca3ee6bbed65316bd991592a5ff94decbe2e7073209253ebebac531192907"
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "implementation": "Two-cluster work answer without world writes",
+      "procedure_and_result": "Controlled tests and natural recording satisfy the committed observable rubric.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "docs/experience-review.md",
+          "sha256": "b59b41a4334102b49f1bb21fa031323bd821ed29f65fb16f7ca5c6b894230d18"
+        },
+        {
+          "path": "evidence/reviews/checks/asset-reproduction.txt",
+          "sha256": "13f66f7f2726d039a1fbcecdbd80f6d307705decea602d4e07d896aa483ba1bd"
+        },
+        {
+          "path": "evidence/reviews/checks/fabric-options-bytecode.txt",
+          "sha256": "068c3b435c298358e53c7f364602e8b44116e4b35aecdd97f4e459fd6c6d4009"
+        },
+        {
+          "path": "evidence/reviews/checks/resources.txt",
+          "sha256": "ca11101f3679cac67deb440bc54aec76043fab8d61c5be46c00a269f7fce110c"
+        },
+        {
+          "path": "evidence/reviews/checks/unit.txt",
+          "sha256": "eafd57ff40cdd94d876815888df819b6ce4481a95f20ac0e0c752bd865c52b0d"
+        },
+        {
+          "path": "evidence/reviews/final-static-console.txt",
+          "sha256": "8de851e736ae7eb4bdb84f9d813f52a989e5569019639c76f3ed8a1f62516aa8"
+        },
+        {
+          "path": "evidence/reviews/final-validation-console.txt",
+          "sha256": "accbdfa0daa0784931d756019df54b44a0bd419b576b21c00ee72a2643c01d39"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/audio-routing.log",
+          "sha256": "5a21d3d5e82d8b6a7ad156d8e1d13d67048c3c0566a0a4b095674f7b52151b47"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/capture.log",
+          "sha256": "7eacc342d166c88747d240aac18eaef9f7626f3f2d258ebb5beab97ef576d767"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/game.log",
+          "sha256": "e908dc72e08107d7d5f98852010a15dbc43ece3723883be6833e3ba482c464fa"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/session-start.json",
+          "sha256": "30f30109b0d475822987de86ae712acce8f92a9dc1bd267167202725846d503a"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/session.mkv",
+          "sha256": "e3cdac353c41c81ae59a8f4113e307e4c5a34c60f8ddb72103cd47a589528a16"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/metrics.csv",
+          "sha256": "8e1234f1e1f2a79d8e7c4fd8dd63766603b929ccc199e2f1092b2a2fc5b35e13"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0000_endurance-20.png",
+          "sha256": "002432e8f3351960a5ed77d5b3873872c225dbe66844e9bcf40226d97a2c195c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0001_endurance-40.png",
+          "sha256": "c40d282e9df3ba52b9a0b5d7a6007a848b83f48c0ddbfcd17d8da8c187078042"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0002_endurance-60.png",
+          "sha256": "5171075aac7506e15ba50a2d9e809164036ef56a037377f4f51b00a29ddcec9e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0003_endurance-80.png",
+          "sha256": "9b4d5bcc265646c382a13a8d14a0bd9672fb9eabcde615ca527fcfbb716c70b4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0004_endurance-100.png",
+          "sha256": "d5b233ed6d9472c92daf9f280efe62618d744431ceac49e954769e6cf1a37886"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0005_endurance-120.png",
+          "sha256": "0a3f5745a99a32b3faceea0594d4ca7e30e9d4bb19d1320a71cd1ae2d439a2c8"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0006_endurance-140.png",
+          "sha256": "e647382d2d943d78527a3f30876edc85eee66891c1ac40025865a673be8fd2ce"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0007_endurance-160.png",
+          "sha256": "fc30b88771bf0fd34132db083750809f45cf7ef33eb63a33d904e8526de9347c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0008_endurance-180.png",
+          "sha256": "ec3d0cbce22f13b6256d4fe1581b5197463971535d966a2752d357821f424fb4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0009_endurance-200.png",
+          "sha256": "36f23178d11901e7c7c3d511c145cb649522318ffb431520b77944506bd2783a"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/audio-routing.log",
+          "sha256": "e20c4c2518ca33a4ba5e3786b3208faa09f224aa148e206d626ae079a5ad6488"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/capture.log",
+          "sha256": "5f3f7dba2a8f515213758bcdda8362261c1ca4fb922545d694558a42b1e5840e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/game.log",
+          "sha256": "677bd1603064135bd48b783f84058b3c9db46df8e2a0c8981e424a89a95457a2"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/session-start.json",
+          "sha256": "39e4ab5832403ab8eef46b71fe72e57de049e6e96393ed5569af826f1fbec624"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/session.mkv",
+          "sha256": "74d92a510b3085818e8886ab07740b9722ecc11e319a050ee28754f7256e0d87"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/metrics.csv",
+          "sha256": "f8875896eb984e59b39bc5d86984eecdafd4b94471c8329de07755f6c0527e58"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0000_endurance-20.png",
+          "sha256": "002432e8f3351960a5ed77d5b3873872c225dbe66844e9bcf40226d97a2c195c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0001_endurance-40.png",
+          "sha256": "c40d282e9df3ba52b9a0b5d7a6007a848b83f48c0ddbfcd17d8da8c187078042"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0002_endurance-60.png",
+          "sha256": "5171075aac7506e15ba50a2d9e809164036ef56a037377f4f51b00a29ddcec9e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0003_endurance-80.png",
+          "sha256": "9b4d5bcc265646c382a13a8d14a0bd9672fb9eabcde615ca527fcfbb716c70b4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0004_endurance-100.png",
+          "sha256": "d5b233ed6d9472c92daf9f280efe62618d744431ceac49e954769e6cf1a37886"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0005_endurance-120.png",
+          "sha256": "0a3f5745a99a32b3faceea0594d4ca7e30e9d4bb19d1320a71cd1ae2d439a2c8"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0006_endurance-140.png",
+          "sha256": "e647382d2d943d78527a3f30876edc85eee66891c1ac40025865a673be8fd2ce"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0007_endurance-160.png",
+          "sha256": "fc30b88771bf0fd34132db083750809f45cf7ef33eb63a33d904e8526de9347c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0008_endurance-180.png",
+          "sha256": "ec3d0cbce22f13b6256d4fe1581b5197463971535d966a2752d357821f424fb4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0009_endurance-200.png",
+          "sha256": "36f23178d11901e7c7c3d511c145cb649522318ffb431520b77944506bd2783a"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/audio-routing.log",
+          "sha256": "394a0e969550ca4614ceea76e4924846974bcca3acd04149a2d81e5286c494bd"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/capture.log",
+          "sha256": "c51fc91b8c985d27a5a1c430fe65404a13686235b0db0306f8559a91e744c72b"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/game.log",
+          "sha256": "ccfbf33a4bbf64329f2d866fd9f9f1c9b0f160bd19561c554a4609d30fdadba6"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/session-start.json",
+          "sha256": "ba297debcb8c44ec066cfa5d136438c27e4d4623f3c614a454c178c811e7d51a"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/session.mkv",
+          "sha256": "1a6679a5d9da7fe341fd42aadcd72a721048a3fe474582ab8016fdc824d1f4b3"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0000_pace-visible.png",
+          "sha256": "b6c22382499db7733b0a586702064e45f65768f9811380f328b9a5ab8c0e2cc1"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0001_wall-visible.png",
+          "sha256": "3d5a41a455f2037c37a1b514def72e6818f505b33f9f66c036b9a884a4205c91"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0002_fold-visible.png",
+          "sha256": "a74fd4392887f7fbec9f2fbf6856ebf70ab989906f1bbc8e00c61059e9abe283"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/audio-routing.log",
+          "sha256": "6c2e0e593866c632a575fa4ab2431c4ffe9d4c06337de0f0eb08b6acc194a253"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/capture.log",
+          "sha256": "3b10741ea1f6bbddd69ce3af66f51cb628428ddb2885e50f3ecc80de6ce14f54"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/game.log",
+          "sha256": "b45f867946fe775504d7e1986f70235bc6f4d99bb38b1322b3f08c31affbb8a4"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/session-start.json",
+          "sha256": "6ad97e46d8ead895e76ef6f8343a27909a61b4c9b32f2c011270d8fa1e8598ae"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/session.mkv",
+          "sha256": "ee58f38c570dbb4c5621c649ab9af95b4e47c8667b0b42cca01c2c4f1947c310"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/files.json",
+          "sha256": "30d120efd72ed575ffbd2d93fb64245cca16c40e972309865e2b45cfeed8e702"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/audio-routing.log",
+          "sha256": "b8b9f5d0d954f28743464d4ce2c06fee1f37be21c65874b1b8389387fe7cdaa0"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/capture.log",
+          "sha256": "6b96effb18f540ac3d6b1a5bc9638bc33009487393a8475cc02a6ca9d45d9900"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/game.log",
+          "sha256": "b8380f3041b6d851e008660c0e15394a832690cdbfa3514d5cb6616a7599015e"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/session-start.json",
+          "sha256": "862c64fd2bc2939ba5d83e35be4cd514f425a839469d29878b96e091b18c31a6"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/session.mkv",
+          "sha256": "d1de68553ca112a8921aeaf380c88b98796695b322e6d42322f3200efbc1db80"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0000_natural-work-5.png",
+          "sha256": "6a1cd990590e340e1c6592dd2c7063ba33a58910050611d4a1e9d978ea041317"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0001_natural-work-10.png",
+          "sha256": "2f77645512e8cff5bf5c922c971e91d0b936e96cb6a07a9ddbf8990c421ba3f0"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0002_natural-work-15.png",
+          "sha256": "5253640af8bc74d915643ee021449170e046d8aa00905861fb6b244c51a04105"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0003_natural-work-20.png",
+          "sha256": "74cd81c0e7ae290bd684f5c327f6853bc1cf3142533b1768a4661f46bf35b97e"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0004_natural-work-25.png",
+          "sha256": "d3711d7aac2bc33e6349c36e78b8c1934d17c08c8a4137aaa1e5668997bf8642"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0005_natural-work-30.png",
+          "sha256": "dce2bd976eeaa088f9823a69643a18cc5b13f5d54d4c792b6b7c3c3e4b969777"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0006_natural-work-35.png",
+          "sha256": "bd00ef20ada080c5b4510954c26d6f767c408a1f8bf24916f10fa5f7e1961820"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0007_natural-work-40.png",
+          "sha256": "f022c6f2a89b3814500954c0c1482540400037059de637529c8157cdda6a8550"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/report.json",
+          "sha256": "fdeca3ee6bbed65316bd991592a5ff94decbe2e7073209253ebebac531192907"
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "implementation": "Loaded clear-space Fold with contraction and cleanup",
+      "procedure_and_result": "Controlled tests and natural recording satisfy the committed observable rubric.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "docs/experience-review.md",
+          "sha256": "b59b41a4334102b49f1bb21fa031323bd821ed29f65fb16f7ca5c6b894230d18"
+        },
+        {
+          "path": "evidence/reviews/checks/asset-reproduction.txt",
+          "sha256": "13f66f7f2726d039a1fbcecdbd80f6d307705decea602d4e07d896aa483ba1bd"
+        },
+        {
+          "path": "evidence/reviews/checks/fabric-options-bytecode.txt",
+          "sha256": "068c3b435c298358e53c7f364602e8b44116e4b35aecdd97f4e459fd6c6d4009"
+        },
+        {
+          "path": "evidence/reviews/checks/resources.txt",
+          "sha256": "ca11101f3679cac67deb440bc54aec76043fab8d61c5be46c00a269f7fce110c"
+        },
+        {
+          "path": "evidence/reviews/checks/unit.txt",
+          "sha256": "eafd57ff40cdd94d876815888df819b6ce4481a95f20ac0e0c752bd865c52b0d"
+        },
+        {
+          "path": "evidence/reviews/final-static-console.txt",
+          "sha256": "8de851e736ae7eb4bdb84f9d813f52a989e5569019639c76f3ed8a1f62516aa8"
+        },
+        {
+          "path": "evidence/reviews/final-validation-console.txt",
+          "sha256": "accbdfa0daa0784931d756019df54b44a0bd419b576b21c00ee72a2643c01d39"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/audio-routing.log",
+          "sha256": "5a21d3d5e82d8b6a7ad156d8e1d13d67048c3c0566a0a4b095674f7b52151b47"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/capture.log",
+          "sha256": "7eacc342d166c88747d240aac18eaef9f7626f3f2d258ebb5beab97ef576d767"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/game.log",
+          "sha256": "e908dc72e08107d7d5f98852010a15dbc43ece3723883be6833e3ba482c464fa"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/session-start.json",
+          "sha256": "30f30109b0d475822987de86ae712acce8f92a9dc1bd267167202725846d503a"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/session.mkv",
+          "sha256": "e3cdac353c41c81ae59a8f4113e307e4c5a34c60f8ddb72103cd47a589528a16"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/metrics.csv",
+          "sha256": "8e1234f1e1f2a79d8e7c4fd8dd63766603b929ccc199e2f1092b2a2fc5b35e13"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0000_endurance-20.png",
+          "sha256": "002432e8f3351960a5ed77d5b3873872c225dbe66844e9bcf40226d97a2c195c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0001_endurance-40.png",
+          "sha256": "c40d282e9df3ba52b9a0b5d7a6007a848b83f48c0ddbfcd17d8da8c187078042"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0002_endurance-60.png",
+          "sha256": "5171075aac7506e15ba50a2d9e809164036ef56a037377f4f51b00a29ddcec9e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0003_endurance-80.png",
+          "sha256": "9b4d5bcc265646c382a13a8d14a0bd9672fb9eabcde615ca527fcfbb716c70b4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0004_endurance-100.png",
+          "sha256": "d5b233ed6d9472c92daf9f280efe62618d744431ceac49e954769e6cf1a37886"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0005_endurance-120.png",
+          "sha256": "0a3f5745a99a32b3faceea0594d4ca7e30e9d4bb19d1320a71cd1ae2d439a2c8"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0006_endurance-140.png",
+          "sha256": "e647382d2d943d78527a3f30876edc85eee66891c1ac40025865a673be8fd2ce"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0007_endurance-160.png",
+          "sha256": "fc30b88771bf0fd34132db083750809f45cf7ef33eb63a33d904e8526de9347c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0008_endurance-180.png",
+          "sha256": "ec3d0cbce22f13b6256d4fe1581b5197463971535d966a2752d357821f424fb4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0009_endurance-200.png",
+          "sha256": "36f23178d11901e7c7c3d511c145cb649522318ffb431520b77944506bd2783a"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/audio-routing.log",
+          "sha256": "e20c4c2518ca33a4ba5e3786b3208faa09f224aa148e206d626ae079a5ad6488"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/capture.log",
+          "sha256": "5f3f7dba2a8f515213758bcdda8362261c1ca4fb922545d694558a42b1e5840e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/game.log",
+          "sha256": "677bd1603064135bd48b783f84058b3c9db46df8e2a0c8981e424a89a95457a2"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/session-start.json",
+          "sha256": "39e4ab5832403ab8eef46b71fe72e57de049e6e96393ed5569af826f1fbec624"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/session.mkv",
+          "sha256": "74d92a510b3085818e8886ab07740b9722ecc11e319a050ee28754f7256e0d87"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/metrics.csv",
+          "sha256": "f8875896eb984e59b39bc5d86984eecdafd4b94471c8329de07755f6c0527e58"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0000_endurance-20.png",
+          "sha256": "002432e8f3351960a5ed77d5b3873872c225dbe66844e9bcf40226d97a2c195c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0001_endurance-40.png",
+          "sha256": "c40d282e9df3ba52b9a0b5d7a6007a848b83f48c0ddbfcd17d8da8c187078042"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0002_endurance-60.png",
+          "sha256": "5171075aac7506e15ba50a2d9e809164036ef56a037377f4f51b00a29ddcec9e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0003_endurance-80.png",
+          "sha256": "9b4d5bcc265646c382a13a8d14a0bd9672fb9eabcde615ca527fcfbb716c70b4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0004_endurance-100.png",
+          "sha256": "d5b233ed6d9472c92daf9f280efe62618d744431ceac49e954769e6cf1a37886"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0005_endurance-120.png",
+          "sha256": "0a3f5745a99a32b3faceea0594d4ca7e30e9d4bb19d1320a71cd1ae2d439a2c8"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0006_endurance-140.png",
+          "sha256": "e647382d2d943d78527a3f30876edc85eee66891c1ac40025865a673be8fd2ce"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0007_endurance-160.png",
+          "sha256": "fc30b88771bf0fd34132db083750809f45cf7ef33eb63a33d904e8526de9347c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0008_endurance-180.png",
+          "sha256": "ec3d0cbce22f13b6256d4fe1581b5197463971535d966a2752d357821f424fb4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0009_endurance-200.png",
+          "sha256": "36f23178d11901e7c7c3d511c145cb649522318ffb431520b77944506bd2783a"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/audio-routing.log",
+          "sha256": "394a0e969550ca4614ceea76e4924846974bcca3acd04149a2d81e5286c494bd"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/capture.log",
+          "sha256": "c51fc91b8c985d27a5a1c430fe65404a13686235b0db0306f8559a91e744c72b"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/game.log",
+          "sha256": "ccfbf33a4bbf64329f2d866fd9f9f1c9b0f160bd19561c554a4609d30fdadba6"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/session-start.json",
+          "sha256": "ba297debcb8c44ec066cfa5d136438c27e4d4623f3c614a454c178c811e7d51a"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/session.mkv",
+          "sha256": "1a6679a5d9da7fe341fd42aadcd72a721048a3fe474582ab8016fdc824d1f4b3"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0000_pace-visible.png",
+          "sha256": "b6c22382499db7733b0a586702064e45f65768f9811380f328b9a5ab8c0e2cc1"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0001_wall-visible.png",
+          "sha256": "3d5a41a455f2037c37a1b514def72e6818f505b33f9f66c036b9a884a4205c91"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0002_fold-visible.png",
+          "sha256": "a74fd4392887f7fbec9f2fbf6856ebf70ab989906f1bbc8e00c61059e9abe283"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/audio-routing.log",
+          "sha256": "6c2e0e593866c632a575fa4ab2431c4ffe9d4c06337de0f0eb08b6acc194a253"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/capture.log",
+          "sha256": "3b10741ea1f6bbddd69ce3af66f51cb628428ddb2885e50f3ecc80de6ce14f54"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/game.log",
+          "sha256": "b45f867946fe775504d7e1986f70235bc6f4d99bb38b1322b3f08c31affbb8a4"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/session-start.json",
+          "sha256": "6ad97e46d8ead895e76ef6f8343a27909a61b4c9b32f2c011270d8fa1e8598ae"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/session.mkv",
+          "sha256": "ee58f38c570dbb4c5621c649ab9af95b4e47c8667b0b42cca01c2c4f1947c310"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/files.json",
+          "sha256": "30d120efd72ed575ffbd2d93fb64245cca16c40e972309865e2b45cfeed8e702"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/audio-routing.log",
+          "sha256": "b8b9f5d0d954f28743464d4ce2c06fee1f37be21c65874b1b8389387fe7cdaa0"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/capture.log",
+          "sha256": "6b96effb18f540ac3d6b1a5bc9638bc33009487393a8475cc02a6ca9d45d9900"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/game.log",
+          "sha256": "b8380f3041b6d851e008660c0e15394a832690cdbfa3514d5cb6616a7599015e"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/session-start.json",
+          "sha256": "862c64fd2bc2939ba5d83e35be4cd514f425a839469d29878b96e091b18c31a6"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/session.mkv",
+          "sha256": "d1de68553ca112a8921aeaf380c88b98796695b322e6d42322f3200efbc1db80"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0000_natural-work-5.png",
+          "sha256": "6a1cd990590e340e1c6592dd2c7063ba33a58910050611d4a1e9d978ea041317"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0001_natural-work-10.png",
+          "sha256": "2f77645512e8cff5bf5c922c971e91d0b936e96cb6a07a9ddbf8990c421ba3f0"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0002_natural-work-15.png",
+          "sha256": "5253640af8bc74d915643ee021449170e046d8aa00905861fb6b244c51a04105"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0003_natural-work-20.png",
+          "sha256": "74cd81c0e7ae290bd684f5c327f6853bc1cf3142533b1768a4661f46bf35b97e"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0004_natural-work-25.png",
+          "sha256": "d3711d7aac2bc33e6349c36e78b8c1934d17c08c8a4137aaa1e5668997bf8642"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0005_natural-work-30.png",
+          "sha256": "dce2bd976eeaa088f9823a69643a18cc5b13f5d54d4c792b6b7c3c3e4b969777"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0006_natural-work-35.png",
+          "sha256": "bd00ef20ada080c5b4510954c26d6f767c408a1f8bf24916f10fa5f7e1961820"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0007_natural-work-40.png",
+          "sha256": "f022c6f2a89b3814500954c0c1482540400037059de637529c8157cdda6a8550"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/report.json",
+          "sha256": "fdeca3ee6bbed65316bd991592a5ff94decbe2e7073209253ebebac531192907"
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "implementation": "Seeded context director with bounded recovery and no consecutive actual kind",
+      "procedure_and_result": "Controlled tests and natural recording satisfy the committed observable rubric.",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "docs/experience-review.md",
+          "sha256": "b59b41a4334102b49f1bb21fa031323bd821ed29f65fb16f7ca5c6b894230d18"
+        },
+        {
+          "path": "evidence/reviews/checks/asset-reproduction.txt",
+          "sha256": "13f66f7f2726d039a1fbcecdbd80f6d307705decea602d4e07d896aa483ba1bd"
+        },
+        {
+          "path": "evidence/reviews/checks/fabric-options-bytecode.txt",
+          "sha256": "068c3b435c298358e53c7f364602e8b44116e4b35aecdd97f4e459fd6c6d4009"
+        },
+        {
+          "path": "evidence/reviews/checks/resources.txt",
+          "sha256": "ca11101f3679cac67deb440bc54aec76043fab8d61c5be46c00a269f7fce110c"
+        },
+        {
+          "path": "evidence/reviews/checks/unit.txt",
+          "sha256": "eafd57ff40cdd94d876815888df819b6ce4481a95f20ac0e0c752bd865c52b0d"
+        },
+        {
+          "path": "evidence/reviews/final-static-console.txt",
+          "sha256": "8de851e736ae7eb4bdb84f9d813f52a989e5569019639c76f3ed8a1f62516aa8"
+        },
+        {
+          "path": "evidence/reviews/final-validation-console.txt",
+          "sha256": "accbdfa0daa0784931d756019df54b44a0bd419b576b21c00ee72a2643c01d39"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/audio-routing.log",
+          "sha256": "5a21d3d5e82d8b6a7ad156d8e1d13d67048c3c0566a0a4b095674f7b52151b47"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/capture.log",
+          "sha256": "7eacc342d166c88747d240aac18eaef9f7626f3f2d258ebb5beab97ef576d767"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/game.log",
+          "sha256": "e908dc72e08107d7d5f98852010a15dbc43ece3723883be6833e3ba482c464fa"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/session-start.json",
+          "sha256": "30f30109b0d475822987de86ae712acce8f92a9dc1bd267167202725846d503a"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/capture/session.mkv",
+          "sha256": "e3cdac353c41c81ae59a8f4113e307e4c5a34c60f8ddb72103cd47a589528a16"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/metrics.csv",
+          "sha256": "8e1234f1e1f2a79d8e7c4fd8dd63766603b929ccc199e2f1092b2a2fc5b35e13"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0000_endurance-20.png",
+          "sha256": "002432e8f3351960a5ed77d5b3873872c225dbe66844e9bcf40226d97a2c195c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0001_endurance-40.png",
+          "sha256": "c40d282e9df3ba52b9a0b5d7a6007a848b83f48c0ddbfcd17d8da8c187078042"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0002_endurance-60.png",
+          "sha256": "5171075aac7506e15ba50a2d9e809164036ef56a037377f4f51b00a29ddcec9e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0003_endurance-80.png",
+          "sha256": "9b4d5bcc265646c382a13a8d14a0bd9672fb9eabcde615ca527fcfbb716c70b4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0004_endurance-100.png",
+          "sha256": "d5b233ed6d9472c92daf9f280efe62618d744431ceac49e954769e6cf1a37886"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0005_endurance-120.png",
+          "sha256": "0a3f5745a99a32b3faceea0594d4ca7e30e9d4bb19d1320a71cd1ae2d439a2c8"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0006_endurance-140.png",
+          "sha256": "e647382d2d943d78527a3f30876edc85eee66891c1ac40025865a673be8fd2ce"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0007_endurance-160.png",
+          "sha256": "fc30b88771bf0fd34132db083750809f45cf7ef33eb63a33d904e8526de9347c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0008_endurance-180.png",
+          "sha256": "ec3d0cbce22f13b6256d4fe1581b5197463971535d966a2752d357821f424fb4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-baseline/game/screenshots/0009_endurance-200.png",
+          "sha256": "36f23178d11901e7c7c3d511c145cb649522318ffb431520b77944506bd2783a"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/audio-routing.log",
+          "sha256": "e20c4c2518ca33a4ba5e3786b3208faa09f224aa148e206d626ae079a5ad6488"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/capture.log",
+          "sha256": "5f3f7dba2a8f515213758bcdda8362261c1ca4fb922545d694558a42b1e5840e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/game.log",
+          "sha256": "677bd1603064135bd48b783f84058b3c9db46df8e2a0c8981e424a89a95457a2"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/session-start.json",
+          "sha256": "39e4ab5832403ab8eef46b71fe72e57de049e6e96393ed5569af826f1fbec624"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/capture/session.mkv",
+          "sha256": "74d92a510b3085818e8886ab07740b9722ecc11e319a050ee28754f7256e0d87"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/metrics.csv",
+          "sha256": "f8875896eb984e59b39bc5d86984eecdafd4b94471c8329de07755f6c0527e58"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0000_endurance-20.png",
+          "sha256": "002432e8f3351960a5ed77d5b3873872c225dbe66844e9bcf40226d97a2c195c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0001_endurance-40.png",
+          "sha256": "c40d282e9df3ba52b9a0b5d7a6007a848b83f48c0ddbfcd17d8da8c187078042"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0002_endurance-60.png",
+          "sha256": "5171075aac7506e15ba50a2d9e809164036ef56a037377f4f51b00a29ddcec9e"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0003_endurance-80.png",
+          "sha256": "9b4d5bcc265646c382a13a8d14a0bd9672fb9eabcde615ca527fcfbb716c70b4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0004_endurance-100.png",
+          "sha256": "d5b233ed6d9472c92daf9f280efe62618d744431ceac49e954769e6cf1a37886"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0005_endurance-120.png",
+          "sha256": "0a3f5745a99a32b3faceea0594d4ca7e30e9d4bb19d1320a71cd1ae2d439a2c8"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0006_endurance-140.png",
+          "sha256": "e647382d2d943d78527a3f30876edc85eee66891c1ac40025865a673be8fd2ce"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0007_endurance-160.png",
+          "sha256": "fc30b88771bf0fd34132db083750809f45cf7ef33eb63a33d904e8526de9347c"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0008_endurance-180.png",
+          "sha256": "ec3d0cbce22f13b6256d4fe1581b5197463971535d966a2752d357821f424fb4"
+        },
+        {
+          "path": "evidence/runtime/final/endurance-modded/game/screenshots/0009_endurance-200.png",
+          "sha256": "36f23178d11901e7c7c3d511c145cb649522318ffb431520b77944506bd2783a"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/audio-routing.log",
+          "sha256": "394a0e969550ca4614ceea76e4924846974bcca3acd04149a2d81e5286c494bd"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/capture.log",
+          "sha256": "c51fc91b8c985d27a5a1c430fe65404a13686235b0db0306f8559a91e744c72b"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/game.log",
+          "sha256": "ccfbf33a4bbf64329f2d866fd9f9f1c9b0f160bd19561c554a4609d30fdadba6"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/session-start.json",
+          "sha256": "ba297debcb8c44ec066cfa5d136438c27e4d4623f3c614a454c178c811e7d51a"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/capture/session.mkv",
+          "sha256": "1a6679a5d9da7fe341fd42aadcd72a721048a3fe474582ab8016fdc824d1f4b3"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0000_pace-visible.png",
+          "sha256": "b6c22382499db7733b0a586702064e45f65768f9811380f328b9a5ab8c0e2cc1"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0001_wall-visible.png",
+          "sha256": "3d5a41a455f2037c37a1b514def72e6818f505b33f9f66c036b9a884a4205c91"
+        },
+        {
+          "path": "evidence/runtime/final/features-104729/game/screenshots/0002_fold-visible.png",
+          "sha256": "a74fd4392887f7fbec9f2fbf6856ebf70ab989906f1bbc8e00c61059e9abe283"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/audio-routing.log",
+          "sha256": "6c2e0e593866c632a575fa4ab2431c4ffe9d4c06337de0f0eb08b6acc194a253"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/capture.log",
+          "sha256": "3b10741ea1f6bbddd69ce3af66f51cb628428ddb2885e50f3ecc80de6ce14f54"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/game.log",
+          "sha256": "b45f867946fe775504d7e1986f70235bc6f4d99bb38b1322b3f08c31affbb8a4"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/session-start.json",
+          "sha256": "6ad97e46d8ead895e76ef6f8343a27909a61b4c9b32f2c011270d8fa1e8598ae"
+        },
+        {
+          "path": "evidence/runtime/final/lifecycle-104729/capture/session.mkv",
+          "sha256": "ee58f38c570dbb4c5621c649ab9af95b4e47c8667b0b42cca01c2c4f1947c310"
+        },
+        {
+          "path": "evidence/runtime/final/report.json",
+          "sha256": "e236307e7dd3dceed22bac0dd418715e29b186f5879140e635abdc7d66f052e8"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/files.json",
+          "sha256": "30d120efd72ed575ffbd2d93fb64245cca16c40e972309865e2b45cfeed8e702"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/audio-routing.log",
+          "sha256": "b8b9f5d0d954f28743464d4ce2c06fee1f37be21c65874b1b8389387fe7cdaa0"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/audio-server.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/capture.log",
+          "sha256": "6b96effb18f540ac3d6b1a5bc9638bc33009487393a8475cc02a6ca9d45d9900"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/display.log",
+          "sha256": "2cdd6e98fb166beaf563c624bf2a65fdeab4f9df05259aa7d00026bd2ae2799d"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/game.log",
+          "sha256": "b8380f3041b6d851e008660c0e15394a832690cdbfa3514d5cb6616a7599015e"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/session-start.json",
+          "sha256": "862c64fd2bc2939ba5d83e35be4cd514f425a839469d29878b96e091b18c31a6"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/capture/session.mkv",
+          "sha256": "d1de68553ca112a8921aeaf380c88b98796695b322e6d42322f3200efbc1db80"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0000_natural-work-5.png",
+          "sha256": "6a1cd990590e340e1c6592dd2c7063ba33a58910050611d4a1e9d978ea041317"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0001_natural-work-10.png",
+          "sha256": "2f77645512e8cff5bf5c922c971e91d0b936e96cb6a07a9ddbf8990c421ba3f0"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0002_natural-work-15.png",
+          "sha256": "5253640af8bc74d915643ee021449170e046d8aa00905861fb6b244c51a04105"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0003_natural-work-20.png",
+          "sha256": "74cd81c0e7ae290bd684f5c327f6853bc1cf3142533b1768a4661f46bf35b97e"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0004_natural-work-25.png",
+          "sha256": "d3711d7aac2bc33e6349c36e78b8c1934d17c08c8a4137aaa1e5668997bf8642"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0005_natural-work-30.png",
+          "sha256": "dce2bd976eeaa088f9823a69643a18cc5b13f5d54d4c792b6b7c3c3e4b969777"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0006_natural-work-35.png",
+          "sha256": "bd00ef20ada080c5b4510954c26d6f767c408a1f8bf24916f10fa5f7e1961820"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/natural-104729/game/screenshots/0007_natural-work-40.png",
+          "sha256": "f022c6f2a89b3814500954c0c1482540400037059de637529c8157cdda6a8550"
+        },
+        {
+          "path": "evidence/runtime/reviewed-natural/report.json",
+          "sha256": "fdeca3ee6bbed65316bd991592a5ff94decbe2e7073209253ebebac531192907"
+        }
+      ]
+    }
+  ],
+  "interpretation": "Autonomous technical acceptance and AI experiential assessment; no human playtest claims."
+}
